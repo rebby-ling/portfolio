@@ -239,6 +239,14 @@ img {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+.contact-box {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100%; /* Ensure it takes full height */
+  text-align: center; /* Ensures text is centered inside the div */
+}
 /*==================== NAV ====================*/
 .nav {
   max-width: 968px;
@@ -392,10 +400,6 @@ img {
 
 .home__description {
   margin-bottom: var(--mb-2);
-}
-
-.home__scroll {
-  /* display: none; */
 }
 
 .home__scroll-button {
