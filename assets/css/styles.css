@@ -920,7 +920,7 @@ img {
 }
 
 .nyc__interview__container {
-  gap: 0.2rem;
+  gap: 0.8rem;
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -1182,7 +1182,7 @@ img {
 
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 425px) {
   .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
@@ -1245,6 +1245,11 @@ img {
 
   .nyc__survey__container {
     gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .nyc__interview__container {
+    gap: 0.8rem;
     grid-template-columns: repeat(1, 1fr);
   }
 
