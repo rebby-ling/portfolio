@@ -1,10 +1,9 @@
 /*==================== GOOGLE FONTS ====================*/
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap");
-@import url("http://fonts.cdnfonts.com/css/clash-display");
 @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
-@import url("https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&f[]=satoshi@500,501&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,100..900,100&display=swap");
 
 /*==================== VARIABLES CSS ====================*/
 :root {
@@ -28,7 +27,7 @@
 
   /*========== Font and typography ==========*/
   --body-font: "Albert Sans", "Poppins", sans-serif;
-  --header-font: "Clash Display", "Poppins", sans-serif;
+  --header-font: "Fraunces", "Poppins", sans-serif;
 
   /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
   --big-font-size: 2.25rem;
@@ -136,7 +135,7 @@ h4 {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
   font-family: var(--header-font);
-  /* letter-spacing: 0.01rem; */
+  letter-spacing: -0.03rem;
 }
 
 h5 {
@@ -947,7 +946,8 @@ img {
 }
 
 .link {
-  border-bottom: 1px solid var(--first-color-second);
+  border-bottom: none;
+  color: var(--first-color-second);
 }
 
 .link:hover {
@@ -960,7 +960,7 @@ img {
   background-size: 0 100%;
   background-repeat: no-repeat;
   color: var(--first-color-alt);
-  border-bottom: 1px solid var(--first-color);
+  border-bottom: 1px solid var(--first-color-alt);
 }
 
 .link--flex {
@@ -1041,6 +1041,43 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* ===== Simplified Past Work Cards ===== */
+.simple-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.simple-card__img {
+  width: 100%;
+  height: 200px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.simple-card__content {
+  padding-top: var(--mb-1);
+  text-align: left;
+}
+
+.simple-card__title {
+  font-size: 1.15rem;
+  font-weight: var(--font-semi-bold);
+  margin-bottom: var(--mb-0-25);
+}
+
+.simple-card__role {
+  font-size: 0.9rem;
+  color: var(--first-color);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.simple-card__desc {
+  font-size: var(--body-font);
+  margin-bottom: 1rem;
 }
 
 /*==================== FOOTER ====================*/

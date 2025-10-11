@@ -1,15 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BS3NL1MMQ1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BS3NL1MMQ1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-BS3NL1MMQ1');
-</script>
+      gtag("config", "G-BS3NL1MMQ1");
+    </script>
     <link rel="icon" href="/assets/img/home-logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -196,64 +201,19 @@
       </section>
 
       <!--==================== FOOTER ====================-->
-      <footer class="footer">
-        <div class="footer__bg">
-          <div
-            class="footer__container container grid"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <div>
-              <h1 class="footer__title">Rebecca</h1>
-              <span class="footer__subtitle">UI/UX Designer</span>
-            </div>
+      <div id="footer-placeholder"></div>
 
-            <ul class="footer__link">
-              <li>
-                <a href="index.html" class="footer__link">Home</a>
-              </li>
-              <li>
-                <a href="nyc.html" class="footer__link">NYC Internship</a>
-              </li>
-              <li>
-                <a href="govtech.html" class="footer__link"
-                  >GovTech Internship</a
-                >
-              </li>
-              <li>
-                <a href="hackit.html" class="footer__link">HACK-IT!</a>
-              </li>
-              <li>
-                <a href="PUG.html" class="footer__link">Pick Up Games</a>
-              </li>
-              <li>
-                <a href="sentient.html" class="footer__link">Sentient.io</a>
-              </li>
-            </ul>
-
-            <div class="footer__socials">
-              <a
-                href="https://www.linkedin.com/in/rebeccaling1209/"
-                target="_blank"
-                class="footer__social"
-              >
-                <i class="uil uil-linkedin"></i>
-              </a>
-              <a
-                href="https://github.com/rebbyling"
-                target="_blank"
-                class="footer__social"
-              >
-                <i class="uil uil-github"></i>
-              </a>
-            </div>
-          </div>
-
-          <p class="footer__copy">
-            Hooray! You've reached the bottom 🥳 © Rebecca Ling, 2022.
-          </p>
-        </div>
-      </footer>
+      <script>
+        fetch("partials/footer.html") // adjust path if needed
+          .then((response) => {
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            return response.text();
+          })
+          .then((data) => {
+            document.getElementById("footer-placeholder").innerHTML = data;
+          })
+          .catch((error) => console.error("Footer failed to load:", error));
+      </script>
       <!--==================== SCROLL TOP ====================-->
       <a href="#" class="scrollup" id="scroll-up">
         <i class="uil uil-angle-up scrollup__icon"></i>
