@@ -1,0 +1,332 @@
+/* --------------------------------------------------
+   WORK EXPERIENCE — FINAL WORK.CSS
+   4-point design system + AOS animation support
+-------------------------------------------------- */
+
+/* Shared variables */
+.work-pro,
+.hero-page {
+  --card-bg: #f7f5fb;
+  --card-bg-dark: #242d4d;
+
+  --glass-border: rgba(60, 92, 166, 0.35);
+  --glass-border-dark: rgba(255, 255, 255, 0.06);
+
+  --pill-bg: rgba(60, 92, 166, 0.08);
+  --pill-bg-dark: rgba(255, 255, 255, 0.06);
+
+  --line-color: #a7b5e0;
+  --line-color-dark: #2d325a;
+
+  --muted: var(--text-color);
+}
+
+/* --------------------------------------------------
+   HERO
+-------------------------------------------------- */
+
+.work-hero {
+  text-align: center;
+  padding: 32px 16px;
+  margin-bottom: 40px;
+}
+
+.work-hero__icon {
+  font-size: 36px;
+  width: 72px;
+  height: 72px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    180deg,
+    rgba(60, 92, 166, 0.08),
+    rgba(247, 108, 108, 0.06)
+  );
+
+  border-radius: 50%;
+  color: var(--first-color);
+  margin-bottom: 16px;
+  border: 1px solid rgba(60, 92, 166, 0.08);
+}
+
+.work-hero__title {
+  font-size: 36px;
+  margin-bottom: 8px;
+  letter-spacing: -0.02rem;
+  color: var(--first-color);
+}
+
+.work-hero__subtitle {
+  max-width: 760px;
+  margin: 0 auto 16px auto;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-color);
+}
+
+.work-hero__ctas {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* --------------------------------------------------
+   TIMELINE CONTAINER
+-------------------------------------------------- */
+
+.work-timeline {
+  position: relative;
+  padding: 32px 0 32px;
+}
+
+/* Vertical line */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px; /* 4pt grid */
+  width: 2px;
+  background: var(--line-color);
+  z-index: -1;
+}
+
+body.dark-theme .timeline-line {
+  background: var(--line-color-dark);
+}
+
+/* Each timeline item */
+.timeline-item {
+  position: relative;
+  padding-left: 56px; /* 24px → line; 16px → dot radius; 16px → gap */
+  margin-bottom: 32px;
+  opacity: 0; /* AOS base state */
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item.aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dot — perfectly centered on vertical line */
+.timeline-dot {
+  position: absolute;
+  left: 16px; /* (line at 24px) - (dot radius 8px) */
+  top: calc(0% + 4px); /* dot is 16px tall */
+  width: 16px;
+  height: 16px;
+  background: var(--first-color);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+body.dark-theme .timeline-dot {
+  background: var(--first-color);
+}
+
+/* Mask the top of the line */
+.timeline-line::before,
+.timeline-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 2px;
+  background: var(--body-color);
+  z-index: -1;
+}
+
+/* Top trim */
+.timeline-line::before {
+  top: 0%; /* mask above first dot */
+  height: 48px; /* adjust if needed */
+}
+
+/* Bottom trim */
+.timeline-line::after {
+  bottom: 0;
+  height: 60px;
+}
+
+/* --------------------------------------------------
+   CARD
+-------------------------------------------------- */
+
+.work-timeline .card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  width: 100%;
+  max-width: 900px;
+  backdrop-filter: blur(6px) saturate(120%);
+  z-index: 2;
+}
+
+body.dark-theme .work-timeline .card {
+  background: var(--card-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+}
+
+/* --------------------------------------------------
+   CARD CONTENT TYPOGRAPHY
+-------------------------------------------------- */
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.job-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--first-color-second);
+}
+
+.job-pill {
+  font-size: 14px;
+  background: var(--pill-bg);
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: var(--first-color);
+  font-weight: 400;
+  border: 1px solid rgba(60, 92, 166, 0.12);
+}
+
+body.dark-theme .job-pill {
+  background: var(--pill-bg-dark);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.job-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.job-meta i {
+  margin-right: 4px;
+  color: var(--first-color);
+}
+
+.job-desc {
+  color: var(--text-color);
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.section-mini-title {
+  color: var(--first-color-second);
+  font-weight: 400;
+  font-size: 15px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.job-list {
+  margin-left: 16px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------
+   FEATURED PROJECTS
+-------------------------------------------------- */
+
+.project-chips {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.project-card {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(251, 251, 254, 0.65);
+  backdrop-filter: blur(4px);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(24, 30, 80, 0.08);
+}
+
+body.dark-theme .project-card {
+  border: 1px solid #2d325a;
+  background: rgba(30, 37, 63, 0.6);
+}
+
+.project-card strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--first-color);
+}
+
+.project-card span {
+  display: block;
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-tags span {
+  font-size: 12px;
+  padding: 4px 8px;
+  background: rgba(60, 92, 166, 0.1);
+  border-radius: 999px;
+  border: 1px solid rgba(60, 92, 166, 0.08);
+  color: var(--first-color);
+}
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .project-chips {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-dot {
+    left: 12px;
+  }
+
+  .timeline-item {
+    padding-left: 48px;
+  }
+
+  .work-timeline .card {
+    padding: 16px;
+  }
+}
+
+/* Bottom spacing */
+.work-pro {
+  padding-bottom: 96px;
+}

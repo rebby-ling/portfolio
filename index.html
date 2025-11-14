@@ -30,51 +30,54 @@
 
     <!--==================== CSS ====================-->
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/work.css" />
+    <link rel="stylesheet" href="assets/css/nav.css" />
     <link rel="stylesheet" href="assets/css/aos.css" />
 
     <title>Rebecca Ling 🐢</title>
   </head>
-  <body>
+  <body class="js-tabs-page">
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="index.html"
-          ><img class="nav__logo" src="/assets/img/home-logo.png" alt=""
-        /></a>
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list grid">
-            <li class="nav__item">
-              <a href="#home" class="nav__link">
-                <i class="uil uil-user nav__icon"></i> Home
-              </a>
-            </li>
+        <!-- Logo -->
+        <a href="index.html" class="nav__brand">
+          <img
+            class="nav__logo"
+            src="/assets/img/home-logo.png"
+            alt="Rebecca logo"
+          />
+        </a>
 
+        <!-- Tabs -->
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
             <li class="nav__item">
-              <a href="#work" class="nav__link">
-                <i class="uil uil-bag nav__icon"></i> Work Experiences
+              <a
+                href="#about"
+                class="nav__link active-link"
+                data-tab-target="about"
+              >
+                About
               </a>
             </li>
             <li class="nav__item">
-              <a href="#portfolio" class="nav__link">
-                <i class="uil uil-folder-heart nav__icon"></i> Projects
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#interests" class="nav__link">
-                <i class="uil uil-favorite nav__icon"></i> Interests
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">
-                <i class="uil uil-message nav__icon"></i> Contact Me
+              <a href="#work" class="nav__link" data-tab-target="work">
+                Work
               </a>
             </li>
           </ul>
-          <i class="uil uil-times-circle nav__close" id="nav-close"></i>
+
+          <!-- Mobile close icon -->
+          <i class="uil uil-times nav__close" id="nav-close"></i>
         </div>
 
+        <!-- Right side: theme toggle + mobile menu -->
         <div class="nav__btns" id="nav-btns">
+          <!-- Theme change button -->
           <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+          <!-- Mobile nav toggle -->
           <div class="nav__toggle" id="nav-toggle">
             <i class="uil uil-apps"></i>
           </div>
@@ -84,580 +87,400 @@
 
     <!--==================== MAIN ====================-->
     <main class="main">
-      <!--==================== HOME ====================-->
-      <section class="home section" id="home">
-        <div class="home__container container grid">
-          <div
-            class="home__content grid"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <div class="home__social" data-aos="fade-up" data-aos-delay="500">
-              <a
-                href="https://www.linkedin.com/in/rebeccaling1209/"
-                target="_blank"
-                class="home__social-icon"
-              >
-                <i class="uil uil-linkedin"></i>
-              </a>
-              <a
-                href="https://github.com/rebby-ling"
-                target="_blank"
-                class="home__social-icon"
-              >
-                <i class="uil uil-github"></i>
-              </a>
-            </div>
-
-            <div class="home__img">
-              <img class="blob__scale" src="assets/img/illus.png" alt="" />
-            </div>
-            <div class="home__data">
-              <h1 class="home__title">Hey there! <br />I'm Rebecca 🤗</h1>
-              <p class="home__subtitle">
-                I'm a Singapore-based designer passionate about crafting
-                thoughtful, user-first digital experiences. At Accenture, I’ve
-                worked across industries like government and e-commerce,
-                collaborating with teams in Singapore, Japan, and the
-                Philippines to design solutions that work across cultures and
-                contexts.
-                <br />
-                <br />
-                This site is my personal space to share ideas, document my
-                growth, and explore creativity beyond the 9 to 5. Thanks for
-                stopping by!
-              </p>
-              <a
-                href="assets/pdf/Resume_RebeccaLing_May2025.pdf"
-                target="_blank"
-                class="button button--flex"
-                ><i class="uil uil-file-download button__icon"></i>VIEW
-                RESUME</a
-              >
-            </div>
+      <!--==================== ABOUT PAGE ====================-->
+      <section class="section page page--about" id="about">
+        <!-- Hero -->
+        <div
+          class="about-hero container"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="about-hero__avatar">
+            <img src="assets/img/illus.png" alt="Illustration of Rebecca" />
           </div>
 
-          <div
-            class="home__scroll"
-            data-aos="fade-up"
-            data-aos-delay="1000"
-            data-aos-duration="1000"
-          >
-            <a href="#work" class="home__scroll-button button--flex">
-              <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-              <span class="home__scrol-name">See what I've done!</span>
-              <i class="uil uil-arrow-down home__scroll-arrow"></i>
+          <h1 class="about-hero__title">Hi, I'm Rebecca</h1>
+          <p class="about-hero__role">Creative Designer &amp; Strategist</p>
+
+          <p class="about-hero__subtitle">
+            I specialize in creating innovative digital experiences and
+            strategic solutions. With experience at Accenture Song and URA, I've
+            worked on diverse projects spanning design thinking, urban planning,
+            and digital transformation.
+          </p>
+
+          <div class="about-hero__cta">
+            <a href="#work" class="button button--flex js-go-work">
+              View my work
             </a>
           </div>
         </div>
-      </section>
 
-      <!--==================== QUICK HIGHLIGHTS ====================-->
-      <section class="highlights section" id="highlights">
-        <div class="container" data-aos="fade-up" data-aos-delay="300">
-          <h2 class="section__title">Quick Highlights</h2>
-          <span class="section__subtitle">
-            A few things that define my work as a designer
-          </span>
-          <div
-            class="nyc__interview__container container grid"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <div class="nyc__content">
-              <div>
-                <span class="nyc__icon"
-                  ><i class="uil uil-lightbulb-alt highlight__icon"></i
-                ></span>
-                <span class="nyc__title"
-                  ><h3 class="highlight__title">Human-Centered Design</h3>
-                  <p class="highlight__description">
-                    I create thoughtful, user-first digital experiences —
-                    balancing empathy with business goals.
-                  </p></span
-                >
-              </div>
-            </div>
+        <!-- Outside the 9 to 5 photo grid -->
+        <div
+          class="about-gallery container"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <h2 class="about-gallery__title">Outside the 9 to 5</h2>
+          <p class="about-gallery__subtitle">
+            Some snapshots of my life and personal interests
+          </p>
 
-            <div class="nyc__content">
-              <div>
-                <span class="nyc__icon"
-                  ><i class="uil uil-presentation-play highlight__icon"></i></span>
-                <span class="nyc__title"
-                  ><h3 class="highlight__title">Collaborative & Strategic</h3>
-                  <p class="highlight__description">
-                    Experienced in facilitating workshops and translating insights
-                into actionable design strategies.
-                  </p></span
-                >
-              </div>
-            </div>
+          <div class="about-gallery__grid">
+            <figure class="about-gallery__item">
+              <img
+                src="assets/img/heidelberg-bg.jpg"
+                alt="Bridge and coastal cityscape"
+                class="about-gallery__img"
+              />
+            </figure>
 
-            <div class="nyc__content">
-              <div>
-                <span class="nyc__icon"
-                  ><i class="uil uil-browser highlight__icon"></i></span>
-                <span class="nyc__title"
-                  ><h3 class="highlight__title">Multi-Platform Experience</h3>
-                  <p class="highlight__description">
-                    3+ years designing across web, mobile, and enterprise systems
-                for government and e-commerce clients.
-                  </p></span
-                >
-              </div>
-            </div>
-          </div>
+            <figure class="about-gallery__item">
+              <img
+                src="assets/img/diving-bg.jpeg"
+                alt="Diving underwater"
+                class="about-gallery__img"
+              />
+            </figure>
 
+            <figure class="about-gallery__item">
+              <img
+                src="assets/img/hackit-bg.png"
+                alt="Kendo practice"
+                class="about-gallery__img"
+              />
+            </figure>
+
+            <figure class="about-gallery__item">
+              <img
+                src="assets/img/omw-bg.png"
+                alt="Travel landscape"
+                class="about-gallery__img"
+              />
+            </figure>
+
+            <figure class="about-gallery__item">
+              <img
+                src="assets/img/pug-bg.jpeg"
+                alt="City street"
+                class="about-gallery__img"
+              />
+            </figure>
+
+            <figure class="about-gallery__item">
+              <img
+                src="assets/img/scriberabbit-bg.png"
+                alt="Countryside and lighthouse"
+                class="about-gallery__img"
+              />
+            </figure>
           </div>
         </div>
       </section>
 
-      <!--==================== WORK ====================-->
-      <section class="work section" id="work">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Work Experiences
-        </h2>
-        <span
-          class="section__subtitle"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        ></span>
+      <!--==================== WORK PAGE ====================-->
+      <section
+        class="work-pro section work page page--work page--hidden"
+        id="work"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
+        <!-- Hero -->
+        <div class="work-hero container">
+          <div class="work-hero__icon">
+            <i class="uil uil-briefcase-alt"></i>
+          </div>
+          <h1 class="work-hero__title">My Work Experience</h1>
+          <p class="work-hero__subtitle">
+            I'm a creative designer and strategist with experience in design
+            systems, user research, and digital transformation. I've worked on
+            diverse projects spanning enterprise software, urban planning tools,
+            and innovative digital experiences.
+          </p>
+          <div class="work-hero__ctas">
+            <a
+              class="button button--flex"
+              href="assets/pdf/Resume_RebeccaLing_May2025.pdf"
+              target="_blank"
+            >
+              <i class="uil uil-file-download button__icon"></i>Download resume
+            </a>
+          </div>
+        </div>
 
-        <div
-          class="qualification__container container"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div class="qualification__sections">
-            <div class="timeline">
-              <ul>
+        <div class="work-timeline container">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <!-- Copy the same set of timeline items as index (repeated for standalone) -->
+          <!-- Most recent -->
+          <article
+            class="timeline-item"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="timeline-dot"></div>
+            <div class="card">
+              <div class="card-head">
+                <h3 class="job-title">Creative Designer & Strategist</h3>
+                <span class="job-pill">Full-time</span>
+              </div>
+              <div class="job-meta">
+                <div class="job-company">
+                  <i class="uil uil-building"></i> Accenture Song
+                </div>
+                <div class="job-time">
+                  <i class="uil uil-schedule"></i> 2022 - 2024 • Singapore
+                </div>
+              </div>
+              <p class="job-desc">
+                Conceptualised and executed cutting-edge digital solutions in
+                Singapore and Japan, leveraging user research, UI/UX design
+                principles, design systems, prototyping, and usability testing
+                to tackle diverse business challenges and enhance user
+                experiences.
+              </p>
+
+              <h4 class="section-mini-title">Key Responsibilities:</h4>
+              <ul class="job-list">
                 <li>
-                  <div>
-                    <h3 class="qualification__title">UX Design Intern</h3>
-                    <span class="qualification__subtitle"
-                      >National Youth Council</span
-                    >
-                    <div class="qualification__calendar">
-                      <i class="uil uil-schedule"></i>
-                      May 2020 - Sept 2020
-                    </div>
-                  </div>
+                  Designed and prototyped the Library Multimodal App exploring
+                  voice, touch, and gesture interactions
                 </li>
                 <li>
-                  <div>
-                    <h3 class="qualification__title">UI/UX Design Intern</h3>
-                    <span class="qualification__subtitle"
-                      >Government Technology Agency</span
-                    >
-                    <div class="qualification__calendar">
-                      <i class="uil uil-schedule"></i>
-                      Dec 2020 - April 2021
-                    </div>
-                  </div>
+                  Conducted user research and design thinking workshops with
+                  stakeholders
                 </li>
                 <li>
-                  <div>
-                    <h3 class="qualification__title">
-                      Digital Transformation Intern
-                    </h3>
-                    <span class="qualification__subtitle">Accenture</span>
-                    <div class="qualification__calendar">
-                      <i class="uil uil-schedule"></i>
-                      May 2021 - Aug 2021
-                    </div>
-                  </div>
+                  Collaborated with developers and product teams in agile
+                  sprints
                 </li>
                 <li>
-                  <div>
-                    <h3 class="qualification__title">UI Design Associate</h3>
-                    <span class="qualification__subtitle">Sentient.io</span>
-                    <div class="qualification__calendar">
-                      <i class="uil uil-schedule"></i>
-                      Sept 2021 - Jan 2022
-                    </div>
+                  Created design documentation and presented concepts to senior
+                  leadership
+                </li>
+              </ul>
+
+              <h4 class="section-mini-title">Featured Projects:</h4>
+              <div class="project-chips">
+                <a class="project-card" href="library.html">
+                  <strong>Library Multimodal App</strong>
+                  <span
+                    >Bringing exploratory visual designs to life with
+                    interaction design and micro animations.</span
+                  >
+                  <div class="project-tags">
+                    <span>UI/UX</span><span>Prototyping</span
+                    ><span>User research</span>
                   </div>
+                </a>
+
+                <a class="project-card" href="ura.html">
+                  <strong>Urban Redevelopment Authority</strong>
+                  <span
+                    >Improved the client's internal design processes for a
+                    geospatial platform used in urban planning.</span
+                  >
+                  <div class="project-tags">
+                    <span>Product management</span><span>Design system</span
+                    ><span>UI/UX</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- (include other timeline items: Sentient, Accenture backend, GovTech, NYC) -->
+          <!-- Sentient -->
+          <article
+            class="timeline-item"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div class="timeline-dot"></div>
+            <div class="card">
+              <div class="card-head">
+                <h3 class="job-title">Product Designer</h3>
+                <span class="job-pill">Full-time</span>
+              </div>
+              <div class="job-meta">
+                <div class="job-company">
+                  <i class="uil uil-building"></i> Sentient.io
+                </div>
+                <div class="job-time">
+                  <i class="uil uil-schedule"></i> 2021 - 2022 • Singapore
+                </div>
+              </div>
+              <p class="job-desc">
+                Worked closely with one other senior designer, helping internal
+                teams in several different products to conceptualise and design
+                unique, user-centric products using Figma.
+              </p>
+
+              <h4 class="section-mini-title">Key Responsibilities:</h4>
+              <ul class="job-list">
+                <li>
+                  Designed user-friendly landing pages and flows for
+                  ScribeRabbit
                 </li>
                 <li>
-                  <div>
-                    <h3 class="qualification__title">
-                      Visual Design Senior Analyst
-                    </h3>
-                    <span class="qualification__subtitle">Accenture Song</span>
-                    <div class="qualification__calendar">
-                      <i class="uil uil-schedule"></i>
-                      Sept 2022 - Present
-                    </div>
+                  Conceptualised and designed various user flows for web
+                  services
+                </li>
+                <li>
+                  Created interactive prototypes for user testing and
+                  stakeholder presentations
+                </li>
+                <li>
+                  Collaborated with frontend developers to implement design
+                  specifications
+                </li>
+              </ul>
+
+              <h4 class="section-mini-title">Featured Projects:</h4>
+              <div class="project-chips">
+                <a class="project-card" href="sentient.html">
+                  <strong>ScribeRabbit</strong>
+                  <span
+                    >Landing pages and frontend interactions for a B2B
+                    product.</span
+                  >
+                  <div class="project-tags">
+                    <span>UI/UX</span><span>Frontend development</span
+                    ><span>Branding</span>
                   </div>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Accenture backend -->
+          <article
+            class="timeline-item"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="timeline-dot"></div>
+            <div class="card">
+              <div class="card-head">
+                <h3 class="job-title">Backend API developer</h3>
+                <span class="job-pill">Internship</span>
+              </div>
+              <div class="job-meta">
+                <div class="job-company">
+                  <i class="uil uil-building"></i> Accenture
+                </div>
+                <div class="job-time">
+                  <i class="uil uil-schedule"></i> May 2021 - Aug 2021 •
+                  Singapore
+                </div>
+              </div>
+              <p class="job-desc">
+                Clarified, mapped, and documented specifications for REST and
+                SOAP APIs using Swagger and sequence diagrams with multiple
+                teams and clients to customise customers' online shopping
+                experience.
+              </p>
+
+              <h4 class="section-mini-title">Key Responsibilities:</h4>
+              <ul class="job-list">
+                <li>
+                  Supported AGILE project leads by developing and testing
+                  process and system APIs using Anypoint Studio and Postman
+                </li>
+                <li>
+                  Ensured requirements and features set by the client and UI/UX
+                  team were met or feasible
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-      <!--==================== PORTFOLIO ====================-->
-      <section class="portfolio section" id="portfolio">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Accenture Portfolio
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >These projects are password protected due to NDA</span
-        >
+          </article>
 
-        <div class="portfolio__container container portfolio__layout">
-          <!-- <div class="layout__item" data-aos="fade-up" data-aos-delay="500">
-            <div class="portfolio__img">
-              <img
-                src="assets/img/Zoff/Thumbnail.svg"
-                alt=""
-                class="portfolio__img"
-              />
-            </div>
-
-            <h3 class="portfolio__title">Japanese Eyewear Company</h3>
-            <div class="portfolio__description">
-              <p class="portfolio__description">
-                Accenture was brought on to conduct initial research and come up
-                with Service Design concepts for them to branch out into the SEA
-                market more effecticvely.
-              </p>
-              <h2 class="qualification__title">Responsibilities:</h2>
-              <p class="qualification__subtitle">
-                Service Design, UI/UX Design, Design Systems, Customer Journey
-                Mapping, Prototyping
-              </p>
-            </div>
-
-            <a
-              href="eyewear.html"
-              class="button button--flex button--small portfolio__button"
-            >
-              View More<i class="uil uil-arrow-right button__icon"></i>
-            </a>
-          </div>
-
-          <div class="layout__item" data-aos="fade-up" data-aos-delay="500">
-            <div class="portfolio__img">
-              <img
-                src="assets/img/BR2S/Cover.svg"
-                alt=""
-                class="portfolio__img"
-              />
-            </div>
-
-            <h3 class="portfolio__title">Business Regulatory Body</h3>
-            <div class="portfolio__description">
-              <p class="portfolio__description">
-                This was my first project in Accenture, where I worked with a
-                team of experienced designers to digitally transform the
-                client's services.
-              </p>
-              <h2 class="qualification__title">Responsibilities:</h2>
-              <p class="qualification__subtitle">
-                UI Design, Design Systems, UX Design
-              </p>
-            </div>
-
-            <a
-              href="BR2S.html"
-              class="button button--flex button--small portfolio__button"
-            >
-              View More<i class="uil uil-arrow-right button__icon"></i>
-            </a>
-          </div>
-
-          <div class="layout__item" data-aos="fade-up" data-aos-delay="500">
-            <div class="portfolio__img">
-              <img
-                src="assets/img/Mindef/Cover.svg"
-                alt=""
-                class="portfolio__img"
-              />
-            </div>
-
-            <h3 class="portfolio__title">Singapore Government Agency</h3>
-            <div class="portfolio__description">
-              <p class="portfolio__description">
-                During this project, I got to dive deep in designing with
-                enterprise products such as ServiceNow and Amazon Quicksight.
-              </p>
-              <h2 class="qualification__title">Responsibilities:</h2>
-              <p class="qualification__subtitle">
-                UI Design, Design Systems, UX Design, Enterprise Products
-              </p>
-            </div>
-
-            <a
-              href="sggov.html"
-              class="button button--flex button--small portfolio__button"
-            >
-              View More<i class="uil uil-arrow-right button__icon"></i>
-            </a>
-          </div> -->
-
-          <div class="layout__item" data-aos="fade-up" data-aos-delay="500">
-            <div class="portfolio__img">
-              <img
-                src="assets/img/NLB/cover.svg"
-                alt=""
-                class="portfolio__img"
-              />
-            </div>
-
-            <h3 class="portfolio__title">Library Multimodal App</h3>
-            <div class="portfolio__description">
-              <p class="portfolio__description">
-                Accenture was brought on to this project to help create
-                exceptional user experiences through innovative design
-                solutions, collaborative workflows, and a deep understanding of
-                user needs.
-              </p>
-              <h2 class="qualification__title">Responsibilities:</h2>
-              <p class="qualification__subtitle">
-                Idea Generation, UI/UX Design, User Research and Testing, High
-                Fidelity Prototyping
-              </p>
-            </div>
-
-            <a
-              href="library.html"
-              class="button button--flex button--small portfolio__button"
-            >
-              View More<i class="uil uil-arrow-right button__icon"></i>
-            </a>
-          </div>
-
-          <div class="layout__item" data-aos="fade-up" data-aos-delay="500">
-            <div class="portfolio__img">
-              <img
-                src="assets/img/URA/Thumbnail cover.png"
-                alt=""
-                class="portfolio__img"
-              />
-            </div>
-
-            <h3 class="portfolio__title">Urban Redevelopment Authority</h3>
-            <div class="portfolio__description">
-              <p class="portfolio__description">
-                I was engaged as a design consultant to improve the client's internal design practices and process for a geospatial platform used in urban planning.
-              </p>
-              <h2 class="qualification__title">Responsibilities:</h2>
-              <p class="qualification__subtitle">
-                Product Management, UI/UX Design, User Research and Testing, High Fidelity Prototyping, Design Language System
-              </p>
-            </div>
-
-            <a
-              href="ura.html"
-              class="button button--flex button--small portfolio__button"
-            >
-              View More<i class="uil uil-arrow-right button__icon"></i>
-            </a>
-          </div>
-
-          <div class="contact-box">
-            <div>
-              <span class="nyc__icon uil uil-folder-heart"></span>
-              <span class="nyc__title"
-                >Do contact me for more details of other projects I've worked
-                on!
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="portfolio section">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Past Work
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >Some of the projects I have done either in school or at
-          internships.</span
-        >
-
-        <!-- grid section -->
-        <div class="portfolio__container container portfolio__layout">
-          <div
-            class="layout__item simple-card"
+          <!-- GovTech -->
+          <article
+            class="timeline-item"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="250"
           >
-            <img
-              src="assets/img/pug-bg.jpeg"
-              alt="Pick Up Games App"
-              class="simple-card__img"
-            />
-
-            <div class="simple-card__content">
-              <h3 class="simple-card__title">Pick Up Games Android App</h3>
-              <p class="simple-card__role">
-                UI/UX Designer & Frontend Developer
-              </p>
-              <p class="simple-card__desc">
-                Designed and developed an app for spontaneous sports meetups.
-                Responsible for research, personas, and high-fidelity
-                prototypes.
-              </p>
-
-              <a href="PUG.html" class="link">
-                View Case Study <i class="uil uil-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="layout__item simple-card"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <img
-              src="assets/img/scriberabbit-bg.png"
-              alt="Scribe rabbit"
-              class="simple-card__img"
-            />
-
-            <div class="simple-card__content">
-              <h3 class="simple-card__title">Sentient.io</h3>
-              <p class="simple-card__role">
-                UI/UX Designer & Frontend Developer
-              </p>
-              <p class="simple-card__desc">
-                I worked closely with one other senior designer, helping
-                internal teams in several different projects to conceptualise
-                and design unique, user-centric products using Figma
-              </p>
-
-              <a href="sentient.html" class="link">
-                View Case Study <i class="uil uil-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="layout__item simple-card"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <img
-              src="assets/img/omw-bg.png"
-              alt="national youth council"
-              class="simple-card__img"
-            />
-
-            <div class="simple-card__content">
-              <h3 class="simple-card__title">National Youth Council</h3>
-              <p class="simple-card__role">UI/UX Designer</p>
-              <p class="simple-card__desc">
-                I worked closely with 3 other UI/UX Design Interns to design a
-                website aiming to bridge the knowledge gap between formal
-                education and available careers for youths in Singapore.
-              </p>
-
-              <a href="nyc.html" class="link">
-                View Case Study <i class="uil uil-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--==================== CCA ====================-->
-      <section class="CCA section" id="interests">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Outside the 9 to 5
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >I'm also someone that enjoys travel and adventure, and here are some
-          documented ones!</span
-        >
-
-        <div class="portfolio__container container portfolio__layout">
-          <div class="layout__item" data-aos="fade-up" data-aos-delay="500">
-            <div class="portfolio__img">
-              <img
-                src="assets/img/heidelberg-bg.jpg"
-                alt=""
-                class="portfolio__img"
-              />
-            </div>
-
-            <h3 class="portfolio__title">Travel Vlogs</h3>
-            <p class="portfolio__description">
-              In 2018, I started making video vlogs of my travels! They are not
-              of the best quality (hopefully they have improved slightly
-              overtime), but are always a joy to watch for the memories I made.
-            </p>
-            <a
-              href="videos.html"
-              class="button button--flex button--small portfolio__button"
-            >
-              View More<i class="uil uil-arrow-right button__icon"></i>
-            </a>
-          </div>
-          <div class="layout__item" data-aos="fade-up" data-aos-delay="500">
-            <div class="portfolio__img">
-              <img
-                src="assets/img/diving-bg.jpeg"
-                alt=""
-                class="portfolio__img"
-              />
-            </div>
-
-            <h3 class="portfolio__title">SUTD Diving</h3>
-            <p class="portfolio__description">
-              Some of the work I did for my university's diving club when i was
-              still a student!
-            </p>
-            <a
-              href="sutdiving.html"
-              class="button button--flex button--small portfolio__button"
-            >
-              View More<i class="uil uil-arrow-right button__icon"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!--==================== CONTACT ME ====================-->
-      <section class="contact section" id="contact">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Contact Me
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >Get in Touch</span
-        >
-
-        <div
-          class="contact__container container grid"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div>
-            <a
-              href="mailto:rebecca.lingzw@gmail.com"
-              class="contact__information"
-            >
-              <i class="uil uil-envelope contact__icon"></i>
-              <div>
-                <h3 class="contact__title">Email Me</h3>
-                <span class="contact__subtitle">rebecca.lingzw@gmail.com</span>
+            <div class="timeline-dot"></div>
+            <div class="card">
+              <div class="card-head">
+                <h3 class="job-title">UI/UX Design Intern</h3>
+                <span class="job-pill">Full-time</span>
               </div>
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="https://www.linkedin.com/in/rebeccaling1209/"
-              target="_blank"
-              class="contact__information"
-            >
-              <i class="uil uil-linkedin contact__icon"></i>
-              <div>
-                <h3 class="contact__title">Linked In</h3>
-                <span class="contact__subtitle">rebeccaling1209</span>
+              <div class="job-meta">
+                <div class="job-company">
+                  <i class="uil uil-building"></i> Government Technology Agency
+                  (GovTech)
+                </div>
+                <div class="job-time">
+                  <i class="uil uil-schedule"></i> Dec 2020 - Apr 2021 •
+                  Singapore
+                </div>
               </div>
-            </a>
-          </div>
+              <p class="job-desc">
+                Worked on the UI/UX design to make city-level sensor data
+                available for the industry and public by creating a sensor
+                platform web service.
+              </p>
+
+              <h4 class="section-mini-title">Key Responsibilities:</h4>
+              <ul class="job-list">
+                <li>
+                  Used design thinking to understand business requirements and
+                  user feedback
+                </li>
+                <li>Prototyped multiple wireframes and UI iteratively</li>
+                <li>
+                  Collaborated with frontend developers to implement design
+                  specifications
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- NYC -->
+          <article
+            class="timeline-item"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
+            <div class="timeline-dot"></div>
+            <div class="card">
+              <div class="card-head">
+                <h3 class="job-title">UI/UX Design Intern</h3>
+                <span class="job-pill">Full-time</span>
+              </div>
+              <div class="job-meta">
+                <div class="job-company">
+                  <i class="uil uil-building"></i> Government Technology Agency
+                  (GovTech)
+                </div>
+                <div class="job-time">
+                  <i class="uil uil-schedule"></i> Dec 2020 - Apr 2021 •
+                  Singapore
+                </div>
+              </div>
+              <p class="job-desc">
+                Worked on the UI/UX design to make city-level sensor data
+                available for the industry and public by creating a sensor
+                platform web service.
+              </p>
+
+              <h4 class="section-mini-title">Key Responsibilities:</h4>
+              <ul class="job-list">
+                <li>
+                  Used design thinking to understand business requirements and
+                  user feedback
+                </li>
+                <li>Prototyped multiple wireframes and UI iteratively</li>
+                <li>
+                  Collaborated with frontend developers to implement design
+                  specifications
+                </li>
+              </ul>
+            </div>
+          </article>
         </div>
       </section>
     </main>
@@ -682,14 +505,12 @@
       <i class="uil uil-angle-up scrollup__icon"></i>
     </a>
 
-    <!--==================== SWIPER JS ====================-->
+    <!--==================== SWIPER JS / AOS / MAIN JS ====================-->
     <script src="assets/js/swiper-bundle.min.js"></script>
-    `
     <script src="assets/js/aos.js"></script>
     <script>
       AOS.init();
     </script>
-    <!--==================== MAIN JS ====================-->
     <script src="assets/js/main.js"></script>
   </body>
 </html>
