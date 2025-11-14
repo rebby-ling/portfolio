@@ -52,24 +52,20 @@
         <!-- Tabs -->
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
+            <span class="nav__highlight"></span>
+
             <li class="nav__item">
               <a
                 href="#about"
                 class="nav__link active-link"
                 data-tab-target="about"
+                >About</a
               >
-                About
-              </a>
             </li>
             <li class="nav__item">
-              <a href="#work" class="nav__link" data-tab-target="work">
-                Work
-              </a>
+              <a href="#work" class="nav__link" data-tab-target="work">Work</a>
             </li>
           </ul>
-
-          <!-- Mobile close icon -->
-          <i class="uil uil-times nav__close" id="nav-close"></i>
         </div>
 
         <!-- Right side: theme toggle + mobile menu -->
@@ -88,7 +84,7 @@
     <!--==================== MAIN ====================-->
     <main class="main">
       <!--==================== ABOUT PAGE ====================-->
-      <section class="section page page--about" id="about">
+      <section class="section page page--about tab-section" id="about">
         <!-- Hero -->
         <div
           class="about-hero container"
@@ -110,8 +106,19 @@
           </p>
 
           <div class="about-hero__cta">
-            <a href="#work" class="button button--flex js-go-work">
-              View my work
+            <a
+              href="https://github.com/"
+              target="_blank"
+              class="footer__social-link"
+            >
+              <i class="uil uil-github-alt"></i>
+            </a>
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              class="footer__social-link"
+            >
+              <i class="uil uil-linkedin-alt"></i>
             </a>
           </div>
         </div>
@@ -128,52 +135,84 @@
           </p>
 
           <div class="about-gallery__grid">
-            <figure class="about-gallery__item">
+            <figure class="about-gallery__item" data-aos="fade-up">
               <img
-                src="assets/img/heidelberg-bg.jpg"
-                alt="Bridge and coastal cityscape"
+                src="assets/img/gallery/bicycle.png"
                 class="about-gallery__img"
               />
+              <figcaption class="about-gallery__caption">
+                Amateur photography
+              </figcaption>
+            </figure>
+            <figure class="about-gallery__item" data-aos="fade-up">
+              <img
+                src="assets/img/gallery/art.png"
+                class="about-gallery__img"
+              />
+              <figcaption class="about-gallery__caption">
+                Handmade cards
+              </figcaption>
             </figure>
 
-            <figure class="about-gallery__item">
+            <figure class="about-gallery__item" data-aos="fade-up">
               <img
-                src="assets/img/diving-bg.jpeg"
-                alt="Diving underwater"
+                src="assets/img/gallery/wombat.png"
                 class="about-gallery__img"
               />
+              <figcaption class="about-gallery__caption">
+                Adorable animals
+              </figcaption>
             </figure>
 
-            <figure class="about-gallery__item">
+            <figure class="about-gallery__item" data-aos="fade-up">
               <img
-                src="assets/img/hackit-bg.png"
-                alt="Kendo practice"
+                src="assets/img/gallery/bridge.png"
                 class="about-gallery__img"
               />
+              <figcaption class="about-gallery__caption">Road trips</figcaption>
             </figure>
-
-            <figure class="about-gallery__item">
+            <figure class="about-gallery__item" data-aos="fade-up">
               <img
-                src="assets/img/omw-bg.png"
-                alt="Travel landscape"
+                src="assets/img/gallery/city.png"
                 class="about-gallery__img"
               />
+              <figcaption class="about-gallery__caption">City views</figcaption>
             </figure>
-
-            <figure class="about-gallery__item">
+            <figure class="about-gallery__item" data-aos="fade-up">
               <img
-                src="assets/img/pug-bg.jpeg"
-                alt="City street"
+                src="assets/img/gallery/diving.png"
                 class="about-gallery__img"
               />
+              <figcaption class="about-gallery__caption">
+                Scuba diving
+              </figcaption>
             </figure>
-
-            <figure class="about-gallery__item">
+            <figure class="about-gallery__item" data-aos="fade-up">
               <img
-                src="assets/img/scriberabbit-bg.png"
-                alt="Countryside and lighthouse"
+                src="assets/img/gallery/kendo.png"
                 class="about-gallery__img"
               />
+              <figcaption class="about-gallery__caption">
+                Kendo competitions
+              </figcaption>
+            </figure>
+            <figure class="about-gallery__item" data-aos="fade-up">
+              <img
+                src="assets/img/gallery/lighthouse.png"
+                class="about-gallery__img"
+              />
+              <figcaption class="about-gallery__caption">
+                Beautiful sunsets
+              </figcaption>
+            </figure>
+            <figure class="about-gallery__item" data-aos="fade-up">
+              <img
+                src="assets/img/gallery/nagoya.png"
+                class="about-gallery__img"
+              />
+              <figcaption class="about-gallery__caption">
+                Experiencing culture
+              </figcaption>
             </figure>
           </div>
         </div>
@@ -181,7 +220,7 @@
 
       <!--==================== WORK PAGE ====================-->
       <section
-        class="work-pro section work page page--work page--hidden"
+        class="work-pro section work page page--work page--hidden tab-section"
         id="work"
         data-aos="fade-up"
         data-aos-delay="500"
@@ -222,7 +261,7 @@
             <div class="timeline-dot"></div>
             <div class="card">
               <div class="card-head">
-                <h3 class="job-title">Creative Designer & Strategist</h3>
+                <h3 class="job-title">Visual & Interaction Designer</h3>
                 <span class="job-pill">Full-time</span>
               </div>
               <div class="job-meta">

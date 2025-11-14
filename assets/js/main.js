@@ -1,15 +1,15 @@
-/*===========================================================
-=                       NAV MENU                            =
-===========================================================*/
-const navMenu = document.getElementById("nav-menu");
-const navToggle = document.getElementById("nav-toggle");
-const navClose = document.getElementById("nav-close");
-const navBtn = document.getElementById("nav-btns");
+/* =========================================================
+   MAIN NAV MENU (FOR PROJECT DETAIL PAGES ONLY)
+========================================================= */
 
-/*===== CLASSIC MOBILE MENU (CASE STUDY PAGES ONLY) =====*/
+const navMenu = document.getElementById("nav-menu"),
+  navToggle = document.getElementById("nav-toggle"),
+  navClose = document.getElementById("nav-close"),
+  navBtn = document.getElementById("nav-btns");
+
 const isTabbedHome = document.body.classList.contains("js-tabs-page");
 
-/* Show mobile menu — only for NON-homepage pages */
+/* ===== SHOW MENU (only on detail pages) ===== */
 if (!isTabbedHome && navToggle) {
   navToggle.addEventListener("click", () => {
     navMenu.classList.add("show-menu");
@@ -17,7 +17,7 @@ if (!isTabbedHome && navToggle) {
   });
 }
 
-/* Hide mobile menu — only for NON-homepage pages */
+/* ===== HIDE MENU (only on detail pages) ===== */
 if (!isTabbedHome && navClose) {
   navClose.addEventListener("click", () => {
     navMenu.classList.remove("show-menu");
@@ -25,10 +25,9 @@ if (!isTabbedHome && navClose) {
   });
 }
 
-/* Close menu on link click (case-study pages only) */
-const navLink = document.querySelectorAll(".nav__link");
+/* ===== CLOSE MENU ON LINK CLICK (detail pages only) ===== */
 if (!isTabbedHome) {
-  navLink.forEach((n) =>
+  document.querySelectorAll(".nav__link").forEach((n) =>
     n.addEventListener("click", () => {
       navMenu.classList.remove("show-menu");
       navBtn.classList.remove("hide");
@@ -36,46 +35,9 @@ if (!isTabbedHome) {
   );
 }
 
-/* Hide mobile menu buttons on homepage */
-if (isTabbedHome) {
-  if (navToggle) navToggle.style.display = "none";
-  if (navClose) navClose.style.display = "none";
-  if (navMenu) navMenu.classList.remove("show-menu");
-}
-
-/*===========================================================
-=               SCROLL SECTION ACTIVE LINK                  =
-===========================================================*/
-
-/* Enable only on case-study pages */
-const sections = document.querySelectorAll("section[id]");
-
-function scrollActive() {
-  const scrollY = window.pageYOffset;
-
-  sections.forEach((current) => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 50;
-    const id = current.getAttribute("id");
-
-    const link = document.querySelector(`.nav__menu a[href="#${id}"]`);
-    if (!link) return;
-
-    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      link.classList.add("active-link");
-    } else {
-      link.classList.remove("active-link");
-    }
-  });
-}
-
-if (!isTabbedHome) {
-  window.addEventListener("scroll", scrollActive);
-}
-
-/*===========================================================
-=                     SCROLL HEADER                         =
-===========================================================*/
+/* =========================================================
+   HEADER SCROLL EFFECT
+========================================================= */
 function scrollHeader() {
   const header = document.getElementById("header");
   if (window.scrollY >= 80) header.classList.add("scroll-header");
@@ -83,62 +45,20 @@ function scrollHeader() {
 }
 window.addEventListener("scroll", scrollHeader);
 
-/*===========================================================
-=                    SCROLL UP BUTTON                       =
-===========================================================*/
+/* =========================================================
+   SCROLL-UP BUTTON
+========================================================= */
 function scrollUp() {
-  const scrollBtn = document.getElementById("scroll-up");
-  if (window.scrollY >= 560) scrollBtn.classList.add("show-scroll");
-  else scrollBtn.classList.remove("show-scroll");
+  const scrollUpBtn = document.getElementById("scroll-up");
+  if (window.scrollY >= 560) scrollUpBtn.classList.add("show-scroll");
+  else scrollUpBtn.classList.remove("show-scroll");
 }
 window.addEventListener("scroll", scrollUp);
 
-/*===========================================================
-=                 ABOUT / WORK TAB SYSTEM                   =
-===========================================================*/
-if (isTabbedHome) {
-  const tabLinks = document.querySelectorAll("[data-tab-target]");
-  const aboutPage = document.getElementById("about");
-  const workPage = document.getElementById("work");
-  const viewWorkBtn = document.querySelector(".js-go-work");
+/* =========================================================
+   DARK / LIGHT THEME
+========================================================= */
 
-  const pages = { about: aboutPage, work: workPage };
-
-  const activateTab = (target) => {
-    Object.keys(pages).forEach((key) => {
-      pages[key].classList.toggle("page--hidden", key !== target);
-    });
-
-    tabLinks.forEach((link) => {
-      link.classList.toggle(
-        "active-link",
-        link.getAttribute("data-tab-target") === target
-      );
-    });
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  tabLinks.forEach((link) =>
-    link.addEventListener("click", (e) => {
-      const target = link.getAttribute("data-tab-target");
-      if (!target) return;
-      e.preventDefault();
-      activateTab(target);
-    })
-  );
-
-  if (viewWorkBtn) {
-    viewWorkBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      activateTab("work");
-    });
-  }
-}
-
-/*===========================================================
-=                      DARK LIGHT THEME                     =
-===========================================================*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
 const iconTheme = "uil-sun";
@@ -153,7 +73,6 @@ if (savedTheme) {
 
 const getCurrentTheme = () =>
   document.body.classList.contains(darkTheme) ? "dark" : "light";
-
 const getCurrentIcon = () =>
   themeButton.classList.contains(iconTheme) ? "bx-moon" : "bx-sun";
 
@@ -165,9 +84,116 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
 
-/*===========================================================
-=                    SWIPER INITIALIZATION                  =
-===========================================================*/
+/* =========================================================
+   ABOUT / WORK TABS (HOMEPAGE ONLY)
+========================================================= */
+
+if (isTabbedHome) {
+  const tabLinks = document.querySelectorAll("[data-tab-target]");
+  const aboutPage = document.getElementById("about");
+  const workPage = document.getElementById("work");
+  const viewWorkBtn = document.querySelector(".js-go-work");
+
+  const pages = {
+    about: aboutPage,
+    work: workPage,
+  };
+
+  /* =========================================================
+     MOVING HIGHLIGHT PILL (Under About / Work)
+  ========================================================= */
+  function moveHighlight() {
+    const active = document.querySelector(".nav__link.active-link");
+    const highlight = document.querySelector(".nav__highlight");
+    if (!active || !highlight) return;
+
+    const rect = active.getBoundingClientRect();
+    const parentRect = active.parentElement.parentElement.getBoundingClientRect();
+
+    highlight.style.width = `${rect.width}px`;
+    highlight.style.transform = `translateX(${rect.left - parentRect.left}px)`;
+  }
+
+  /* ---------- Animated Tab Switch (both directions) ---------- */
+  const activateTab = (target) => {
+    Object.keys(pages).forEach((key) => {
+      const page = pages[key];
+      const isTarget = key === target;
+
+      if (isTarget) {
+        // Prepare target for fade-in
+        page.classList.add("hidden-transition"); // start hidden style
+        page.classList.remove("page--hidden"); // ensure it's rendered
+
+        // Next frame -> remove hidden-transition to animate in
+        requestAnimationFrame(() => {
+          page.classList.remove("hidden-transition");
+        });
+      } else {
+        // Fade out only if currently visible
+        if (!page.classList.contains("page--hidden")) {
+          page.classList.add("hidden-transition"); // animate to hidden
+          setTimeout(() => {
+            page.classList.add("page--hidden");
+          }, 280); // match CSS transition duration
+        } else {
+          // Ensure fully hidden state
+          page.classList.add("page--hidden");
+          page.classList.add("hidden-transition");
+        }
+      }
+    });
+
+    // Update tab active state
+    tabLinks.forEach((link) => {
+      link.classList.toggle(
+        "active-link",
+        link.getAttribute("data-tab-target") === target
+      );
+    });
+
+    // Move highlight pill
+    setTimeout(moveHighlight, 20);
+  };
+
+  /* ---------- Click Events on Tabs ---------- */
+  tabLinks.forEach((link) =>
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = link.getAttribute("data-tab-target");
+      if (!target) return;
+      activateTab(target);
+    })
+  );
+
+  /* ---------- Button: View Work ---------- */
+  if (viewWorkBtn) {
+    viewWorkBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      activateTab("work");
+    });
+  }
+
+  /* ---------- On Load + Resize ---------- */
+  window.addEventListener("load", () => {
+    // Ensure initial state is consistent with classes in HTML
+    // About is visible, Work starts hidden
+    if (aboutPage) {
+      aboutPage.classList.remove("page--hidden");
+      aboutPage.classList.remove("hidden-transition");
+    }
+    if (workPage && workPage.classList.contains("page--hidden")) {
+      workPage.classList.add("hidden-transition");
+    }
+    moveHighlight();
+  });
+
+  window.addEventListener("resize", moveHighlight);
+}
+
+/* =========================================================
+   SWIPER (if image carousels used)
+========================================================= */
 if (document.querySelector(".img__container")) {
   new Swiper(".img__container", {
     cssMode: true,
@@ -183,25 +209,36 @@ if (document.querySelector(".img__container")) {
   });
 }
 
-/* ================================
-   SUBNAV ACTIVE ON SCROLL
-   ================================ */
-   const subnavLinks = document.querySelectorAll(".subnav__link");
+/* =========================================================
+   ADVANCED MASONRY STAGGER SYSTEM
+   ========================================================= */
 
-   function updateSubnavActive() {
-     subnavLinks.forEach((link) => {
-       const target = document.querySelector(link.getAttribute("href"));
-       if (!target) return;
-   
-       const rect = target.getBoundingClientRect();
-       const offset = 120; // header + subnav height
-   
-       if (rect.top <= offset && rect.bottom >= offset) {
-         subnavLinks.forEach((l) => l.classList.remove("active"));
-         link.classList.add("active");
-       }
-     });
-   }
-   
-   window.addEventListener("scroll", updateSubnavActive);
-   
+   document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".about-gallery__item");
+  
+    // Detect how many columns exist dynamically
+    const grid = document.querySelector(".about-gallery__grid");
+    const gridWidth = grid.offsetWidth;
+  
+    // Based on your column-width rule (240px)
+    const columnWidth = 240;
+    const columnCount = Math.max(1, Math.round(gridWidth / columnWidth));
+  
+    // Assign each item a column index
+    items.forEach((item, index) => {
+      const col = index % columnCount;
+      
+      // Add as attribute for CSS parallax
+      item.dataset.col = col;
+  
+      // Organic random stagger
+      const baseDelay = 70 * col;           // cascade down the column
+      const randomExtra = Math.random() * 120; // randomize within the column
+  
+      const finalDelay = baseDelay + randomExtra;
+  
+      item.setAttribute("data-aos-delay", finalDelay);
+      item.setAttribute("data-aos-duration", 600 + Math.random() * 300);
+    });
+  });
+  

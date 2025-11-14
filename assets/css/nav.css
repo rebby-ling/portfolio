@@ -69,10 +69,19 @@ body.dark-theme .header {
 
   background: rgba(255, 255, 255, 0.62);
   backdrop-filter: blur(10px);
+
+  /* needed for pill */
+  position: relative;
+  overflow: hidden;
 }
 
 body.dark-theme .nav__list {
   background: rgba(30, 35, 62, 0.72);
+}
+
+.nav__item {
+  position: relative;
+  z-index: 1; /* keep tabs above highlight */
 }
 
 .nav__link {
@@ -81,11 +90,16 @@ body.dark-theme .nav__list {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-color);
+  white-space: nowrap;
+  position: relative;
+  z-index: 1; /* above the highlight */
 }
 
+/* Active tab text turns white, but no own background –
+     the pill provides the background */
 .nav__link.active-link {
-  background: var(--first-color);
-  color: white;
+  color: var(--button-color);
+  box-shadow: 0 10px 24px rgba(60, 92, 166, 0.45);
 }
 
 /* Hide homepage tabs in detail pages */
@@ -165,4 +179,26 @@ body:not(.js-tabs-page) .nav__toggle {
 /* Dark mode back button */
 body.dark-theme .back-inline {
   color: var(--first-color);
+}
+
+/* =========================================================
+     MOVING HIGHLIGHT PILL ANIMATION (ABOUT / WORK TABS)
+     ========================================================= */
+
+.nav__highlight {
+  position: absolute;
+  top: 4px;
+  left: 0;
+
+  /* give it actual size! */
+  height: calc(100% - 8px);
+  width: 0;
+
+  background: var(--first-color);
+  border-radius: 999px;
+  z-index: 0;
+
+  transform: translateX(0);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }

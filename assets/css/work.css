@@ -79,7 +79,7 @@
 
 .work-timeline {
   position: relative;
-  padding: 32px 0 32px;
+  padding: 40px 0 40px;
 }
 
 /* Vertical line */
@@ -148,7 +148,7 @@ body.dark-theme .timeline-dot {
 /* Bottom trim */
 .timeline-line::after {
   bottom: 0;
-  height: 60px;
+  height: 70px;
 }
 
 /* --------------------------------------------------
@@ -220,7 +220,7 @@ body.dark-theme .job-pill {
 
 .job-desc {
   color: var(--text-color);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.55;
   margin-bottom: 16px;
 }
@@ -228,7 +228,7 @@ body.dark-theme .job-pill {
 .section-mini-title {
   color: var(--first-color-second);
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 12px;
   margin-bottom: 8px;
 }
@@ -236,7 +236,7 @@ body.dark-theme .job-pill {
 .job-list {
   margin-left: 16px;
   margin-bottom: 12px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.55;
 }
 
@@ -261,8 +261,9 @@ body.dark-theme .job-pill {
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(24, 30, 80, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 8px rgba(24, 30, 80, 0.08);
+  cursor: pointer;
 }
 
 body.dark-theme .project-card {
@@ -280,16 +281,16 @@ body.dark-theme .project-card {
   display: block;
   font-size: 14px;
   color: var(--text-color);
-  margin-bottom: 8px;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
 }
 
 .project-tags span {
+  margin-top: 4px;
   font-size: 12px;
   padding: 4px 8px;
   background: rgba(60, 92, 166, 0.1);

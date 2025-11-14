@@ -107,6 +107,8 @@ body.dark-theme {
 
 .change-theme:hover {
   color: var(--first-color-second);
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.2);
 }
 /*==================== BASE ====================*/
 * {
@@ -126,6 +128,7 @@ body {
   background-color: var(--body-color);
   color: var(--text-color);
   bottom: 0;
+  overflow-x: hidden;
 }
 
 h1,
@@ -262,38 +265,6 @@ body.dark-theme .header {
   list-style: none;
 }
 
-.nav__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35rem 1.2rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-color);
-  transition: background-color 0.25s ease, color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.nav__link:hover {
-  background-color: rgba(60, 92, 166, 0.06);
-}
-
-.nav__link.active-link {
-  background-color: var(--first-color);
-  color: var(--button-color);
-  box-shadow: 0 10px 24px rgba(60, 92, 166, 0.45);
-}
-
-body.dark-theme .nav__link {
-  color: #fff;
-}
-
-body.dark-theme .nav__link.active-link {
-  background-color: var(--first-color);
-  color: var(--container-color);
-}
-
 /* Hide old icons inside nav links (tabs are text-only) */
 .nav__icon {
   display: none;
@@ -355,27 +326,6 @@ body.js-tabs-page .nav__link {
 
 .nav__icon {
   font-size: 1.2rem;
-}
-
-.nav__close {
-  position: absolute;
-  right: 1.3rem;
-  bottom: 0.5rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--first-color);
-}
-
-.nav__close:hover {
-  columns: var(--first-color-second);
-}
-/* show menu */
-.show-menu {
-  bottom: 0;
-}
-
-.hide {
-  display: none;
 }
 
 /* Active link */
@@ -1070,11 +1020,30 @@ body.js-tabs-page .nav__link {
   display: none;
 }
 
+/* =========================================================
+   TAB CONTENT TRANSITIONS (About / Work)
+   ========================================================= */
+
+.tab-section {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  overflow-x: hidden;
+}
+
+/* Hidden state when switching */
+.tab-section.hidden-transition {
+  opacity: 0;
+  transform: translateX(12px);
+  pointer-events: none;
+  overflow-x: hidden;
+}
+
 /*==================== ABOUT HERO ====================*/
 
 .about-hero {
   padding-top: 6.5rem; /* space for fixed header */
-  padding-bottom: 3rem;
+  padding-bottom: 40px;
   text-align: center;
 }
 
@@ -1113,14 +1082,20 @@ body.js-tabs-page .nav__link {
   line-height: 1.6;
 }
 
-.about-hero__cta .button {
+.about-hero__cta {
   padding-inline: 1.75rem;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
-/*==================== OUTSIDE THE 9 TO 5 GRID ====================*/
+/* =========================================================
+   OUTSIDE THE 9 TO 5 — DYNAMIC MASONRY GALLERY
+   ========================================================= */
 
 .about-gallery {
-  padding-bottom: 3.5rem;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 .about-gallery__title {
@@ -1137,37 +1112,91 @@ body.js-tabs-page .nav__link {
   margin-bottom: 2rem;
 }
 
+/* smoother fade-up look in masonry */
+[data-aos="fade-up"] {
+  will-change: transform, opacity;
+}
+
+/* MASONRY LAYOUT */
 .about-gallery__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+  column-gap: 16px;
+  column-width: 240px;
 }
 
+/* Tablet */
+@media (max-width: 992px) {
+  .about-gallery__grid {
+    column-width: 200px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .about-gallery__grid {
+    column-width: 100%;
+  }
+}
+
+/* Item wrapper */
 .about-gallery__item {
-  margin: 0;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  break-inside: avoid;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-column-break-inside: avoid;
+  column-break-inside: avoid;
 }
 
+/* Base image */
 .about-gallery__img {
   width: 100%;
-  height: 170px;
+  display: auto;
+  border-radius: 8px;
   object-fit: cover;
-  border-radius: 0.85rem;
+  transition: transform 0.35s ease, filter 0.35s ease;
 }
 
-/* Larger screens: 3-column masonry feel */
-@media screen and (min-width: 768px) {
-  .about-hero {
-    padding-top: 7rem;
-  }
+/* Hover lift */
+.about-gallery__item:hover .about-gallery__img {
+  transform: scale(1.04);
+  filter: brightness(1.08);
+}
 
-  .about-gallery__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
+/* =========================================================
+     MICRO HOVER CAPTION (3-WORD DESCRIPTION)
+     ========================================================= */
 
-  .about-gallery__img {
-    height: 210px;
-  }
+.about-gallery__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 14px;
+  text-align: left;
+
+  background: linear-gradient(to top, var(--first-color), rgba(0, 0, 0, 0));
+
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.about-gallery__item:hover .about-gallery__caption {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Dark mode border polish */
+body.dark-theme .about-gallery__img {
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* =========================================================
@@ -1217,7 +1246,7 @@ body.dark-theme .footer__title {
 }
 
 .footer__icon {
-  font-size: 1.3rem;
+  font-size: 24px;
   color: var(--first-color);
 }
 
@@ -1234,8 +1263,9 @@ body.dark-theme .footer__title {
 }
 
 .footer__social-link:hover i {
-  transform: translateY(-2px);
-  opacity: 0.85;
+  color: var(--first-color-alt);
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
 }
 
 /* Divider */
@@ -1243,6 +1273,7 @@ body.dark-theme .footer__title {
   border: none;
   border-top: 1px solid rgba(60, 92, 166, 0.15);
   margin-bottom: 20px;
+  width: 100%;
 }
 
 body.dark-theme .footer__divider {
