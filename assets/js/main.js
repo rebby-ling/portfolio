@@ -182,3 +182,26 @@ if (document.querySelector(".img__container")) {
     },
   });
 }
+
+/* ================================
+   SUBNAV ACTIVE ON SCROLL
+   ================================ */
+   const subnavLinks = document.querySelectorAll(".subnav__link");
+
+   function updateSubnavActive() {
+     subnavLinks.forEach((link) => {
+       const target = document.querySelector(link.getAttribute("href"));
+       if (!target) return;
+   
+       const rect = target.getBoundingClientRect();
+       const offset = 120; // header + subnav height
+   
+       if (rect.top <= offset && rect.bottom >= offset) {
+         subnavLinks.forEach((l) => l.classList.remove("active"));
+         link.classList.add("active");
+       }
+     });
+   }
+   
+   window.addEventListener("scroll", updateSubnavActive);
+   

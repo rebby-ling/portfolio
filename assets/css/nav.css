@@ -1,39 +1,37 @@
 /* =========================================================
-   NAVIGATION STYLES — nav.css
-   For homepage tabs + case-study mobile drawer nav
+   GLOBAL NAV VARIABLES
    ========================================================= */
+:root {
+  --header-height: 64px;
+}
 
-/* ===========================
-   HEADER WRAPPER
-   =========================== */
+/* =========================================================
+     MAIN NAVBAR (Unified Glass Navigation)
+     ========================================================= */
+
 .header {
   width: 100%;
-  height: 3.8rem;
+  height: var(--header-height);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
-  background-color: rgba(251, 251, 254, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 
-  border-bottom: 1px solid rgba(60, 92, 166, 0.2);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(60, 92, 166, 0.12);
 }
 
 body.dark-theme .header {
-  background: rgba(18, 22, 45, 0.72);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: rgba(20, 25, 50, 0.55);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
-/* ===========================
-     NAV CORE LAYOUT
-     =========================== */
 .nav {
-  max-width: 1100px;
-  height: 110%;
+  max-width: 768px;
+  height: 100%;
   margin: 0 auto;
   padding-inline: 16px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,10 +39,8 @@ body.dark-theme .header {
 
 .nav__logo {
   width: 48px;
-  display: block;
 }
 
-/* Theme Button */
 .nav__btns {
   display: flex;
   align-items: center;
@@ -56,9 +52,10 @@ body.dark-theme .header {
   cursor: pointer;
 }
 
-/* ===========================
-     TAB NAV (About / Work)
-     =========================== */
+/* =========================================================
+     HOMEPAGE TAB NAV (ABOUT / WORK)
+     ========================================================= */
+
 .nav__menu {
   display: flex;
   align-items: center;
@@ -66,145 +63,106 @@ body.dark-theme .header {
 
 .nav__list {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-
   gap: 10px;
   padding: 6px;
   border-radius: 999px;
 
   background: rgba(255, 255, 255, 0.62);
   backdrop-filter: blur(10px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
 }
 
 body.dark-theme .nav__list {
-  background: rgba(30, 35, 62, 0.7);
+  background: rgba(30, 35, 62, 0.72);
 }
 
 .nav__link {
   padding: 8px 20px;
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-color);
-  transition: 0.25s ease;
-}
-
-.nav__link:hover {
-  background: #6175a26d;
 }
 
 .nav__link.active-link {
   background: var(--first-color);
-  color: #fff;
+  color: white;
 }
 
-/* =========================================================
-     HOMEPAGE MODE (Tabs only, NO mobile drawer)
-     ========================================================= */
-body.js-tabs-page .nav__menu {
-  position: static !important;
-  transform: none !important;
-  background: none !important;
-  padding: 0 !important;
-  width: auto !important;
-  height: auto !important;
-  box-shadow: none !important;
-}
-
-body.js-tabs-page #nav-toggle,
-body.js-tabs-page #nav-close {
+/* Hide homepage tabs in detail pages */
+body.detail-page .nav__list {
   display: none !important;
 }
 
-body.js-tabs-page .nav__list {
-  display: flex !important;
-  gap: 10px !important;
-  padding: 6px;
-}
-
-body.js-tabs-page .nav__link {
-  padding: 6px 18px;
-  font-size: 0.88rem;
-}
-
 /* =========================================================
-     CASE STUDY PAGES — Drawer menu for mobile
+     MOBILE NAV DRAWER (DETAIL PAGES ONLY)
      ========================================================= */
-@media (max-width: 767px) {
-  /* Logo smaller */
+
+.nav__toggle,
+.nav__close {
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: none;
+}
+
+body:not(.js-tabs-page) .nav__toggle {
+  display: block;
+}
+
+@media (max-width: 768px) {
   .nav__logo {
     width: 40px;
   }
 
-  /* HOMEPAGE: keep tab layout */
-  body.js-tabs-page .nav__list {
-    gap: 6px !important;
-    padding: 4px 6px !important;
-  }
-
-  /* CASE-STUDIES: enable bottom-sheet drawer */
   body:not(.js-tabs-page) .nav__menu {
     position: fixed;
     bottom: -100%;
     left: 0;
-
     width: 100%;
-    padding: 32px 24px 48px;
 
     background: var(--body-color);
+    padding: 32px 24px 48px;
     border-radius: 18px 18px 0 0;
 
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    transition: bottom 0.35s ease;
+    box-shadow: 0 -3px 14px rgba(0, 0, 0, 0.18);
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-
-    transition: bottom 0.3s ease;
+    z-index: 998;
   }
 
   body.dark-theme:not(.js-tabs-page) .nav__menu {
-    background: rgba(24, 28, 48, 0.92);
+    background: rgba(20, 25, 50, 0.85);
   }
 
-  /* Show drawer */
   body:not(.js-tabs-page) .nav__menu.show-menu {
     bottom: 0;
-  }
-
-  /* Drawer nav list */
-  body:not(.js-tabs-page) .nav__list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    width: 100%;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-
-    gap: 16px;
-  }
-
-  body:not(.js-tabs-page) .nav__link {
-    font-size: 1.1rem;
-    padding: 12px 4px;
-    width: 100%;
   }
 }
 
 /* =========================================================
-     SMALL MOBILE
+     INLINE BACK BUTTON FOR DETAIL PAGES
      ========================================================= */
-@media (max-width: 480px) {
-  .nav__logo {
-    width: 34px;
-  }
 
-  body.js-tabs-page .nav__link {
-    padding: 6px 14px;
-    font-size: 0.8rem;
-  }
+.back-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: calc(var(--header-height) + 16px);
+  margin-bottom: 24px;
+
+  color: var(--first-color);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.back-inline i {
+  font-size: 1.25rem;
+}
+
+/* Dark mode back button */
+body.dark-theme .back-inline {
+  color: var(--first-color);
 }

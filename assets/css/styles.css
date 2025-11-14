@@ -22,7 +22,7 @@
   --container-color: #fefbfb;
   --scroll-bar-color: #a7b5e0;
   --scroll-thumb-color: #3c5ca6;
-  --footer-bg: #2d325a;
+  --footer-bg: #f7f5fb;
   --button-color: #fff;
 
   /*========== Font and typography ==========*/
@@ -89,7 +89,7 @@ body.dark-theme {
   --container-color: #242d4d;
   --scroll-bar-color: #ffe9d454;
   --scroll-thumb-color: #f76c6c;
-  --footer-bg: #2d325a;
+  --footer-bg: #242d4d;
   --button-color: #1e253f;
 }
 /*========== Button Dark/Light ==========*/
@@ -244,7 +244,7 @@ body.dark-theme .header {
 }
 /*==================== NAV ====================*/
 .nav {
-  max-width: 968px;
+  max-width: 768px;
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
@@ -1170,63 +1170,114 @@ body.js-tabs-page .nav__link {
   }
 }
 
-/*==================== FOOTER ====================*/
+/* =========================================================
+   FOOTER DESIGN (POLISHED)
+   ========================================================= */
+
 .footer {
-  padding-top: 2rem;
-  bottom: 0;
+  padding: 80px 0 40px;
+  background: var(--footer-bg);
+  color: var(--text-color);
+  border-top: 1px solid rgba(60, 92, 166, 0.2);
+}
+
+body.dark-theme .footer {
+  background: var(--body-color); /* already dark */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer__container {
-  row-gap: 3.5rem;
-}
-
-.footer__bg {
-  background-color: var(--footer-bg);
-  padding: 2rem 0 3rem;
-  margin-bottom: -2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 40px;
 }
 
 .footer__title {
-  font-size: var(--h1-font-size);
-  margin-bottom: var(--mb-0-25);
-  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--first-color);
 }
 
-.footer__subtitle {
-  font-size: var(--small-font-size);
-  color: #fff;
+body.dark-theme .footer__title {
+  color: var(--text-color);
 }
 
-.footer__link {
+.footer__text {
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.footer__item {
   display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
+  align-items: center;
+  gap: 10px;
 }
 
-.footer__link {
-  color: #fff;
+.footer__icon {
+  font-size: 1.3rem;
+  color: var(--first-color);
 }
 
-.footer__link:hover {
-  color: var(--first-color-second);
+.footer__socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
 }
 
-.footer__social {
-  font-size: 1.25rem;
-  margin-right: var(--mb-1);
-  color: #fff;
+.footer__social-link i {
+  font-size: 1.4rem;
+  color: var(--first-color);
+  transition: 0.25s ease;
 }
 
-.footer__social:hover {
-  color: var(--first-color-second);
+.footer__social-link:hover i {
+  transform: translateY(-2px);
+  opacity: 0.85;
 }
 
-.footer__copy {
-  font-size: var(--smaller-font-size);
-  text-align: center;
-  color: #fff;
-  margin-top: var(--mb-3);
+/* Divider */
+.footer__divider {
+  border: none;
+  border-top: 1px solid rgba(60, 92, 166, 0.15);
+  margin-bottom: 20px;
 }
+
+body.dark-theme .footer__divider {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Bottom copyright */
+.footer__bottom {
+  padding: 0 4px;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.footer__credit {
+  opacity: 0.8;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: left;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
 /*========== SCROLL UP ==========*/
 .scrollup {
   position: fixed;
@@ -1599,7 +1650,7 @@ body.js-tabs-page .nav__link {
   }
 
   .footer__socials {
-    justify-self: flex-end;
+    justify-self: flex-start;
   }
 
   .footer__social {
