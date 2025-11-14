@@ -140,7 +140,7 @@ html {
 }
 
 body {
-  margin: 0 0 var(--header-height) 0;
+  margin: 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
@@ -1063,11 +1063,14 @@ body.js-tabs-page .nav__link {
 
 .page {
   min-height: calc(100vh - 4rem);
+  overflow-y: visible !important;
 }
 
 /* Hidden page for tabs */
 .page--hidden {
-  display: none;
+  display: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
 
 /* =========================================================
@@ -1086,7 +1089,10 @@ body.js-tabs-page .nav__link {
   opacity: 0;
   transform: translateX(12px);
   pointer-events: none;
-  overflow-x: hidden;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /*==================== ABOUT HERO ====================*/
@@ -1586,14 +1592,6 @@ body.dark-theme .footer__divider {
   .container {
     margin-left: auto;
     margin-right: auto;
-  }
-
-  body {
-    margin: 0;
-  }
-
-  .section {
-    padding: 6rem 2rem 2rem 2rem;
   }
 
   .section__subtitle {
