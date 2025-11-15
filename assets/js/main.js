@@ -36,6 +36,44 @@ if (!isTabbedHome) {
 }
 
 /* =========================================================
+   CUSTOM CIRCLE CURSOR
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cursor = document.querySelector(".custom-cursor");
+
+  // Move cursor
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.top = e.clientY + "px";
+    cursor.style.left = e.clientX + "px";
+  });
+
+  // Elements that should trigger cursor "grow"
+  const hoverTargets = [
+    "a",
+    "button",
+    ".button",
+    ".nav__link",
+    ".project-card",
+    ".footer__social-link",
+    ".about-gallery__item",
+    ".cite"
+  ];
+
+  hoverTargets.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-hover");
+      });
+      el.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-hover");
+      });
+    });
+  });
+});
+
+
+/* =========================================================
    HEADER SCROLL EFFECT
 ========================================================= */
 function scrollHeader() {
