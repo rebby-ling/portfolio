@@ -212,7 +212,7 @@ body.dark-theme .timeline-item .card:hover {
     135deg,
     transparent 0%,
     rgba(255, 150, 146) 35%,
-    rgba(var(--first-color-second)) 50%,
+    var(--first-color-second) 50%,
     rgba(255, 150, 146) 65%,
     transparent 100%
   );

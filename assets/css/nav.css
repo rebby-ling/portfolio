@@ -17,9 +17,9 @@
   left: 0;
   z-index: 999;
 
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(var(--footer-bg) 0.35);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(60, 92, 166, 0.12);
+  border-bottom: 1px solid rgba(60, 92, 166, 0.2);
 }
 
 body.dark-theme .header {

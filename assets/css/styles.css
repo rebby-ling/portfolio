@@ -11,8 +11,8 @@
 
   /*========== Colors ==========*/
   --first-color: #3c5ca6;
-  --first-color-second: 247, 100, 100;
-  --first-color-alt: #255, 195, 0;
+  --first-color-second: rgba(247, 100, 100);
+  --first-color-alt: rgba(255, 195, 0);
   --first-color-lighter: #f59a45;
   --title-color: #1e137c;
   --text-color: #506ab8;
