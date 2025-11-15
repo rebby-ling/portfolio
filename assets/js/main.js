@@ -286,3 +286,125 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+/* =========================================================
+   CLICK-TO-REVEAL FLOATING TOOLTIP
+========================================================= */
+
+const testimonialData = {
+  "rina-zoff": {
+    name: "Rina Sato — Delivery Lead",
+    quote: `Rebecca has helped to deliver one of the most important deliverables for the Discovery phase with speed and quality… fast learner, quick task do-er and very efficient designer.`
+  },
+  "aim-zoff": {
+    name: "Aim — Senior Designer",
+    quote: `It was delightful to work with Rebecca… screen flows she designed are both user-centric and realistic to implement.`
+  },
+  "foto-zoff": {
+    name: "Foto — Designer",
+    quote: `Rebecca is a Figma Wizard… She always brings refreshing solutions and confidence to speak up during discussions.`
+  },
+  "kimberly-zoff": {
+    name: "Kimberly — Designer",
+    quote: `Efficient and quick worker… Ownership of her work… Great colleague.`
+  },
+  "cheryll-msf": {
+    name: "Ping Ho — Client",
+    quote: `She has shown great initiative, drive, and adaptability… finds grounded, meaningful, and relevant solutions.`
+  },
+  "jiayu-msf": {
+    name: "Jiayu — Designer",
+    quote: `You picked things up quickly… your dedication to checking in with stakeholders kept the project on track.`
+  },
+  "lizhi-nlb": {
+    name: "Lizhi — Delivery Lead",
+    quote: `Great progress and initiative… strong collaboration skills and willingness to share knowledge.`
+  },
+  "nlb-main": {
+    name: "Grace - Senior Designer",
+    quote: `Rebecca’s talent, grit and professionalism shine through her work… contributes meaningfully to product, research and UX.`
+  },
+  "edma": {
+    name: "Guobin — Design Manager",
+    quote: `Rebecca understood the complex logic of the tool quickly… her initiative in documentation helped the whole team.`
+  },
+  "acra-team": {
+    name: "Will - Design Manager",
+    quote: `Strong ownership and adaptability… flexible, open to communication… constantly improving.`
+  },
+  "onsns": {
+    name: "Jing Kai - Developer",
+    quote: `Demonstrated initiative, curiosity, and ability to build strong rapport… strong interaction design thinking.`
+  },
+  "chinwen-ura": {
+    name: "Ao Chin Wen — Client",
+    quote: `Remarkable adaptability… research contributions provided clear direction for future development.`
+  },
+  "clement-ura": {
+    name: "Clement — Client",
+    quote: `You've been a fantastic addition… Keep up this amazing momentum!`
+  }
+};
+
+let activeTooltip = null;
+
+/* Create tooltip DOM */
+function createTooltip(name, quote) {
+  const el = document.createElement("div");
+  el.className = "testimonial-tooltip clickable";
+  el.innerHTML = `<strong>${name}</strong><p>${quote}</p>`;
+  document.body.appendChild(el);
+  return el;
+}
+
+/* Position tooltip near clicked text */
+function positionTooltip(tooltip, rect) {
+  const padding = 12;
+  let left = rect.left + window.scrollX;
+  let top = rect.bottom + window.scrollY + 8;
+
+  const ttRect = tooltip.getBoundingClientRect();
+
+  // Ensure inside viewport
+  if (left + ttRect.width + padding > window.innerWidth) {
+    left = window.innerWidth - ttRect.width - padding;
+  }
+  if (top + ttRect.height + padding > document.body.scrollHeight) {
+    top = rect.top + window.scrollY - ttRect.height - padding;
+  }
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+}
+
+/* Main click handler */
+document.querySelectorAll(".cite").forEach((citeEl) => {
+  citeEl.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const ids = citeEl.dataset.cite.split(",");
+    const entry = testimonialData[ids[0]]; // Show first linked testimonial
+
+    // Close old tooltip
+    if (activeTooltip) {
+      activeTooltip.remove();
+      activeTooltip = null;
+    }
+
+    // Create new one
+    const tooltip = createTooltip(entry.name, entry.quote);
+    activeTooltip = tooltip;
+
+    const rect = citeEl.getBoundingClientRect();
+    positionTooltip(tooltip, rect);
+
+    tooltip.classList.add("visible");
+  });
+});
+
+/* Close tooltip when clicking outside */
+document.addEventListener("click", () => {
+  if (activeTooltip) {
+    activeTooltip.remove();
+    activeTooltip = null;
+  }
+});
