@@ -10,7 +10,7 @@
   --card-bg-dark: #242d4d;
 
   --glass-border: rgba(60, 92, 166, 0.35);
-  --glass-border-dark: rgba(255, 255, 255, 0.06);
+  --glass-border-dark: rgba(255, 255, 255, 0.2);
 
   --pill-bg: rgba(60, 92, 166, 0.08);
   --pill-bg-dark: rgba(255, 255, 255, 0.06);
@@ -169,6 +169,80 @@ body.dark-theme .timeline-dot {
 body.dark-theme .work-timeline .card {
   background: var(--card-bg-dark);
   border: 1px solid var(--glass-border-dark);
+}
+
+/* ============================================
+   PROFESSIONAL STATIC GLASS REFLECTION BORDER
+=============================================== */
+
+.timeline-item .card {
+  position: relative;
+  border-radius: 0.75rem;
+  border: 1px solid var(--glass-border); /* light mode baseline */
+
+  transition: border-color 0.35s ease, border-width 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* Differentiated for dark mode */
+body.dark-theme .timeline-item .card {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Lift + thicker border on hover */
+.timeline-item .card:hover {
+  transform: translateY(-4px);
+  border-width: 1px;
+  border-color: rgba(255, 193, 189, 0.8);
+}
+
+body.dark-theme .timeline-item .card:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* --- STATIC GLASS REFLECTION BAND --- */
+.timeline-item .card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+
+  /* Glass reflection strip (NO rotation, NO animation) */
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 150, 146) 35%,
+    rgba(var(--first-color-second)) 50%,
+    rgba(255, 150, 146) 65%,
+    transparent 100%
+  );
+
+  /* Mask so reflection shows ONLY on the border ring */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  padding: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.4s ease;
+}
+
+/* Show reflection on hover (no movement, just reveal) */
+.timeline-item .card:hover::after {
+  opacity: 1;
+}
+
+/* DARK MODE reflection tint */
+body.dark-theme .timeline-item .card::after {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 210, 150, 0.5) 35%,
+    rgba(255, 210, 150, 0.9) 50%,
+    rgba(255, 210, 150, 0.5) 65%,
+    transparent 100%
+  );
 }
 
 /* --------------------------------------------------

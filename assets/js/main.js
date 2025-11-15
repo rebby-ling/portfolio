@@ -80,6 +80,13 @@ themeButton.addEventListener("click", () => {
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
 
+    // Add micro animation
+    themeButton.classList.add("theme-animating");
+    setTimeout(() => {
+      themeButton.classList.remove("theme-animating");
+    }, 600);
+  
+
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
@@ -241,4 +248,41 @@ if (document.querySelector(".img__container")) {
       item.setAttribute("data-aos-duration", 600 + Math.random() * 300);
     });
   });
-  
+/* =========================================================
+   RESPONSIVE TYPING + TIME-BASED GREETING (FINAL VERSION)
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const textEl = document.querySelector(".typing-text");
+  if (!textEl) return;
+
+  // Time-based greeting
+  const hour = new Date().getHours();
+  let greeting = "";
+  if (hour < 12) greeting = "Morning, 🌅 I'm Rebecca! ";
+  else if (hour < 18) greeting = "Afternoon, 🌞 I'm Rebecca!";
+  else greeting = "Evening, 🌝 I'm Rebecca! ";
+
+  let i = 0;
+
+  // Reveal text element before typing
+  setTimeout(() => {
+    textEl.style.opacity = 1;
+    type();
+  }, 400);
+
+  function type() {
+    if (i < greeting.length) {
+      textEl.textContent += greeting.charAt(i);
+
+      // Natural typing speed variation
+      const speed = 40 + Math.random() * 70;
+      i++;
+
+      setTimeout(type, speed);
+    } else {
+      // Remove the cursor when finished
+      textEl.classList.add("done");
+    }
+  }
+});

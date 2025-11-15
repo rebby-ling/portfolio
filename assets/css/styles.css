@@ -11,8 +11,8 @@
 
   /*========== Colors ==========*/
   --first-color: #3c5ca6;
-  --first-color-second: #f76464;
-  --first-color-alt: #ffc300;
+  --first-color-second: 247, 100, 100;
+  --first-color-alt: #255, 195, 0;
   --first-color-lighter: #f59a45;
   --title-color: #1e137c;
   --text-color: #506ab8;
@@ -34,13 +34,13 @@
   --h1-font-size: 2rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
-  --h5-font-size: 1.5rem;
+  --h5-font-size: 1rem;
   --normal-font-size: 1rem;
   --small-font-size: 0.93rem;
   --smaller-font-size: 0.85rem;
 
   /*========== Font weight ==========*/
-  --font-medium: 400;
+  --font-medium: 500;
   --font-semi-bold: 400;
 
   /*========== Margenes Bottom ==========*/
@@ -63,15 +63,15 @@
 /* Font size for large devices */
 @media screen and (min-width: 968px) {
   :root {
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
     --big-font-size: 3rem;
-    --h1-font-size: 2.25rem;
+    --h1-font-size: 2rem;
     --h2-font-size: 1.5rem;
     --h3-font-size: 1.25rem;
-    --h4-font-size: 1.15rem;
-    --h5-font-size: 1.5rem;
+    --h5-font-size: 1rem;
     --normal-font-size: 1rem;
-    --small-font-size: 0.875rem;
-    --smaller-font-size: 0.813rem;
+    --small-font-size: 0.93rem;
+    --smaller-font-size: 0.85rem;
   }
 }
 
@@ -108,9 +108,21 @@ body.dark-theme {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  position: relative;
   transition: transform 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28),
     color 0.35s ease, opacity 0.35s ease, box-shadow 0.45s ease;
+}
+
+body,
+.header,
+.footer,
+.section,
+.nav__list,
+.about-gallery__caption,
+.about-gallery__img,
+.footer__container {
+  transition: background-color 0.45s ease, color 0.45s ease,
+    border-color 0.45s ease, box-shadow 0.45s ease;
 }
 
 /* Elegant soft lift + polished glow */
@@ -126,6 +138,47 @@ body.dark-theme {
 .change-theme:active {
   transform: scale(0.92);
   transition-duration: 0.15s;
+}
+
+.change-theme.theme-animating {
+  animation: themeToggleSpin 0.6s ease forwards;
+}
+
+@keyframes themeToggleSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: rotate(90deg) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(180deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(180deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Subtle pulse when theme fully switched */
+body.dark-theme .change-theme,
+body:not(.dark-theme) .change-theme {
+  animation: themePulse 0.6s ease-out;
+}
+
+@keyframes themePulse {
+  0% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /*==================== BASE ====================*/
@@ -1069,8 +1122,11 @@ body.js-tabs-page .nav__link {
 /* Hidden page for tabs */
 .page--hidden {
   display: none !important;
+  position: absolute !important;
+  inset: 0 !important;
   height: 0 !important;
   overflow: hidden !important;
+  visibility: hidden !important;
 }
 
 /* =========================================================
@@ -1120,21 +1176,22 @@ body.js-tabs-page .nav__link {
 
 .about-hero__title {
   font-size: var(--big-font-size);
-  margin-bottom: 0.25rem;
+  color: var(--first-color);
+  padding-bottom: 0.5rem;
 }
 
 .about-hero__role {
-  font-size: var(--h3-font-size);
+  font-size: var(--h2-font-size);
   color: var(--first-color-second);
-  font-weight: var(--font-medium);
-  margin-bottom: 1rem;
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 0.5rem;
 }
 
 .about-hero__subtitle {
-  max-width: 34rem;
+  max-width: 95%;
   margin: 0 auto 2rem;
   color: var(--text-color);
-  font-size: 0.98rem;
+  font-size: var(--h5-font-size);
   line-height: 1.6;
 }
 
@@ -1145,13 +1202,50 @@ body.js-tabs-page .nav__link {
   justify-content: center;
 }
 
+/*===========================
+  RESPONSIVE TYPING (cursor via pseudo-element)
+===========================*/
+
+.typing-text {
+  display: inline;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Cursor as a pseudo-element */
+.typing-text::after {
+  content: "|";
+  position: absolute;
+  right: -0.15em;
+  bottom: 0;
+  color: var(--first-color);
+  animation: cursorBlink 0.7s infinite;
+}
+
+@keyframes cursorBlink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Hide cursor when done */
+.typing-text.done::after {
+  opacity: 0;
+}
+
 /* =========================================================
    OUTSIDE THE 9 TO 5 — DYNAMIC MASONRY GALLERY
    ========================================================= */
 
 .about-gallery {
-  padding-bottom: 40px;
-  padding-top: 40px;
+  padding-bottom: 32px;
+  padding-top: 32px;
 }
 
 .about-gallery__title {
@@ -1175,7 +1269,7 @@ body.js-tabs-page .nav__link {
 
 /* MASONRY LAYOUT */
 .about-gallery__grid {
-  column-gap: 16px;
+  column-gap: 12px;
   column-width: 240px;
 }
 
@@ -1198,7 +1292,7 @@ body.js-tabs-page .nav__link {
   position: relative;
   display: inline-block;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   break-inside: avoid;
   border-radius: 8px;
   overflow: hidden;
@@ -1231,14 +1325,14 @@ body.js-tabs-page .nav__link {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   text-align: left;
 
   background: linear-gradient(to top, var(--first-color), rgba(0, 0, 0, 0));
 
   color: #fff;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 400;
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -1253,6 +1347,70 @@ body.js-tabs-page .nav__link {
 /* Dark mode border polish */
 body.dark-theme .about-gallery__img {
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   VIDEO THUMBNAILS IN THE MASONRY GALLERY
+   ========================================================= */
+
+/* Make whole video tile clickable */
+.about-gallery__item.is-video a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Video: dark overlay on hover to show “this is clickable” */
+.about-gallery__item.is-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+/* Hover effect */
+.about-gallery__item.is-video:hover::after {
+  opacity: 1;
+}
+
+/* Play icon styling */
+.about-gallery__video-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover: show play icon */
+.about-gallery__item.is-video:hover .about-gallery__video-badge {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.about-gallery__video-badge i {
+  font-size: 1.7rem;
+  color: var(--first-color);
 }
 
 /* =========================================================
