@@ -98,8 +98,8 @@ body.dark-theme {
 
 .custom-cursor {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -100px;
+  left: -100px;
   width: 16px;
   height: 16px;
   border-radius: 50%;

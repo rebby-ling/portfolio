@@ -3,20 +3,35 @@
 ========================================================= */
 
 /* =========================================================
-   CUSTOM CURSOR
+   CUSTOM CURSOR — FIXED VERSION (prevents ghost cursor)
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  let cursors = document.querySelectorAll(".custom-cursor");
+
+  /* Remove any duplicate cursor elements */
+  if (cursors.length > 1) {
+    cursors.forEach((c, i) => {
+      if (i > 0) c.remove();
+    });
+  }
+
   const cursor = document.querySelector(".custom-cursor");
   if (!cursor) return;
 
+  /* Hide cursor off-screen before activation */
+  cursor.style.left = "-100px";
+  cursor.style.top = "-100px";
+
   document.body.classList.add("custom-cursor--enabled");
 
+  /* Move cursor */
   document.addEventListener("mousemove", (e) => {
     cursor.style.left = `${e.clientX}px`;
     cursor.style.top = `${e.clientY}px`;
   });
 
+  /* Hover grow selectors */
   const hoverSelectors = [
     "a",
     "button",
@@ -30,8 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   hoverSelectors.forEach((selector) => {
     document.querySelectorAll(selector).forEach((el) => {
-      el.addEventListener("mouseenter", () => cursor.classList.add("cursor-hover"));
-      el.addEventListener("mouseleave", () => cursor.classList.remove("cursor-hover"));
+      el.addEventListener("mouseenter", () =>
+        cursor.classList.add("cursor-hover")
+      );
+      el.addEventListener("mouseleave", () =>
+        cursor.classList.remove("cursor-hover")
+      );
     });
   });
 });
