@@ -1,60 +1,22 @@
 /* =========================================================
-   MAIN NAV MENU (FOR PROJECT DETAIL PAGES ONLY)
+   CLEAN MAIN.JS (NO MOBILE NAV TOGGLE)
 ========================================================= */
 
-const navMenu = document.getElementById("nav-menu"),
-  navToggle = document.getElementById("nav-toggle"),
-  navClose = document.getElementById("nav-close"),
-  navBtn = document.getElementById("nav-btns");
-
-const isTabbedHome = document.body.classList.contains("js-tabs-page");
-
-/* ===== SHOW MENU (only on detail pages) ===== */
-if (!isTabbedHome && navToggle) {
-  navToggle.addEventListener("click", () => {
-    navMenu.classList.add("show-menu");
-    navBtn.classList.add("hide");
-  });
-}
-
-/* ===== HIDE MENU (only on detail pages) ===== */
-if (!isTabbedHome && navClose) {
-  navClose.addEventListener("click", () => {
-    navMenu.classList.remove("show-menu");
-    navBtn.classList.remove("hide");
-  });
-}
-
-/* ===== CLOSE MENU ON LINK CLICK (detail pages only) ===== */
-if (!isTabbedHome) {
-  document.querySelectorAll(".nav__link").forEach((n) =>
-    n.addEventListener("click", () => {
-      navMenu.classList.remove("show-menu");
-      navBtn.classList.remove("hide");
-    })
-  );
-}
-
-/* ==========================================================
-   ELEGANT CUSTOM CURSOR — SAFE ON ALL PAGES
-========================================================== */
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
   const cursor = document.querySelector(".custom-cursor");
-
-  // If cursor element doesn't exist, do nothing (native cursor stays)
   if (!cursor) return;
 
-  // Enable custom cursor mode (hides system cursor only now)
   document.body.classList.add("custom-cursor--enabled");
 
-  /* Move cursor */
   document.addEventListener("mousemove", (e) => {
     cursor.style.left = `${e.clientX}px`;
     cursor.style.top = `${e.clientY}px`;
   });
 
-  /* Elements that should trigger the "grow" effect */
   const hoverSelectors = [
     "a",
     "button",
@@ -66,20 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ".cite"
   ];
 
-  /* Add hover listeners */
   hoverSelectors.forEach((selector) => {
     document.querySelectorAll(selector).forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        cursor.classList.add("cursor-hover");
-      });
-      el.addEventListener("mouseleave", () => {
-        cursor.classList.remove("cursor-hover");
-      });
+      el.addEventListener("mouseenter", () => cursor.classList.add("cursor-hover"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("cursor-hover"));
     });
   });
 });
-
-
 
 /* =========================================================
    HEADER SCROLL EFFECT
@@ -96,6 +51,7 @@ window.addEventListener("scroll", scrollHeader);
 ========================================================= */
 function scrollUp() {
   const scrollUpBtn = document.getElementById("scroll-up");
+  if (!scrollUpBtn) return;
   if (window.scrollY >= 560) scrollUpBtn.classList.add("show-scroll");
   else scrollUpBtn.classList.remove("show-scroll");
 }
@@ -119,6 +75,7 @@ if (savedTheme) {
 
 const getCurrentTheme = () =>
   document.body.classList.contains(darkTheme) ? "dark" : "light";
+
 const getCurrentIcon = () =>
   themeButton.classList.contains(iconTheme) ? "bx-moon" : "bx-sun";
 
@@ -126,12 +83,8 @@ themeButton.addEventListener("click", () => {
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
 
-    // Add micro animation
-    themeButton.classList.add("theme-animating");
-    setTimeout(() => {
-      themeButton.classList.remove("theme-animating");
-    }, 600);
-  
+  themeButton.classList.add("theme-animating");
+  setTimeout(() => themeButton.classList.remove("theme-animating"), 600);
 
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
@@ -141,20 +94,13 @@ themeButton.addEventListener("click", () => {
    ABOUT / WORK TABS (HOMEPAGE ONLY)
 ========================================================= */
 
-if (isTabbedHome) {
+if (document.body.classList.contains("js-tabs-page")) {
   const tabLinks = document.querySelectorAll("[data-tab-target]");
   const aboutPage = document.getElementById("about");
   const workPage = document.getElementById("work");
-  const viewWorkBtn = document.querySelector(".js-go-work");
 
-  const pages = {
-    about: aboutPage,
-    work: workPage,
-  };
+  const pages = { about: aboutPage, work: workPage };
 
-  /* =========================================================
-     MOVING HIGHLIGHT PILL (Under About / Work)
-  ========================================================= */
   function moveHighlight() {
     const active = document.querySelector(".nav__link.active-link");
     const highlight = document.querySelector(".nav__highlight");
@@ -167,75 +113,43 @@ if (isTabbedHome) {
     highlight.style.transform = `translateX(${rect.left - parentRect.left}px)`;
   }
 
-  /* ---------- Animated Tab Switch (both directions) ---------- */
   const activateTab = (target) => {
     Object.keys(pages).forEach((key) => {
       const page = pages[key];
       const isTarget = key === target;
 
       if (isTarget) {
-        // Prepare target for fade-in
-        page.classList.add("hidden-transition"); // start hidden style
-        page.classList.remove("page--hidden"); // ensure it's rendered
-
-        // Next frame -> remove hidden-transition to animate in
-        requestAnimationFrame(() => {
-          page.classList.remove("hidden-transition");
-        });
+        page.classList.add("hidden-transition");
+        page.classList.remove("page--hidden");
+        requestAnimationFrame(() => page.classList.remove("hidden-transition"));
       } else {
-        // Fade out only if currently visible
         if (!page.classList.contains("page--hidden")) {
-          page.classList.add("hidden-transition"); // animate to hidden
-          setTimeout(() => {
-            page.classList.add("page--hidden");
-          }, 280); // match CSS transition duration
+          page.classList.add("hidden-transition");
+          setTimeout(() => page.classList.add("page--hidden"), 280);
         } else {
-          // Ensure fully hidden state
           page.classList.add("page--hidden");
           page.classList.add("hidden-transition");
         }
       }
     });
 
-    // Update tab active state
-    tabLinks.forEach((link) => {
-      link.classList.toggle(
-        "active-link",
-        link.getAttribute("data-tab-target") === target
-      );
-    });
+    tabLinks.forEach((link) =>
+      link.classList.toggle("active-link", link.getAttribute("data-tab-target") === target)
+    );
 
-    // Move highlight pill
     setTimeout(moveHighlight, 20);
   };
 
-  /* ---------- Click Events on Tabs ---------- */
   tabLinks.forEach((link) =>
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = link.getAttribute("data-tab-target");
-      if (!target) return;
-      activateTab(target);
+      activateTab(link.getAttribute("data-tab-target"));
     })
   );
 
-  /* ---------- Button: View Work ---------- */
-  if (viewWorkBtn) {
-    viewWorkBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      activateTab("work");
-    });
-  }
-
-  /* ---------- On Load + Resize ---------- */
   window.addEventListener("load", () => {
-    // Ensure initial state is consistent with classes in HTML
-    // About is visible, Work starts hidden
-    if (aboutPage) {
-      aboutPage.classList.remove("page--hidden");
-      aboutPage.classList.remove("hidden-transition");
-    }
-    if (workPage && workPage.classList.contains("page--hidden")) {
+    aboutPage.classList.remove("page--hidden", "hidden-transition");
+    if (workPage.classList.contains("page--hidden")) {
       workPage.classList.add("hidden-transition");
     }
     moveHighlight();
@@ -245,7 +159,7 @@ if (isTabbedHome) {
 }
 
 /* =========================================================
-   SWIPER (if image carousels used)
+   SWIPER INIT
 ========================================================= */
 if (document.querySelector(".img__container")) {
   new Swiper(".img__container", {
@@ -255,63 +169,53 @@ if (document.querySelector(".img__container")) {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+    pagination: { el: ".swiper-pagination", clickable: true },
   });
 }
 
 /* =========================================================
-   ADVANCED MASONRY STAGGER SYSTEM
-   ========================================================= */
+   MASONRY STAGGER
+========================================================= */
 
-   document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll(".about-gallery__item");
-  
-    // Detect how many columns exist dynamically
-    const grid = document.querySelector(".about-gallery__grid");
-    const gridWidth = grid.offsetWidth;
-  
-    // Based on your column-width rule (240px)
-    const columnWidth = 240;
-    const columnCount = Math.max(1, Math.round(gridWidth / columnWidth));
-  
-    // Assign each item a column index
-    items.forEach((item, index) => {
-      const col = index % columnCount;
-      
-      // Add as attribute for CSS parallax
-      item.dataset.col = col;
-  
-      // Organic random stagger
-      const baseDelay = 70 * col;           // cascade down the column
-      const randomExtra = Math.random() * 120; // randomize within the column
-  
-      const finalDelay = baseDelay + randomExtra;
-  
-      item.setAttribute("data-aos-delay", finalDelay);
-      item.setAttribute("data-aos-duration", 600 + Math.random() * 300);
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".about-gallery__item");
+  const grid = document.querySelector(".about-gallery__grid");
+  if (!grid) return;
+
+  const gridWidth = grid.offsetWidth;
+  const columnWidth = 240;
+  const columnCount = Math.max(1, Math.round(gridWidth / columnWidth));
+
+  items.forEach((item, index) => {
+    const col = index % columnCount;
+    item.dataset.col = col;
+
+    const baseDelay = 70 * col;
+    const randomExtra = Math.random() * 120;
+    const finalDelay = baseDelay + randomExtra;
+
+    item.setAttribute("data-aos-delay", finalDelay);
+    item.setAttribute("data-aos-duration", 600 + Math.random() * 300);
   });
+});
+
 /* =========================================================
-   RESPONSIVE TYPING + TIME-BASED GREETING (FINAL VERSION)
+   TYPING GREETING
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
   const textEl = document.querySelector(".typing-text");
   if (!textEl) return;
 
-  // Time-based greeting
   const hour = new Date().getHours();
-  let greeting = "";
-  if (hour < 12) greeting = "Morning, 🌅 I'm Rebecca! ";
-  else if (hour < 18) greeting = "Afternoon, 🌞 I'm Rebecca!";
-  else greeting = "Evening, 🌝 I'm Rebecca! ";
+  let greeting = hour < 12
+    ? "Morning, 🌅 I'm Rebecca! "
+    : hour < 18
+    ? "Afternoon, 🌞 I'm Rebecca!"
+    : "Evening, 🌝 I'm Rebecca! ";
 
   let i = 0;
 
-  // Reveal text element before typing
   setTimeout(() => {
     textEl.style.opacity = 1;
     type();
@@ -320,18 +224,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function type() {
     if (i < greeting.length) {
       textEl.textContent += greeting.charAt(i);
-
-      // Natural typing speed variation
-      const speed = 40 + Math.random() * 70;
+      setTimeout(type, 40 + Math.random() * 70);
       i++;
-
-      setTimeout(type, speed);
     } else {
-      // Remove the cursor when finished
       textEl.classList.add("done");
     }
   }
 });
+
 /* =========================================================
    CLICK-TO-REVEAL FLOATING TOOLTIP
 ========================================================= */

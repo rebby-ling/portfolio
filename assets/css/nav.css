@@ -1,13 +1,13 @@
 /* =========================================================
    GLOBAL NAV VARIABLES
-   ========================================================= */
+========================================================= */
 :root {
   --header-height: 64px;
 }
 
 /* =========================================================
-     MAIN NAVBAR (Unified Glass Navigation)
-     ========================================================= */
+   MAIN NAVBAR (Unified Glass Navigation)
+========================================================= */
 
 .header {
   width: 100%;
@@ -41,6 +41,7 @@ body.dark-theme .header {
   width: 48px;
 }
 
+/* Only right-side buttons: theme toggle */
 .nav__btns {
   display: flex;
   align-items: center;
@@ -53,8 +54,8 @@ body.dark-theme .header {
 }
 
 /* =========================================================
-     HOMEPAGE TAB NAV (ABOUT / WORK)
-     ========================================================= */
+   HOMEPAGE TAB NAV (ABOUT / WORK)
+========================================================= */
 
 .nav__menu {
   display: flex;
@@ -70,7 +71,6 @@ body.dark-theme .header {
   background: rgba(255, 255, 255, 0.62);
   backdrop-filter: blur(10px);
 
-  /* needed for pill */
   position: relative;
   overflow: hidden;
 }
@@ -81,7 +81,7 @@ body.dark-theme .nav__list {
 
 .nav__item {
   position: relative;
-  z-index: 1; /* keep tabs above highlight */
+  z-index: 1;
 }
 
 .nav__link {
@@ -92,72 +92,22 @@ body.dark-theme .nav__list {
   color: var(--text-color);
   white-space: nowrap;
   position: relative;
-  z-index: 1; /* above the highlight */
+  z-index: 1;
 }
 
-/* Active tab text turns white, but no own background –
-     the pill provides the background */
 .nav__link.active-link {
   color: var(--button-color);
   box-shadow: 0 10px 24px rgba(60, 92, 166, 0.45);
 }
 
-/* Hide homepage tabs in detail pages */
+/* Hide homepage tabs on detail pages */
 body.detail-page .nav__list {
   display: none !important;
 }
 
 /* =========================================================
-     MOBILE NAV DRAWER (DETAIL PAGES ONLY)
-     ========================================================= */
-
-.nav__toggle,
-.nav__close {
-  font-size: 1.6rem;
-  cursor: pointer;
-  display: none;
-}
-
-body:not(.js-tabs-page) .nav__toggle {
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .nav__logo {
-    width: 40px;
-  }
-
-  body:not(.js-tabs-page) .nav__menu {
-    position: fixed;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-
-    background: var(--body-color);
-    padding: 32px 24px 48px;
-    border-radius: 18px 18px 0 0;
-
-    backdrop-filter: blur(16px);
-    transition: bottom 0.35s ease;
-    box-shadow: 0 -3px 14px rgba(0, 0, 0, 0.18);
-
-    display: flex;
-    flex-direction: column;
-    z-index: 998;
-  }
-
-  body.dark-theme:not(.js-tabs-page) .nav__menu {
-    background: rgba(20, 25, 50, 0.85);
-  }
-
-  body:not(.js-tabs-page) .nav__menu.show-menu {
-    bottom: 0;
-  }
-}
-
-/* =========================================================
-     INLINE BACK BUTTON FOR DETAIL PAGES
-     ========================================================= */
+   BACK BUTTON (for detail pages)
+========================================================= */
 
 .back-inline {
   display: inline-flex;
@@ -176,21 +126,18 @@ body:not(.js-tabs-page) .nav__toggle {
   font-size: 1.25rem;
 }
 
-/* Dark mode back button */
 body.dark-theme .back-inline {
   color: var(--first-color);
 }
 
 /* =========================================================
-     MOVING HIGHLIGHT PILL ANIMATION (ABOUT / WORK TABS)
-     ========================================================= */
+   MOVING HIGHLIGHT PILL
+========================================================= */
 
 .nav__highlight {
   position: absolute;
   top: 4px;
   left: 0;
-
-  /* give it actual size! */
   height: calc(100% - 8px);
   width: 0;
 
