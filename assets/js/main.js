@@ -35,21 +35,27 @@ if (!isTabbedHome) {
   );
 }
 
-/* =========================================================
-   CUSTOM CIRCLE CURSOR
-========================================================= */
+/* ==========================================================
+   ELEGANT CUSTOM CURSOR — SAFE ON ALL PAGES
+========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   const cursor = document.querySelector(".custom-cursor");
 
-  // Move cursor
+  // If cursor element doesn't exist, do nothing (native cursor stays)
+  if (!cursor) return;
+
+  // Enable custom cursor mode (hides system cursor only now)
+  document.body.classList.add("custom-cursor--enabled");
+
+  /* Move cursor */
   document.addEventListener("mousemove", (e) => {
-    cursor.style.top = e.clientY + "px";
-    cursor.style.left = e.clientX + "px";
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
   });
 
-  // Elements that should trigger cursor "grow"
-  const hoverTargets = [
+  /* Elements that should trigger the "grow" effect */
+  const hoverSelectors = [
     "a",
     "button",
     ".button",
@@ -60,7 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ".cite"
   ];
 
-  hoverTargets.forEach((selector) => {
+  /* Add hover listeners */
+  hoverSelectors.forEach((selector) => {
     document.querySelectorAll(selector).forEach((el) => {
       el.addEventListener("mouseenter", () => {
         cursor.classList.add("cursor-hover");
@@ -71,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 
 
 /* =========================================================
