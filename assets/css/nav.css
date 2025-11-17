@@ -16,6 +16,7 @@
   top: 0;
   left: 0;
   z-index: 999;
+  padding: 0 1rem;
 
   background: rgba(var(--footer-bg) 0.35);
   backdrop-filter: blur(16px);
@@ -31,14 +32,20 @@ body.dark-theme .header {
   max-width: 768px;
   height: 100%;
   margin: 0 auto;
-  padding-inline: 16px;
+  padding-inline: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .nav__logo {
-  width: 48px;
+  width: 2.4rem;
+  height: auto;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
 }
 
 /* Only right-side buttons: theme toggle */
@@ -60,6 +67,8 @@ body.dark-theme .header {
 .nav__menu {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 .nav__list {
@@ -80,6 +89,7 @@ body.dark-theme .nav__list {
 }
 
 .nav__item {
+  list-style: none;
   position: relative;
   z-index: 1;
 }
@@ -87,12 +97,17 @@ body.dark-theme .nav__list {
 .nav__link {
   padding: 8px 20px;
   border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 500;
   color: var(--text-color);
   white-space: nowrap;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--small-font-size);
+  columns: var(--title-color);
+  font-weight: var(--font-medium);
+  text-align: center;
 }
 
 .nav__link.active-link {
@@ -103,6 +118,13 @@ body.dark-theme .nav__list {
 /* Hide homepage tabs on detail pages */
 body.detail-page .nav__list {
   display: none !important;
+}
+
+body.js-tabs-page .nav__link {
+  flex-direction: row;
+  font-size: 0.9rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
 }
 
 /* =========================================================

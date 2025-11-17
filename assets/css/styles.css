@@ -1,5 +1,4 @@
 /*==================== GOOGLE FONTS ====================*/
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
@@ -44,7 +43,6 @@
   --font-semi-bold: 400;
 
   /*========== Margenes Bottom ==========*/
-  /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
   --mb-0-25: 0.25rem;
   --mb-0-5: 0.5rem;
   --mb-0-75: 0.75rem;
@@ -95,7 +93,6 @@ body.dark-theme {
 /* ================================
    CUSTOM CIRCLE CURSOR
 ================================ */
-
 .custom-cursor {
   position: fixed;
   top: -100px;
@@ -128,12 +125,6 @@ body.custom-cursor--enabled * {
   opacity: 0.8;
 }
 
-/*========== Button Dark/Light ==========*/
-.nav__btns {
-  display: flex;
-  align-items: center;
-}
-
 /*==================== THEME TOGGLE — PREMIUM MICRO ANIMATION ====================*/
 .change-theme {
   font-size: 1.28rem;
@@ -150,7 +141,6 @@ body.custom-cursor--enabled * {
 }
 
 body,
-.header,
 .footer,
 .section,
 .nav__list,
@@ -298,11 +288,6 @@ img {
   gap: 1.5rem;
 }
 
-body.dark-theme .header {
-  background-color: rgba(18, 22, 45, 0.9);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
-}
-
 .flip-card {
   position: relative;
   min-height: 200px;
@@ -324,75 +309,28 @@ body.dark-theme .header {
   text-align: center;
 }
 
-/*==================== NAV ====================*/
-.nav {
-  max-width: 768px;
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/*==================== HOME / HERO (LEGACY PROJECT PAGES) ====================*/
+.home__container {
+  gap: 1.5rem;
 }
 
-/* Centered tab group */
-.nav__menu {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-}
-
-.nav__item {
-  list-style: none;
-}
-
-/* Right-side buttons (theme toggle + mobile) */
-.nav__btns {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.nav__brand {
-  display: flex;
-  align-items: center;
-  margin-right: 0.75rem;
-}
-
-.nav__logo {
-  width: 2.4rem;
-  height: auto;
-}
-
-body.js-tabs-page .nav__link {
-  flex-direction: row;
-  font-size: 0.9rem;
-  padding: 0.35rem 1rem;
-  border-radius: 999px;
-}
-
-.nav__link {
+/* Mobile-first: stack image + text */
+.home__content {
   display: flex;
   flex-direction: column;
+  padding-top: 3.5rem;
   align-items: center;
-  font-size: var(--small-font-size);
-  columns: var(--title-color);
-  font-weight: var(--font-medium);
   text-align: center;
 }
 
-/* Active link */
-.active-link {
-  color: var(--first-color-alt);
+.home__img {
+  justify-self: center;
+  max-width: 420px;
 }
 
-/*==================== HOME ====================*/
-.home__container {
-  gap: 1rem;
-}
-
-.home__content {
-  grid-template-columns: 0.5fr 3fr;
-  padding-top: 3.5rem;
-  align-items: center;
+.home__data {
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .home__social-icon {
@@ -427,7 +365,6 @@ body.js-tabs-page .nav__link {
 }
 
 /*==================== BUTTONS — PREMIUM MICRO ANIMATIONS ====================*/
-
 .button {
   display: inline-flex;
   align-items: center;
@@ -798,8 +735,11 @@ body.js-tabs-page .nav__link {
   color: var(--first-color-second);
 }
 
+/* Shared two-column layout wrapper used on project pages */
 .content {
-  grid-template-columns: minmax(95%, auto) 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   padding-top: 3.5rem;
   align-items: center;
 }
@@ -868,8 +808,7 @@ body.js-tabs-page .nav__link {
   height: 100%;
 }
 
-/*==================== HOME / WORK PAGES ====================*/
-
+/*==================== HOME / WORK PAGES (INDEX TABS) ====================*/
 .page {
   min-height: calc(100vh - 4rem);
   overflow-y: visible !important;
@@ -909,8 +848,7 @@ body.js-tabs-page .nav__link {
   max-height: 0 !important;
 }
 
-/*==================== ABOUT HERO ====================*/
-
+/*==================== ABOUT HERO (INDEX ONLY) ====================*/
 .about-hero {
   padding-top: 6.5rem;
   padding-bottom: 40px;
@@ -1024,7 +962,7 @@ body.js-tabs-page .nav__link {
 /* MASONRY LAYOUT */
 .about-gallery__grid {
   column-gap: 12px;
-  column-width: 240px;
+  column-width: 232px;
 }
 
 /* Tablet */
@@ -1104,7 +1042,6 @@ body.dark-theme .about-gallery__img {
 /* =========================================================
    VIDEO THUMBNAILS IN THE GALLERY
 ========================================================= */
-
 .about-gallery__item.is-video a {
   display: block;
   position: relative;
@@ -1158,7 +1095,6 @@ body.dark-theme .about-gallery__img {
 /* =========================================================
    FOOTER
 ========================================================= */
-
 .footer {
   padding: 80px 0 40px;
   background: var(--footer-bg);
@@ -1288,10 +1224,6 @@ body.dark-theme .footer__divider {
     column-gap: 0;
   }
 
-  .home__content {
-    grid-template-columns: 0.25fr 3fr;
-  }
-
   .home__social-icon {
     font-size: 1.5rem;
   }
@@ -1340,41 +1272,20 @@ body.dark-theme .footer__divider {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .content {
-    grid-template-columns: minmax(95%, auto) 1fr;
-    padding-top: 3.5rem;
-    align-items: center;
-  }
-
   .pug__container {
     gap: 1rem;
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  .pug__video {
-    max-width: 100%;
-    justify-self: center;
-    border-radius: 0.5rem;
-    margin-top: var(--mb-0-5);
   }
 }
 
 /* For medium devices */
 @media screen and (min-width: 568px) {
-  .home__content {
-    grid-template-columns: max-content 1fr 1fr;
-  }
-
-  .home__data {
-    grid-column: initial;
-  }
-
   .home__social-icon {
     font-size: 2rem;
   }
 
   .home__img {
-    order: 1;
+    order: -1;
     justify-self: center;
     max-height: 550px;
   }
@@ -1400,183 +1311,149 @@ body.dark-theme .footer__divider {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .content {
-    grid-template-columns: 1fr 1fr;
-    padding-top: 3.5rem;
-    align-items: center;
-  }
-
   .pug__container {
     gap: 1rem;
     margin-top: var(--mb-0-5);
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  .pug__video {
-    max-width: 100%;
-    justify-self: center;
-    border-radius: 0.5rem;
-    margin-top: var(--mb-0-5);
   }
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  /* Unified two-column hero / content layout for project pages */
+  .home__content,
+  .content {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+    column-gap: 2rem;
+    text-align: left;
+  }
+  .container,
+  .home__container,
+  .home__content,
+  .content {
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin-left: auto;
     margin-right: auto;
+    width: 95%; /* matches .nav width */
+    max-width: 768px; /* visually consistent on tablet/desktop */
   }
+}
 
-  .section__subtitle {
-    margin-bottom: 4rem;
-  }
+.section__subtitle {
+  margin-bottom: 4rem;
+}
 
-  .header {
-    top: 0;
-    bottom: initial;
-  }
+.footer__container {
+  padding: 0 1rem;
+}
 
-  .header,
-  .footer__container {
-    padding: 0 1rem;
-  }
+.nav__logo {
+  width: 4rem;
+}
 
-  .nav {
-    height: calc(var(--header-height) + 1.5rem);
-    column-gap: 1.2rem;
-    width: 95%;
-  }
+.home__container {
+  row-gap: 5rem;
+}
 
-  .nav__logo {
-    width: 4rem;
-  }
+.home__data {
+  margin: 0;
+  text-align: left;
+}
 
-  .nav__list {
-    display: flex;
-    column-gap: 0;
-  }
+.home__blob {
+  width: 270px;
+}
 
-  .nav__menu {
-    margin-left: auto;
-  }
+.home__social-icon {
+  font-size: 2rem;
+}
 
-  .home__container {
-    row-gap: 5rem;
-  }
+.home__scroll {
+  display: block;
+}
 
-  .home__content {
-    padding-top: 5.5rem;
-    column-gap: 2rem;
-  }
+.home__scroll-button {
+  margin-left: 3rem;
+}
 
-  .home__blob {
-    width: 270px;
-  }
+.CCA__container {
+  grid-template-columns: repeat(3, 218px);
+  justify-content: center;
+}
 
-  .home__social-icon {
-    font-size: 2rem;
-  }
+.CCA__icon {
+  font-size: 2rem;
+}
 
-  .home__scroll {
-    display: block;
-  }
+.CCA__content {
+  padding: 6rem 0 2rem 2.5rem;
+}
 
-  .home__scroll-button {
-    margin-left: 3rem;
-  }
+.CCA__modal-content {
+  width: 450px;
+}
 
-  .CCA__container {
-    grid-template-columns: repeat(3, 218px);
-    justify-content: center;
-  }
+.portfolio__content {
+  align-items: center;
+}
 
-  .CCA__icon {
-    font-size: 2rem;
-  }
+.portfolio__layout {
+  grid-template-columns: repeat(1, 1fr);
+  padding-left: var(--mb-1);
+  padding-right: var(--mb-1);
+}
 
-  .CCA__content {
-    padding: 6rem 0 2rem 2.5rem;
-  }
+.layout__item {
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
-  .CCA__modal-content {
-    width: 450px;
-  }
+.contact__container {
+  border-radius: 1rem;
+  padding: 3rem 2.5rem 0;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+}
 
-  .portfolio__content {
-    align-items: center;
-  }
+.footer__container {
+  grid-template-columns: 2fr 1fr;
+}
 
-  .portfolio__layout {
-    grid-template-columns: repeat(1, 1fr);
-    padding-left: var(--mb-1);
-    padding-right: var(--mb-1);
-  }
+.footer__bg {
+  padding: 3rem 0 3.5rem;
+}
 
-  .layout__item {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+.footer__link {
+  flex-direction: column;
+  column-gap: 2rem;
+  width: max-content;
+}
 
-  .contact__container {
-    border-radius: 1rem;
-    padding: 3rem 2.5rem 0;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 3rem;
-  }
+.footer__socials {
+  justify-self: flex-start;
+}
 
-  .footer__container {
-    grid-template-columns: 2fr 1fr;
-  }
+.footer__social {
+  font-size: 1.5rem;
+}
 
-  .footer__bg {
-    padding: 3rem 0 3.5rem;
-  }
+.footer__copy {
+  margin-top: 4.5rem;
+}
 
-  .footer__link {
-    flex-direction: column;
-    column-gap: 2rem;
-    width: max-content;
-  }
+.scrollup {
+  bottom: 1rem;
+}
 
-  .footer__socials {
-    justify-self: flex-start;
-  }
+.nepal__img {
+  width: 500px;
+  justify-self: center;
+}
 
-  .footer__social {
-    font-size: 1.5rem;
-  }
-
-  .footer__copy {
-    margin-top: 4.5rem;
-  }
-
-  .scrollup {
-    bottom: 1rem;
-  }
-
-  .content {
-    grid-template-columns: 50% 1fr;
-    grid-template-rows: none;
-    padding-top: 3.5rem;
-    align-items: center;
-  }
-
-  .nepal__img {
-    width: 500px;
-    justify-self: center;
-  }
-
-  .pug__container {
-    gap: 1rem;
-    margin-top: var(--mb-0-5);
-    grid-template-columns: 1fr 2fr;
-  }
-
-  .pug__video {
-    max-width: 100%;
-    justify-self: center;
-    border-radius: 0.5rem;
-    margin-top: var(--mb-0-5);
-  }
+.pug__container {
+  gap: 1rem;
+  margin-top: var(--mb-0-5);
+  grid-template-columns: 1fr 2fr;
 }
 
 /* For large devices */
