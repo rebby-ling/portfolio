@@ -1,463 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-BS3NL1MMQ1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-BS3NL1MMQ1");
-    </script>
     <link rel="icon" href="/assets/img/home-logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--==================== UNICONS ====================-->
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
 
-    <!--==================== CSS ====================-->
+    <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link rel="stylesheet" href="/assets/css/nav.css" />
+    <link rel="stylesheet" href="/assets/css/project.css" />
     <link rel="stylesheet" href="/assets/css/aos.css" />
 
-    <title>Rebecca Ling 🐢</title>
+    <title>Rebecca Ling</title>
   </head>
-  <body>
-    <!--==================== HEADER ====================-->
+
+  <body class="detail-page">
+    <!-- NAV -->
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="../index.html"
-          ><img class="nav__logo" src="/assets/img/home-logo.png" alt=""
-        /></a>
-
-        <div class="nav__btns" id="nav-btns">
+        <a href="../index.html">
+          <img class="nav__logo" src="/assets/img/home-logo.png" />
+        </a>
+        <div class="nav__btns">
           <i class="uil uil-moon change-theme" id="theme-button"></i>
         </div>
       </nav>
     </header>
 
-    <!--==================== MAIN ====================-->
-    <main class="main">
-      <!--==================== HOME ====================-->
-      <section class="home section" id="Intro">
-        <div class="home__container container grid">
-          <div class="content grid" data-aos="fade-up" data-aos-delay="500">
-            <div class="home__img">
-              <img
-                class="blob__scale"
-                src="/assets/img/Zoff/header.png"
-                alt=""
-              />
-            </div>
-            <div class="home__data">
-              <h1 class="home__title">Zoff</h1>
-              <h2 class="portfolio__title">My Role</h2>
-              <p class="home__subtitle">
-                I was a key designer that helped craft the design direction and
-                vision for Zoff's e-commerce site.
-              </p>
-              <h2 class="portfolio__title">Duration:</h2>
-              <p class="home__subtitle">4 months</p>
-              <h2 class="portfolio__title">Responsibilities:</h2>
-              <p class="home__subtitle">
-                Service Design, UI/UX Design, Design Systems, Customer Journey
-                Mapping, Prototyping
-              </p>
-            </div>
+    <main class="project-page">
+      <!-- ================= HERO (Image + Text for Consumer Products) ================= -->
+      <section class="project-hero" data-aos="fade-up">
+        <h1 class="project-hero__title">Zoff Consumer App</h1>
+
+        <p class="project-hero__description">
+          Zoff is a popular Japanese eyewear brand expanding into Southeast
+          Asia. I designed new app experiences to improve browsing, eyewear
+          try-ons, and store-to-online conversion. The goal: make eyewear
+          exploration simple, mobile-first, and delightful for everyday
+          shoppers.
+        </p>
+
+        <!-- Meta -->
+        <div class="project-meta">
+          <div>
+            <div class="project-meta__label">Role</div>
+            <div class="project-meta__value">Service / UIUX Designer</div>
           </div>
 
-          <div
-            class="home__scroll"
-            data-aos="fade-up"
-            data-aos-delay="1000"
-            data-aos-duration="1000"
-          >
-            <a href="#project" class="home__scroll-button button--flex">
-              <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-              <span class="home__scrol-name">Scroll Down</span>
-              <i class="uil uil-arrow-down home__scroll-arrow"></i>
-            </a>
+          <div>
+            <div class="project-meta__label">Duration</div>
+            <div class="project-meta__value">Apr - Jun 2023</div>
+          </div>
+
+          <div>
+            <div class="project-meta__label">Focus Areas</div>
+            <div class="project-meta__value">
+              Service Design, User Research, Design Systems, Product Flows,
+              Prototyping
+            </div>
           </div>
         </div>
       </section>
 
-      <!--==================== THE PROJECT ====================-->
-      <section class="education section" id="project">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          The Project
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >An introduction of the client and our deliverables</span
-        >
-        <div
-          class="education__container container grid"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div class="education__data">
-            <h3>High-level Summary</h3>
-            <p class="education__description">
-              Zoff is a popular Japanese Eyewear company that offers a large
-              variety of Japan quality eyewear at an affordable price.
+      <!-- ================= HIGHLIGHTS ================= -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">Highlights & outcomes</h2>
+        <div class="project-doc">
+          <div class="project-grid-2">
+            <div class="project-highlight__item">
+              <div class="project-highlight__number">1</div>
+              <div class="project-highlight__text">
+                Designed mobile-first product discovery workflows
+              </div>
+            </div>
 
-              <br />
-              <br />
+            <div class="project-highlight__item">
+              <div class="project-highlight__number">2</div>
+              <div class="project-highlight__text">
+                Improved eyewear browsing & filtering clarity
+              </div>
+            </div>
 
-              Accenture was hired as Service Design consultants to help Zoff
-              explore how they can create a transformative and innovative
-              shopping experience for customers in South East Asia, both online
-              and at physical stores.
-            </p>
-          </div>
-          <div class="education__data">
-            <h3>Our Deliverables</h3>
-            <p class="education__description">
-              Together with other designers and technical consultants, we had
-              the following responsibilities:
-            </p>
-            <div
-              class="nyc__about__container container grid"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">1</span>
-                  <span class="nyc__title"
-                    >Research and synthesise pain points and gaps of Zoff
-                    customers</span
-                  >
-                </div>
+            <div class="project-highlight__item">
+              <div class="project-highlight__number">3</div>
+              <div class="project-highlight__text">
+                Enhanced detail pages with AR try-on flows
               </div>
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">2</span>
-                  <span class="nyc__title"
-                    >Create Service Design concepts that tackle the pain
-                    points</span
-                  >
-                </div>
-              </div>
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">3</span>
-                  <span class="nyc__title"
-                    >Explore and come up with the Design Direction for Zoff's
-                    e-commerce site</span
-                  >
-                </div>
-              </div>
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">4</span>
-                  <span class="nyc__title"
-                    >Create and prototype the look and feel for Zoff's
-                    e-commerce site</span
-                  >
-                </div>
+            </div>
+
+            <div class="project-highlight__item">
+              <div class="project-highlight__number">4</div>
+              <div class="project-highlight__text">
+                Strengthened consistency & UI system foundations
               </div>
             </div>
           </div>
-          <div class="education__data">
-            <h3>My Role and Contributions</h3>
-            <p class="education__description">
-              For this project, I was a key designer that helped to spearhead
-              the design process for the other designers. Some of my main
-              responsibilities include:
-            </p>
-            <ul class="circle">
-              <li class="list">
-                Created the visuals for the Customer Journey Map as part of the
-                deliverables to the client.
-              </li>
-              <li class="list">
-                Collaborated with the Design and Technology teams to understand
-                the product's functional requirements especially due to timeline
-                constraints, and designed multiple iterations to cater to the
-                different deliverable deadlines.
-              </li>
-              <li class="list">
-                Lead the developement, documentation and adherence of a
-                comprehensive set of design guidelines, principles, and
-                standards that define the visual language of the system.
-              </li>
-            </ul>
+
+          <div class="project-doc__full">
+            <img src="/assets/img/Zoff/header.png" />
           </div>
         </div>
       </section>
 
-      <!--==================== DESIGN DISCOVERY ====================-->
-      <section class="work section" id="Discovery">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Design Discovery
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >The initial research and synthesising our findings</span
-        >
-        <div class="container" data-aos="fade-up" data-aos-delay="500">
-          <div class="education__data">
-            <h3>Creating the User Personas</h3>
-            <p class="education__description">
-              After conducting 30 interviews with people who wear glasses and
-              conducting competitor analysis at physical stores in the different
-              countries, we synthesised our findings to
-              <span class="highlight">
-                identify existing mindsets and mental models</span
-              >
-              of eyewear shoppers. From this, we could then
-              <span class="highlight"
-                >create the User Personas and come up with key opportunity
-                areas</span
-              >.
-            </p>
-            <div class="nyc__survey__container container grid">
-              <img
-                src="/assets/img/Zoff/boujee-elite.jpg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/frugal-fashionsta.jpg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/practical-idealist.jpg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/pragmatic-realist.jpg"
-                alt=""
-                class="nyc__img"
-              />
+      <!-- ================= CHALLENGE ================= -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">The challenge</h2>
+
+        <p class="project-text">
+          Eyewear shopping is deeply visual. Users need clarity around frame
+          shape, sizing, lens options, and how each pair suits their face. Zoff
+          wanted an app experience that supports fast browsing, confident
+          selection, and easy comparison—without overwhelming the user.
+        </p>
+
+        <p class="project-text">
+          The challenge: deliver a polished, intuitive mobile-first flow that
+          supports both casual browsing and intent-driven buyers.
+        </p>
+      </section>
+
+      <!-- ================= ROLE ================= -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">My role & responsibilities</h2>
+        <p class="project-text">
+          For this project, I was a key designer that helped to spearhead the
+          design process for the other designers. Some of my main
+          responsibilities include:
+        </p>
+        <ul class="project-list">
+          <li>
+            Designed product discovery flows optimized for mobile shopping
+          </li>
+          <li>
+            Improved filtering, categorisation, and visual browsing patterns
+          </li>
+          <li>Refined AR try-on integration and lens selection steps</li>
+          <li>Created interactive prototypes for usability reviews</li>
+          <li>Built UI components for consistency across screens</li>
+        </ul>
+      </section>
+
+      <!-- ================= KEY FLOWS ================= -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">Improving eyewear discovery</h2>
+
+        <p class="project-text">
+          As this was Zoff's new foray into the South-east Asian market, we
+          conducted market research across Malaysia, Singapore and Hong Kong to
+          find out what strategy would be ideal to tackle these markets. We
+          conducted competitor analysis, user interviews and identified existing
+          mindsets and mental models of eyewear shoppers. The findings and
+          insights we got helped to inform the client on the best ways to enter
+          these markets in a way that could maximise their sales.
+        </p>
+        <div class="project-doc">
+          <div class="project-doc__full">
+            <h3 class="project-doc__title">Service design concepts</h3>
+            <div class="project-carousel" data-aos="fade-up">
+              <div class="project-carousel__track">
+                <img
+                  src="/assets/img/Zoff/ServiceConcept1.svg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/Zoff/ServiceConcept2.svg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/Zoff/ServiceConcept3.svg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/Zoff/ServiceConcept4.svg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/Zoff/ServiceConcept5.svg"
+                  class="project-carousel__item"
+                />
+              </div>
+
+              <button class="project-carousel__btn project-carousel__btn--prev">
+                <i class="uil uil-angle-left carousel__icon"></i>
+              </button>
+              <button class="project-carousel__btn project-carousel__btn--next">
+                <i class="uil uil-angle-right carousel__icon"></i>
+              </button>
+
+              <div class="project-carousel__dots"></div>
             </div>
           </div>
-        </div>
+          <div class="project-grid-2">
+            <div class="project-card">
+              <h3 class="project-card__title">Conducted</h3>
+              <h2 class="project-card__body">30 interviews</h2>
+            </div>
 
-        <div class="container" data-aos="fade-up" data-aos-delay="500">
-          <div class="education__data">
-            <h3>The Service Design Concepts</h3>
-            <p class="education__description">
-              With our user personas created, we then created an As-is customer
-              journey to map out key opportunity areas, coming up with several
-              Service Design concepts. We then further narrowed down to the
-              following 5 main concepts to be adopted.
-            </p>
-            <div class="nyc__survey__container container grid">
-              <img
-                src="/assets/img/Zoff/ServiceConcept1.svg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/ServiceConcept2.svg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/ServiceConcept3.svg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/ServiceConcept4.svg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/ServiceConcept5.svg"
-                alt=""
-                class="nyc__img"
-              />
+            <div class="project-card">
+              <h3 class="project-card__title">Created</h3>
+              <h2 class="project-card__body">5 service design concepts</h2>
             </div>
           </div>
-        </div>
+          <div class="project-doc__full">
+            <h3 class="project-doc__title">User personas</h3>
+            <div class="project-carousel" data-aos="fade-up">
+              <div class="project-carousel__track">
+                <img
+                  src="/assets/img/Zoff/boujee-elite.jpg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/Zoff/frugal-fashionsta.jpg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/Zoff/practical-idealist.jpg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/Zoff/pragmatic-realist.jpg"
+                  class="project-carousel__item"
+                />
+              </div>
 
-        <div class="container" data-aos="fade-up" data-aos-delay="500">
-          <div class="education__data">
-            <h3>The Customer Journey Map</h3>
-            <p class="education__description">
-              After creating the Service Design Concepts, we wrapped up the
-              Discovery Phase by creating the envisioned Customer Journey Map
-              for a customer at Zoff, incorporating the touch points of the
-              various User Personas and the Service Design Concepts.
-            </p>
-            <img src="/assets/img/Zoff/cjm.png" alt="" class="nyc__img" />
+              <button class="project-carousel__btn project-carousel__btn--prev">
+                <i class="uil uil-angle-left carousel__icon"></i>
+              </button>
+              <button class="project-carousel__btn project-carousel__btn--next">
+                <i class="uil uil-angle-right carousel__icon"></i>
+              </button>
+
+              <div class="project-carousel__dots"></div>
+            </div>
+          </div>
+          <div class="project-doc__full">
+            <h3 class="project-doc__title">Customer journey map</h3>
+            <img src="/assets/img/Zoff/cjm.png" class="project-image" alt="" />
           </div>
         </div>
       </section>
 
-      <!--==================== DESIGN DIRECTION ====================-->
-      <section class="work section" id="Direction">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Design Direction
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >Converging on a new Zoff Identity
-        </span>
-        <div
-          class="education__container container grid"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div class="education__data">
-            <h3>Ingredient Boards</h3>
-            <p class="education__description">
-              To help the client understand the evolving visual design
-              direction, we presented 3 different directions the brand could
-              take in the digital world. This would establish the overall mood,
-              direction and provide a set of high-level design principles that
-              serve as a starting point to develop the screens.
+      <!-- ================= DS ELEMENTS (1-2-1-2 GRID) ================= -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">The design system</h2>
 
-              <br />
-              <br />
+        <p class="project-text">
+          I took ownership of the design system for the Zoff mobile app,
+          creating a unified component library that streamlined design and
+          development. From product cards and filters to page-level templates
+          and visual rules, I defined the patterns that shaped the core user
+          experience. This improved design velocity, ensured UI consistency
+          across modules, and made it easier for the team to test and launch new
+          features quickly.
+        </p>
 
-              Each ingredient board contains components and elements that can
-              help differentiate Zoff from their competitors and promote a
-              unique brand identity Zoff can pursue.
-            </p>
-            <div class="nyc__interview__container container grid">
-              <img
-                src="/assets/img/Zoff/Direction 5.png"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/Direction 4.png"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/Zoff/Direction 6.png"
-                alt=""
-                class="nyc__img"
-              />
+        <div class="project-doc">
+          <div class="project-grid-2">
+            <div class="project-card">
+              <h3 class="project-card__title">Created</h3>
+              <h2 class="project-card__body">250+ components</h2>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-card__title">Wrote</h3>
+              <h2 class="project-card__body">30+ usage guidelines</h2>
             </div>
           </div>
 
-          <div class="education__data">
-            <h3>Final Direction</h3>
-            <p class="education__description">
-              We then evaluated the best design direction Zoff should pursue,
-              which was to be a combination of the 2nd and 3rd explored Design
-              Directions. With this in mind, the designers could then design and
-              prototype the screens for the future e-commerce site of Zoff!
-            </p>
-            <img
-              src="/assets/img/Zoff/Evaluation.png"
-              alt=""
-              class="nyc__img"
-            />
+          <div class="project-doc__full">
+            <img src="/assets/img/Zoff/component.png" />
+          </div>
+          <div class="project-doc__full">
+            <img src="/assets/img/Zoff/guidelines.png" />
           </div>
         </div>
       </section>
 
-      <!--==================== Prototyping ====================-->
-      <section class="CCA section" id="Prototyping">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Prototyping
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >Some key screens I helped design</span
-        >
-        <div
-          class="education__container container grid"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <p>
-            As part of the key deliverables of the project, the team had to
-            create a high-fidelity, functional prototype to help the clients
-            better envision the look and feel of Zoff's new digital identity! We
-            created prototypes for both the desktop and mobile versions,
-            incorporating our various Service Design concepts into the flows as
-            well.
-          </p>
-          <div class="education__data">
-            <h3>Landing Flow</h3>
-            <br />
-            <img
-              src="/assets/img/Zoff/landing-flow.gif"
-              alt=""
-              class="nyc__img"
-            />
-          </div>
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">Final flows</h2>
 
-          <div class="education__data">
-            <h3>Lenses Flow</h3>
-            <br />
-            <img
-              src="/assets/img/Zoff/lenses-flow.gif"
-              alt=""
-              class="nyc__img"
-            />
-          </div>
+        <p class="project-text">
+          As part of the key deliverables of the project, the team had to create
+          a high-fidelity, functional prototype to help the clients better
+          envision the look and feel of Zoff's new digital identity! We created
+          prototypes for both the desktop and mobile versions, incorporating our
+          various Service Design concepts into the flows as well.
+        </p>
 
-          <div class="education__data">
-            <h3>Virtual Try On Flow</h3>
-            <br />
-            <img src="/assets/img/Zoff/VTO-flow.gif" alt="" class="nyc__img" />
-          </div>
-
-          <div class="nyc__survey__container container grid">
-            <div class="education__data">
-              <h3>Staff Pick</h3>
-              <br />
-              <img
-                src="/assets/img/Zoff/mb-staffpick.gif"
-                alt=""
-                class="nyc__img"
-              />
+        <div class="project-doc">
+          <div class="project-grid-2">
+            <div class="project-card">
+              <h3 class="project-card__title">Prototyped for</h3>
+              <h2 class="project-card__body">Mobile and desktop</h2>
             </div>
-            <div class="education__data">
-              <h3>Photo Try On</h3>
-              <br />
-              <img
-                src="/assets/img/Zoff/mb-PTO-flow.gif"
-                alt=""
-                class="nyc__img"
-              />
+
+            <div class="project-card">
+              <h3 class="project-card__title">Used</h3>
+              <h2 class="project-card__body">Zoff's new DLS</h2>
+            </div>
+          </div>
+
+          <div class="project-doc__full">
+            <img src="/assets/img/Zoff/landing-flow.gif" />
+          </div>
+          <div class="project-doc__two">
+            <div class="project-doc__card">
+              <img src="/assets/img/Zoff/mb-PTO-flow.gif" />
+            </div>
+
+            <div class="project-doc__card">
+              <img src="/assets/img/Zoff/mb-staffpick.gif" />
             </div>
           </div>
         </div>
       </section>
-
-      <!--==================== FOOTER ====================-->
-      <div id="footer-placeholder"></div>
-
-      <script>
-        fetch("partials/footer.html") // adjust path if needed
-          .then((response) => {
-            if (!response.ok) throw new Error("HTTP error " + response.status);
-            return response.text();
-          })
-          .then((data) => {
-            document.getElementById("footer-placeholder").innerHTML = data;
-          })
-          .catch((error) => console.error("Footer failed to load:", error));
-      </script>
-      <!--==================== SCROLL TOP ====================-->
-      <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-angle-up scrollup__icon"></i>
-      </a>
-
-      <script src="/assets/js/aos.js"></script>
-      <script>
-        AOS.init();
-      </script>
-      <!--==================== MAIN JS ====================-->
-      <script src="/assets/js/main.js"></script>
     </main>
+
+    <!--==================== FOOTER ====================-->
+    <div id="footer-placeholder"></div>
+
+    <script>
+      fetch("/partials/footer.html") // adjust path if needed
+        .then((response) => {
+          if (!response.ok) throw new Error("HTTP error " + response.status);
+          return response.text();
+        })
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch((error) => console.error("Footer failed to load:", error));
+    </script>
+
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script>
+      AOS.init({ duration: 700, once: true });
+    </script>
   </body>
 </html>
