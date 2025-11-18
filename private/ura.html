@@ -1,352 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-BS3NL1MMQ1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-BS3NL1MMQ1");
-    </script>
     <link rel="icon" href="/assets/img/home-logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--==================== UNICONS ====================-->
+    <!-- ICONS -->
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
 
-    <!--==================== CSS ====================-->
+    <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link rel="stylesheet" href="/assets/css/nav.css" />
+    <link rel="stylesheet" href="/assets/css/project.css" />
     <link rel="stylesheet" href="/assets/css/aos.css" />
 
-    <title>Rebecca Ling 🐢</title>
+    <title>URA — Rebecca Ling</title>
   </head>
-  <body>
-    <!--==================== HEADER ====================-->
+
+  <body class="detail-page">
+    <!-- NAV -->
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="../index.html"
-          ><img class="nav__logo" src="/assets/img/home-logo.png" alt=""
-        /></a>
-
-        <div class="nav__btns" id="nav-btns">
+        <a href="index.html">
+          <img class="nav__logo" src="/assets/img/home-logo.png" />
+        </a>
+        <div class="nav__btns">
           <i class="uil uil-moon change-theme" id="theme-button"></i>
         </div>
       </nav>
     </header>
 
-    <!--==================== MAIN ====================-->
-    <main class="main">
-      <!--==================== HOME ====================-->
-      <section class="home section" id="Intro">
-        <div class="home__container container grid">
-          <div class="content grid" data-aos="fade-up" data-aos-delay="500">
-            <div class="home__img">
-              <img
-                class="blob__scale"
-                src="/assets/img/URA/ura-cover.svg"
-                alt=""
-              />
-            </div>
-            <div class="home__data">
-              <h1 class="home__title">Urban Redevelopment Agency (URA)</h1>
-              <h2 class="portfolio__title">My Role</h2>
-              <p class="home__subtitle">
-                Engaged as a design consultant to improve the client's internal
-                design practices and process for a geospatial platform used in
-                urban planning.
-              </p>
-              <h2 class="portfolio__title">Duration:</h2>
-              <p class="home__subtitle">1 year</p>
-              <h2 class="portfolio__title">Responsibilities:</h2>
-              <p class="home__subtitle">
-                Product Management, UI/UX Design, User Research and Testing,
-                High Fidelity Prototyping, Design Language System
-              </p>
-            </div>
+    <!-- CONTENT -->
+    <main class="project-page">
+      <!-- HERO -->
+      <section class="project-hero" data-aos="fade-up">
+        <h1 class="project-hero__title">URA: ePlanner</h1>
+
+        <p class="project-hero__description">
+          ePlanner is a geospatial platform used by Singapore’s government
+          agencies to test scenarios, evaluate land proposals, and plan the
+          country’s future. I improved usability, strengthened information
+          hierarchy, and introduced scalable design governance across ePlanner's
+          complex, multi-module ecosystem.
+        </p>
+
+        <div class="project-meta">
+          <div>
+            <div class="project-meta__label">Role</div>
+            <div class="project-meta__value">Product Designer</div>
           </div>
 
-          <div
-            class="home__scroll"
-            data-aos="fade-up"
-            data-aos-delay="1000"
-            data-aos-duration="1000"
-          >
-            <a href="#project" class="home__scroll-button button--flex">
-              <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-              <span class="home__scrol-name">Scroll Down</span>
-              <i class="uil uil-arrow-down home__scroll-arrow"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!--==================== THE PROJECT ====================-->
-      <section class="education section" id="project">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          The Project
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >An introduction of the client and our deliverables</span
-        >
-        <div
-          class="education__container container grid"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div class="education__data">
-            <h3>High-Level Summary</h3>
-            <p class="education__description">
-              ePlanner is a sophisticated geospatial platform developed by the
-              Urban Redevelopment Authority (URA) to help government agencies
-              and city planners simulate, test, and envision new developments
-              across Singapore’s landscape. With its diverse modules — such as
-              Site Simulation, Wind Analysis, and Urban Synth — the platform
-              required strong design leadership to simplify complex workflows,
-              introduce design governance, and align teams around a unified
-              experience.
-              <br />
-              <br />
-              I worked with the Design & Digital Planning Lab to make the
-              platform more usable, consistent, and scalable — by establishing a
-              unified Design Language System, improving key workflows, and
-              introducing user research practices that directly shaped the
-              product roadmap.
-            </p>
+          <div>
+            <div class="project-meta__label">Duration</div>
+            <div class="project-meta__value">Jun 2025 – Present</div>
           </div>
 
-          <div class="education__data">
-            <h3>My Contributions and Outcomes</h3>
-            <p class="education__description">
-              My work focused on strengthening ePlanner’s design foundation
-              through system-level improvements, user research, and
-              collaborative design delivery. These efforts led to a more
-              consistent interface, clearer workflows, and a roadmap informed by
-              real user insights.
-            </p>
-
-            <div class="container grid" data-aos="fade-up" data-aos-delay="500">
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">1</span>
-                  <h3 class="highlight__title">Design Language System</h3>
-                  <span class="nyc__title">
-                    Established and evolved the
-                    <span class="highlight">Design Language System (DLS)</span>
-                    — documented components, design tokens, and interaction
-                    patterns to bring consistency across all ePlanner tools.
-                  </span>
-                </div>
-              </div>
-
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">2</span>
-                  <h3 class="highlight__title">User Research and Testing</h3>
-                  <span class="nyc__title">
-                    Led multiple
-                    <span class="highlight"
-                      >user research and testing sessions</span
-                    >
-                    for features such as Local Traffic Simulation, Cloud
-                    Dashboard, and Site Simulation — uncovering key insights
-                    that reshaped the product roadmap.
-                  </span>
-                </div>
-              </div>
-
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">3</span>
-                  <h3 class="highlight__title">UI/UX Design and Prototyping</h3>
-                  <span class="nyc__title">
-                    Designed and prototyped new
-                    <span class="highlight"> workflows</span> for the RBAC
-                    Access Management Dashboard, helping product managers and
-                    developers align on user needs and system logic.
-                  </span>
-                </div>
-              </div>
-
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">4</span>
-                  <h3 class="highlight__title">
-                    Design and Product Management
-                  </h3>
-                  <span class="nyc__title">
-                    Introduced
-                    <span class="highlight"
-                      >design operations and collaboration practices</span
-                    >
-                    — from structured design reviews to shared documentation —
-                    strengthening team efficiency and design quality.
-                  </span>
-                </div>
-              </div>
+          <div>
+            <div class="project-meta__label">Focus Areas</div>
+            <div class="project-meta__value">
+              Interaction Design, Geospatial UX, Design Systems, User Research
             </div>
           </div>
         </div>
       </section>
 
-      <!--==================== DESIGN DISCOVERY ====================-->
-      <section class="work section" id="ePlanner">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          Key ePlanner Screens
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >I've done a lot over the past year, here are some key screens!</span
-        >
-        <div class="container" data-aos="fade-up" data-aos-delay="500">
-          <div class="education__data">
-            <h3>Brand new home page!</h3>
-            <p class="education__description">
-              To help orientate users to ePlanner, I introduced a home page
-              which allows them to access their recent and commonly used works.
-              There is also a resource section for users to seek help for more
-              complicated tools or new features.
-            </p>
-            <img src="/assets/img/URA/Home Page.svg" alt="" class="nyc__img" />
-          </div>
-        </div>
+      <!-- HIGHLIGHTS -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">Highlights & outcomes</h2>
 
-        <div class="container" data-aos="fade-up" data-aos-delay="500">
-          <div class="education__data">
-            <h3>Updating the map UI</h3>
-            <p class="education__description">
-              The old ePlanner did not have a unified UI, and the was a lack of
-              consistency in the interaction across various tools. I helped to
-              establish new interaction pattersn that can be applied throughout
-              the platform, and helped to update the new UI to be sleek and
-              modern.
-            </p>
-            <div class="nyc__survey__container container grid">
-              <img
-                src="/assets/img/URA/old-eplanner.svg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/URA/new-eplanner.svg"
-                alt=""
-                class="nyc__img"
-              />
+        <div class="project-grid-2">
+          <div class="project-highlight__item">
+            <div class="project-highlight__number">1</div>
+            <div class="project-highlight__text">
+              Established and evolved the Design Language System (DLS) —
+              documented components, design tokens, and interaction patterns to
+              bring consistency across all ePlanner tools.
+            </div>
+          </div>
+
+          <div class="project-highlight__item">
+            <div class="project-highlight__number">2</div>
+            <div class="project-highlight__text">
+              Led multiple user research and testing sessions for features (eg.
+              Local Traffic Simulation, Cloud Dashboard, and Site Simulation)
+              uncovering insights that reshaped the product roadmap.
+            </div>
+          </div>
+
+          <div class="project-highlight__item">
+            <div class="project-highlight__number">3</div>
+            <div class="project-highlight__text">
+              Designed and prototyped new workflows for the RBAC Access
+              Management Dashboard, helping product managers and developers
+              align on user needs and system logic.
+            </div>
+          </div>
+
+          <div class="project-highlight__item">
+            <div class="project-highlight__number">4</div>
+            <div class="project-highlight__text">
+              Designed and prototyped new workflows for the RBAC Access
+              Management Dashboard, helping product managers and developers
+              align on user needs and system logic.
             </div>
           </div>
         </div>
       </section>
 
-      <!--==================== USER RESEARCH ====================-->
-      <section class="work section" id="Research">
-        <h2 class="section__title" data-aos="fade-up" data-aos-delay="500">
-          User Research and Testing
-        </h2>
-        <span class="section__subtitle" data-aos="fade-up" data-aos-delay="500"
-          >Validating hypothesis and product roadmaps
-        </span>
-        <div
-          class="education__container container grid"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div class="education__data">
-            <h3>My impact</h3>
-            <p class="education__description">
-              While there was some user testing done by the internal team
-              previously, there was no formalised process and quantitative way
-              to properly capture the feedback they received.
-              <br />
-              <br />
-              I thus helped to formalise the User Testing process within URA
-              through the establishment of UX research frameworks that better
-              quantified and captured key user feedback. The frameworks could be
-              customised to fit the team's need.
-            </p>
-            <div
-              class="nyc__interview__container container grid"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">30+</span>
-                  <h3 class="highlight__title">Interviews conducted</h3>
-                </div>
-              </div>
+      <!-- CHALLENGE -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">The challenge</h2>
 
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">7</span>
-                  <h3 class="highlight__title">Features tested</h3>
-                </div>
-              </div>
+        <p class="project-text">
+          ePlanner houses diverse modules—including Site Simulation, Wind
+          Analysis, and Urban Synth. Each module was built at different times,
+          by different engineers, and with different UX approaches. This led to
+          inconsistent components, disjointed navigation patterns, and confusing
+          workflows across the platform.
+        </p>
 
-              <div class="nyc__content">
-                <div>
-                  <span class="nyc__icon">12+</span>
-                  <h3 class="highlight__title">Key insights</h3>
+        <p class="project-text">
+          As planning decisions involve policy makers, analysts, and technical
+          specialists, clarity and consistency were essential to reduce
+          cognitive load and improve workflow efficiency.
+        </p>
+      </section>
+
+      <!-- ROLE -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">My role & responsibilities</h2>
+        <p class="project-text">
+          My work focused on strengthening ePlanner’s design foundation through
+          system-level improvements, user research, and collaborative design
+          delivery. These efforts led to a more consistent interface, clearer
+          workflows, and a roadmap informed by real user insights.
+        </p>
+        <ul class="project-list">
+          <li>
+            Created unified UX flows across technical and planning modules
+          </li>
+          <li>Improved form-heavy workflows and information hierarchy</li>
+          <li>
+            Defined UX patterns for navigation, table interactions, and side
+            panels
+          </li>
+          <li>
+            Worked closely with URA’s engineers during grooming & QA cycles
+          </li>
+          <li>
+            Introduced structured design governance across multidisciplinary
+            teams
+          </li>
+        </ul>
+      </section>
+
+      <!-- MODULE WORK -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">Key feature improvements</h2>
+
+        <p class="project-text">
+          The old ePlanner did not have a unified UI, and the was a lack of
+          consistency in the interaction across various tools. I helped to
+          establish new interaction pattersn that can be applied throughout the
+          platform, and helped to update the new UI to be sleek and modern.
+        </p>
+        <div class="project-doc">
+          <div class="project-doc__full">
+            <h3 class="project-doc__title">Updated map UI</h3>
+            <div class="project-slider" data-aos="fade-up">
+              <div class="project-slider__wrapper">
+                <img
+                  src="/assets/img/ura/old-eplanner.svg"
+                  class="project-slider__before"
+                />
+                <img
+                  src="/assets/img/ura/new-eplanner.svg"
+                  class="project-slider__after"
+                />
+                <div class="project-slider__handle">
+                  <div class="project-slider__handle-line"></div>
                 </div>
               </div>
             </div>
-            <br />
-            <div class="container grid">
-              <img src="/assets/img/URA/ut-run.svg" alt="" class="nyc__img" />
-              <img src="/assets/img/URA/ut-goals.svg" alt="" class="nyc__img" />
-              <img
-                src="/assets/img/URA/ut-interview.svg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/URA/ut-session.svg"
-                alt=""
-                class="nyc__img"
-              />
-              <img
-                src="/assets/img/URA/ut-action.svg"
-                alt=""
-                class="nyc__img"
-              />
+          </div>
+          <div class="project-doc__two">
+            <div class="project-doc__card">
+              <h3 class="project-doc__title">Splash page</h3>
+              <img src="/assets/img/ura/splash page.svg" />
+            </div>
+
+            <div class="project-doc__card">
+              <h3 class="project-doc__title">Home page</h3>
+              <img src="/assets/img/ura/home-page.gif" />
             </div>
           </div>
         </div>
       </section>
 
-      <!--==================== FOOTER ====================-->
-      <div id="footer-placeholder"></div>
+      <!-- DESIGN SYSTEM -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">User research & testing</h2>
 
-      <script>
-        fetch("partials/footer.html") // adjust path if needed
-          .then((response) => {
-            if (!response.ok) throw new Error("HTTP error " + response.status);
-            return response.text();
-          })
-          .then((data) => {
-            document.getElementById("footer-placeholder").innerHTML = data;
-          })
-          .catch((error) => console.error("Footer failed to load:", error));
-      </script>
-      <!--==================== SCROLL TOP ====================-->
-      <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-angle-up scrollup__icon"></i>
-      </a>
-      <script src="/assets/js/aos.js"></script>
-      <script>
-        AOS.init();
-      </script>
-      <!--==================== MAIN JS ====================-->
-      <script src="/assets/js/main.js"></script>
+        <p class="project-text">
+          While there was some user testing done by the internal team
+          previously, there was no formalised process and quantitative way to
+          properly capture the feedback they received. I thus helped to
+          formalise the User Testing process within URA through the
+          establishment of UX research frameworks that better quantified and
+          captured key user feedback. The frameworks could be customised to fit
+          the team's need.
+        </p>
+
+        <div class="project-doc">
+          <div class="project-grid-2">
+            <div class="project-card">
+              <h3 class="project-card__title">Interviews conducted</h3>
+              <h2 class="project-card__body">30+</h2>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-card__title">Features tested</h3>
+              <h2 class="project-card__body">7</h2>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-card__title">Key insights</h3>
+              <h2 class="project-card__body">16+</h2>
+            </div>
+
+            <div class="project-card">
+              <h3 class="project-card__title">Frameworks created</h3>
+              <h2 class="project-card__body">2</h2>
+            </div>
+          </div>
+          <!-- FULL WIDTH (1) -->
+          <div class="project-doc__full">
+            <h3 class="project-doc__title">Introducing a new process</h3>
+            <div class="project-carousel" data-aos="fade-up">
+              <div class="project-carousel__track">
+                <img
+                  src="/assets/img/URA/ut-run.svg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/ut-goals.svg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/ut-interview.svg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/ut-session.svg"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/ut-action.svg"
+                  class="project-carousel__item"
+                />
+              </div>
+
+              <button class="project-carousel__btn project-carousel__btn--prev">
+                <i class="uil uil-angle-left carousel__icon"></i>
+              </button>
+              <button class="project-carousel__btn project-carousel__btn--next">
+                <i class="uil uil-angle-right carousel__icon"></i>
+              </button>
+
+              <div class="project-carousel__dots"></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!--==================== FOOTER ====================-->
+    <div id="footer-placeholder"></div>
+
+    <script>
+      fetch("/partials/footer.html") // adjust path if needed
+        .then((response) => {
+          if (!response.ok) throw new Error("HTTP error " + response.status);
+          return response.text();
+        })
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch((error) => console.error("Footer failed to load:", error));
+    </script>
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script>
+      AOS.init({ duration: 700, once: true });
+    </script>
   </body>
 </html>
