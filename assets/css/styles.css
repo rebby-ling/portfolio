@@ -13,9 +13,9 @@
   --first-color-second: rgba(247, 100, 100);
   --first-color-alt: rgba(255, 195, 0);
   --first-color-lighter: #f59a45;
-  --title-color: #1e137c;
+  --title-color: rgba(247, 100, 100);
   --text-color: #506ab8;
-  --text-color-light: #eca200;
+  --text-color-light: #a7b5e0;
   --input-color: #f1effa;
   --body-color: #fbfbfe;
   --container-color: #fefbfb;
@@ -222,6 +222,7 @@ body {
   margin: 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
+  font-weight: 400;
   background-color: var(--body-color);
   color: var(--text-color);
   overflow-x: hidden;
