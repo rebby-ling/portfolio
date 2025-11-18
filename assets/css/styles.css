@@ -15,7 +15,7 @@
   --first-color-lighter: #f59a45;
   --title-color: rgba(247, 100, 100);
   --text-color: #506ab8;
-  --text-color-light: #a7b5e0;
+  --text-color-light: #3c5ca6;
   --input-color: #f1effa;
   --body-color: #fbfbfe;
   --container-color: #fefbfb;
@@ -80,7 +80,7 @@ body.dark-theme {
   --first-color-lighter: #ffe7c3;
   --title-color: #f76c6c;
   --text-color: #fff;
-  --text-color-light: #f1c83f;
+  --text-color-light: #ffe7c3;
   --input-color: #2d325a;
   --body-color: #1e253f;
   --container-color: #242d4d;
