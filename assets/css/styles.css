@@ -868,6 +868,20 @@ img {
 .about-hero__avatar img {
   width: 100%;
   height: auto;
+  animation: avatarFloat 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes avatarFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
 }
 
 .about-hero__title {
