@@ -1195,6 +1195,7 @@ body.dark-theme .footer__divider {
   justify-content: center;
   align-items: center;
   color: var(--text-color);
+  text-align: center;
 }
 
 .footer__credit {
@@ -1534,5 +1535,24 @@ body.dark-theme .footer__divider {
     justify-self: center;
     border-radius: 0.5rem;
     margin-top: var(--mb-0-5);
+  }
+}
+
+/* ================================
+   DESKTOP WIDE CONTENT LAYOUT
+   (max-width: 1024px)
+================================ */
+
+@media screen and (min-width: 1024px) {
+  .container,
+  .project-page,
+  .home__container,
+  .content {
+    max-width: 1024px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

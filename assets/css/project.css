@@ -5,19 +5,22 @@
 
 /* -------- PAGE WRAPPER -------- */
 .project-page {
-  padding-top: calc(var(--header-height) + 2rem);
+  padding-top: calc(var(--header-height) + 3rem);
   padding-bottom: 4rem;
   max-width: 768px;
   margin: 0 auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .project-page {
-    padding-top: calc(var(--header-height) + 3rem);
-    padding-left: 0;
-    padding-right: 0;
+    max-width: 1024px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
