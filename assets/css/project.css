@@ -45,7 +45,7 @@
 }
 
 .project-hero__description {
-  font-size: var(--normal-font-size);
+  font-size: var(--h3-font-size);
   line-height: 1.65;
   color: var(--text-color);
   max-width: 95%;
@@ -206,6 +206,16 @@
   font-size: var(--h5-font-size);
   margin-bottom: 0.35rem;
   color: var(--text-color-light);
+}
+
+.project-card__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: var(--h3-font-size);
+  color: var(--text-color-light);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  pointer-events: none;
 }
 
 @media (max-width: 480px) {
