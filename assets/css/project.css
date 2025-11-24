@@ -1,0 +1,470 @@
+/******************************************************
+ * UNIVERSAL PROJECT PAGE SYSTEM (Hybrid Style)
+ * Fully responsive — Mobile → Desktop
+ ******************************************************/
+
+/* -------- PAGE WRAPPER -------- */
+.project-page {
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: 4rem;
+  max-width: 768px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .project-page {
+    max-width: 1024px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* -------- HERO SECTION -------- */
+.project-hero {
+  margin-bottom: 3rem;
+}
+
+.project-hero__title {
+  font-size: var(--big-font-size);
+  font-family: var(--header-font);
+  color: var(--title-color);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 480px) {
+  .project-hero__title {
+    font-size: calc(var(--h1-font-size) * 1.15);
+    line-height: 1.2;
+  }
+}
+
+.project-hero__description {
+  font-size: var(--h3-font-size);
+  line-height: 1.65;
+  color: var(--text-color);
+  max-width: 95%;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .project-hero__description {
+    font-size: var(--small-font-size);
+    line-height: 1.6;
+  }
+}
+
+/* -------- META GRID -------- */
+.project-meta {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .project-meta {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-meta__label {
+  color: var(--text-color-light);
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 480px) {
+  .project-meta__label {
+    font-size: 0.7rem;
+  }
+}
+
+.project-meta__value {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  line-height: 1.45;
+}
+
+/* -------- SECTION WRAPPER -------- */
+.project-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (max-width: 480px) {
+  .project-section {
+    margin-top: 2.8rem;
+    margin-bottom: 1.8rem;
+  }
+}
+
+.project-section__title {
+  font-size: var(--h2-font-size);
+  color: var(--first-color-second);
+  font-weight: var(--semi-bold);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .project-section__title {
+    font-size: calc(var(--h2-font-size) * 1.05);
+    margin-bottom: 0.75rem;
+  }
+}
+
+.project-section__subtitle {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  margin-bottom: 1.25rem;
+}
+
+/* -------- BODY TEXT -------- */
+.project-text {
+  font-size: var(--normal-font-size);
+  line-height: 1.75;
+  color: var(--text-color);
+  margin-bottom: 1.4rem;
+}
+
+@media (max-width: 480px) {
+  .project-text {
+    font-size: var(--small-font-size);
+    line-height: 1.65;
+  }
+}
+
+/* -------- GRID HELPERS -------- */
+.project-grid-2 {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .project-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.project-grid-3 {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .project-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* -------- HIGHLIGHTS -------- */
+.project-highlight__item {
+  background: var(--container-color);
+  border: 1px solid rgba(60, 92, 166, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .project-highlight__item {
+    padding: 1rem 0.85rem;
+  }
+}
+
+.project-highlight__number {
+  font-size: 1.25rem;
+  font-weight: var(--semi-bold);
+  color: var(--first-color);
+  line-height: 1;
+}
+
+.project-highlight__text {
+  font-size: var(--small-font-size);
+  line-height: 1.45;
+  color: var(--text-color);
+  margin-top: 0.35rem;
+}
+
+/* -------- CARD -------- */
+.project-card {
+  background: var(--container-color);
+  border: 1px solid rgba(60, 92, 166, 0.12);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1rem;
+}
+
+.project-card__title {
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: var(--h5-font-size);
+  margin-bottom: 0.35rem;
+  color: var(--text-color-light);
+}
+
+.project-card__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: var(--h3-font-size);
+  color: var(--text-color-light);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .project-card__title {
+    font-size: calc(var(--normal-font-size) * 1.1);
+  }
+}
+
+/******************************************************
+ * COMPONENT DOCUMENTATION GRID — 1 - 2 - 1 - 2 Layout
+ *******************************************************/
+
+/* Wrapper for the entire DS section */
+.project-doc {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* -------- FULL WIDTH BLOCK (1) -------- */
+.project-doc__full {
+  background: var(--container-color);
+  border: 1px solid rgba(60, 92, 166, 0.12);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.project-doc__full img {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+/* -------- TWO COLUMN BLOCK (2) -------- */
+.project-doc__two {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .project-doc__two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Column card */
+.project-doc__card {
+  background: var(--container-color);
+  border: 1px solid rgba(60, 92, 166, 0.12);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.project-doc__card img {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+/* Titles inside documentation cards */
+.project-doc__title {
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: var(--h5-font-size);
+  margin-bottom: 0.75rem;
+  color: var(--text-color-light);
+}
+
+/* -------- DARK THEME -------- */
+body.dark-theme .project-doc__full,
+body.dark-theme .project-doc__card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* -------- IMAGES -------- */
+.project-image {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .project-image {
+    margin: 1rem 0;
+  }
+}
+
+/* -------- LISTS -------- */
+.project-list {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.project-list li {
+  margin-bottom: 0.65rem;
+  font-size: var(--normal-font-size);
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .project-list li {
+    font-size: var(--small-font-size);
+    line-height: 1.55;
+  }
+}
+/******************************************************
+ * BEFORE / AFTER SLIDER (URA)
+ ******************************************************/
+
+.project-slider__wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* BASE image (after) */
+.project-slider__after {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* TOP image (before) – this is the one we clip */
+.project-slider__before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: inset(0 50% 0 0); /* show left 50% initially */
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* HANDLE */
+.project-slider__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 32px;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-slider__handle-line {
+  width: 3px;
+  height: 100%;
+  background: var(--first-color);
+  border-radius: 3px;
+  position: relative;
+}
+
+.project-slider__handle-line::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: var(--first-color);
+  border: 3px solid var(--first-color);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+/******************************************************
+ * PROJECT CAROUSEL — clean, minimal, responsive
+ ******************************************************/
+
+.project-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.project-carousel__track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.project-carousel__item {
+  min-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Buttons */
+.project-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--container-color);
+  border: 1px solid rgba(60, 92, 166, 0.15);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.25s ease;
+}
+
+body.dark-theme .project-carousel__btn {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.project-carousel__btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.project-carousel__btn--prev {
+  left: 0.75rem;
+}
+
+.project-carousel__btn--next {
+  right: 0.75rem;
+}
+
+/* Pagination dots */
+.project-carousel__dots {
+  position: absolute;
+  bottom: 0.75rem;
+  width: 100%;
+  text-align: center;
+}
+
+.project-carousel__dots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: rgba(130, 130, 130, 0.4);
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: background 0.3s ease;
+}
+
+.project-carousel__dots span.active {
+  background: var(--first-color);
+}
+
+.carousel__icon {
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+}
