@@ -40,7 +40,7 @@
         <h1 class="project-hero__title">URA: ePlanner</h1>
 
         <p class="project-hero__description">
-          eePlanner is a geospatial platform used by Singapore's government
+          ePlanner is a geospatial platform used by Singapore's government
           agencies to simulate land scenarios, evaluate development proposals,
           and plan the country's urban future. I was embedded within URA's
           Digital and Planning Lab as the sole designer, owning UX end-to-end
@@ -289,7 +289,7 @@
             </div>
 
             <div class="project-card">
-              <h3 class="project-doc__title">
+              <h3 class="project-card__title">
                 05. Established shared design patterns
               </h3>
               <img src="/assets/img/URA/DLS/patterns.png" />
@@ -303,7 +303,7 @@
             </div>
 
             <div class="project-card">
-              <h3 class="project-doc__title">
+              <h3 class="project-card__title">
                 06. Documenting inconsistencies to be fixed
               </h3>
               <img src="/assets/img/URA/DLS/inconsistencies.png" />
@@ -353,6 +353,196 @@
             <div class="project-doc__card">
               <h3 class="project-doc__title">Home page</h3>
               <img src="/assets/img/URA/home-page.gif" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RBAC -->
+      <section class="project-section" data-aos="fade-up">
+        <h2 class="project-section__title">
+          RBAC: Access management for ePlanner
+        </h2>
+
+        <p class="project-text">
+          ePlanner's datasets carry varying levels of sensitivity. Different
+          government agencies and user groups need access to different datasets,
+          and that access has to be managed, audited, and kept current. Before
+          RBAC, this was handled manually and inconsistently — admins had no
+          structured way to assign access at scale, users had no visibility into
+          what they could access or why, and group owners were fielding ad hoc
+          requests with no centralised tool to manage them.
+        </p>
+
+        <p class="project-text">
+          RBAC is a standalone access management system built alongside ePlanner
+          to solve this. It serves four distinct user roles, each with
+          meaningfully different needs, and handles two core flows: automated
+          access assignment through Standing Orders, and manual access through
+          user-initiated requests.
+        </p>
+
+        <div class="project-doc">
+          <div class="project-grid-2">
+            <div class="project-card">
+              <h3 class="project-card__title">Admin</h3>
+              <p>
+                Creates and manages groups, submits Standing Order requests for
+                automated agency-based assignment, monitors onboarding metrics,
+                and handles new agency domains flagged by the system.
+              </p>
+            </div>
+            <div class="project-card">
+              <h3 class="project-card__title">Manager</h3>
+              <p>
+                Reviews and approves or rejects Admin's Standing Order requests,
+                with access to supporting evidence and the ability to request
+                modifications before making a final decision.
+              </p>
+            </div>
+            <div class="project-card">
+              <h3 class="project-card__title">Group Owner</h3>
+              <p>
+                Reviews individual access requests for groups they own, approves
+                or denies with comments, can bulk-action multiple requests, set
+                approval delegates, and view request history.
+              </p>
+            </div>
+            <div class="project-card">
+              <h3 class="project-card__title">User</h3>
+              <p>
+                Requests access to groups from within ePlanner or directly via
+                RBAC, tracks request status, views current memberships, and
+                receives notifications on approval outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="project-subheader">Standing Orders: automated assignment</h3>
+        <p class="project-text">
+          The core challenge for admins was scaling access management across
+          agencies. Manually adding individual users was unsustainable as
+          ePlanner grew. Standing Orders solve this by letting admins define
+          rules. For example, any user whose agency matches "URA" is
+          automatically assigned to the URA group on first login. The flow
+          required careful design to handle edge cases: what happens when an
+          agency is new and has no existing Standing Order, when a Manager
+          rejects an Admin's request, or when a user logs in for the first time
+          from an unknown domain.
+        </p>
+
+        <!-- FULL WIDTH (1) -->
+        <div class="project-doc">
+          <div class="project-doc__full">
+            <h3 class="project-doc__title">Group access management</h3>
+            <div class="project-carousel" data-aos="fade-up">
+              <div class="project-carousel__track">
+                <img
+                  src="/assets/img/URA/RBAC/eplanner-grp.png"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/RBAC/grp-owned.png"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/RBAC/image.png"
+                  class="project-carousel__item"
+                />
+              </div>
+
+              <button class="project-carousel__btn project-carousel__btn--prev">
+                <i class="uil uil-angle-left carousel__icon"></i>
+              </button>
+              <button class="project-carousel__btn project-carousel__btn--next">
+                <i class="uil uil-angle-right carousel__icon"></i>
+              </button>
+
+              <div class="project-carousel__dots"></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="project-subheader">User Requests: self-serve access</h3>
+        <p class="project-text">
+          Users can also discover datasets they need access to, either from
+          within ePlanner directly or by browsing RBAC's group directory, and
+          submit a request. The design challenge here was the form complexity. A
+          single user request for multiple groups generates separate requests to
+          each group owner, each of whom acts independently. Users needed clear
+          visibility into the status of each request without the interface
+          becoming overwhelming. Group owners needed to be able to act quickly
+          across multiple pending requests without losing context on who was
+          requesting what and why.
+        </p>
+
+        <!-- FULL WIDTH (1) -->
+        <div class="project-doc__full">
+          <h3 class="project-doc__title">Request flow</h3>
+          <div class="project-carousel" data-aos="fade-up">
+            <div class="project-carousel__track">
+              <img
+                src="/assets/img/URA/RBAC/Wireframe.png"
+                class="project-carousel__item"
+              />
+              <img
+                src="/assets/img/URA/RBAC/Wireframe-1.png"
+                class="project-carousel__item"
+              />
+              <img
+                src="/assets/img/URA/RBAC/Wireframe-2.png"
+                class="project-carousel__item"
+              />
+              <img
+                src="/assets/img/URA/RBAC/Wireframe-3.png"
+                class="project-carousel__item"
+              />
+            </div>
+
+            <button class="project-carousel__btn project-carousel__btn--prev">
+              <i class="uil uil-angle-left carousel__icon"></i>
+            </button>
+            <button class="project-carousel__btn project-carousel__btn--next">
+              <i class="uil uil-angle-right carousel__icon"></i>
+            </button>
+
+            <div class="project-carousel__dots"></div>
+          </div>
+        </div>
+
+        <div class="project-doc">
+          <div class="project-grid-2">
+            <div class="project-card">
+              <h3 class="project-card__title">Design system used</h3>
+              <p>
+                ANT Design, chosen to handle the complex, form-heavy workflows
+                that ePlanner's Calcite system was not suited for.
+              </p>
+            </div>
+            <div class="project-card">
+              <h3 class="project-card__title">Users served</h3>
+              <p>
+                1,000+ government agency users across Singapore's
+                whole-of-government ePlanner deployment.
+              </p>
+            </div>
+            <div class="project-card">
+              <h3 class="project-card__title">Key pain points addressed</h3>
+              <p>
+                Manual, unscalable access assignment; no user visibility into
+                access status; fragmented group owner workflows with no
+                centralised review tool.
+              </p>
+            </div>
+            <div class="project-card">
+              <h3 class="project-card__title">Key design challenges</h3>
+              <p>
+                Four roles with distinct mental models sharing one system;
+                branching approval logic with rejection, modification, and
+                re-submission flows; cross-system handoff between ePlanner and
+                RBAC.
+              </p>
             </div>
           </div>
         </div>

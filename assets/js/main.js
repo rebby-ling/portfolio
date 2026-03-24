@@ -449,12 +449,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const dots = dotsContainer.querySelectorAll("span");
+     /* Set carousel height to match current slide's natural height */
+     const syncHeight = () => {
+      const currentItem = items[currentIndex];
+      if (currentItem.complete) {
+        carousel.style.height = currentItem.offsetHeight + "px";
+      } else {
+        currentItem.addEventListener("load", () => {
+          carousel.style.height = currentItem.offsetHeight + "px";
+        }, { once: true });
+      }
+    };
 
     const updateCarousel = () => {
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
       dots.forEach(d => d.classList.remove("active"));
       dots[currentIndex].classList.add("active");
+      syncHeight();
     };
+    
+     /* Set initial height after images load */
+     window.addEventListener("load", syncHeight);
+     syncHeight();
 
     btnPrev.addEventListener("click", () => {
       currentIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
@@ -483,5 +499,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       updateCarousel();
     });
+
+     /* Re-sync on window resize */
+     window.addEventListener("resize", syncHeight);
   });
 });
