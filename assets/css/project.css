@@ -3,6 +3,232 @@
  * Fully responsive — Mobile → Desktop
  ******************************************************/
 
+/* --------------------------------------------------
+   SIDE NAV — DESKTOP
+   position: fixed so it anchors on scroll and sits
+   in the left gutter without pushing content over.
+-------------------------------------------------- */
+
+.project-sidenav {
+  position: fixed;
+  top: calc(var(--header-height) + 3rem);
+  /*
+    Content column: max-width 1024px, centred, 2rem left padding.
+    Content left edge sits at: 50vw - 512px + 2rem = 50vw - 480px
+    Nav is 180px wide, with a 1rem gap from the content edge.
+    Nav left = 50vw - 480px - 180px - 1rem = 50vw - 677px
+    max(0.5rem) clamps it before the breakpoint hides it entirely.
+  */
+  left: max(0.5rem, calc(50vw - 677px));
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 10;
+}
+
+.project-sidenav__label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  padding-left: 10px;
+}
+
+.project-sidenav__link {
+  display: block;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  line-height: 1.4;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-sidenav__link:hover {
+  color: var(--first-color);
+  background: var(--input-color);
+}
+
+.project-sidenav__link.is-active {
+  color: var(--first-color-second);
+  background: var(--input-color);
+  font-weight: var(--font-medium);
+}
+
+body.dark-theme .project-sidenav__link:hover {
+  background: var(--input-color);
+}
+
+body.dark-theme .project-sidenav__link.is-active {
+  background: var(--input-color);
+}
+
+/* Hide when viewport is too narrow to show it without
+   overlapping the content column */
+@media screen and (max-width: 1200px) {
+  .project-sidenav {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------
+   LAYOUT + CONTENT
+   .project-layout is a no-op wrapper — it doesn't
+   change the layout, just provides a hook for the
+   fetch injection point.
+   .project-content mirrors .project-page exactly so
+   the content position is unchanged from before.
+-------------------------------------------------- */
+
+.project-content {
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: 4rem;
+  max-width: 768px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .project-content {
+    max-width: 1024px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* --------------------------------------------------
+   MOBILE / TABLET — FLOATING HAMBURGER
+   Shown below 1200px where sidenav is hidden.
+   Toggle matches .scrollup button styling.
+-------------------------------------------------- */
+
+.project-mobilenav {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .project-mobilenav {
+    display: block;
+    position: fixed;
+    bottom: 1rem; /* matches scrollup resting position */
+    right: 1rem;
+    z-index: calc(var(--z-fixed) - 1);
+    transition: bottom 0.4s ease; /* matches scrollup transition */
+  }
+
+  /* Shift up when the scroll-up button becomes visible */
+  .project-mobilenav.scroll-active {
+    bottom: 1rem;
+  }
+
+  /* Matches .scrollup: same bg, opacity, border-radius, transition */
+  .project-mobilenav__toggle {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 0.4rem;
+    background-color: var(--first-color);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.4s;
+  }
+
+  .project-mobilenav__toggle:not(.is-open):hover {
+    background-color: var(--first-color-second);
+  }
+
+  .project-mobilenav__toggle.is-open {
+    background-color: var(--first-color-second);
+  }
+
+  .project-mobilenav__toggle i {
+    font-size: 1.2rem;
+    color: var(--button-color);
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .project-mobilenav__toggle.is-open i {
+    /* icon swap handled in JS */
+  }
+
+  .project-mobilenav__panel {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    right: 0;
+    width: 240px;
+    background: var(--container-color);
+    border: 1px solid var(--input-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+
+  .project-mobilenav__panel.is-open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  body.dark-theme .project-mobilenav__panel {
+    border-color: var(--input-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .project-mobilenav__label {
+    font-size: var(--smaller-font-size);
+    font-weight: var(--font-medium);
+    color: var(--text-color-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px 8px;
+    border-bottom: 1px solid var(--text-color-light);
+    margin-bottom: 4px;
+  }
+
+  .project-mobilenav__link {
+    display: block;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+    line-height: 1.4;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+
+  .project-mobilenav__link:hover {
+    background: var(--input-color);
+    color: var(--first-color);
+  }
+
+  .project-mobilenav__link.is-active {
+    color: var(--first-color-second);
+    background: var(--input-color);
+    font-weight: var(--font-medium);
+  }
+
+  body.dark-theme .project-mobilenav__link.is-active {
+    background: var(--input-color);
+  }
+}
 /* -------- PAGE WRAPPER -------- */
 .project-page {
   padding-top: calc(var(--header-height) + 3rem);

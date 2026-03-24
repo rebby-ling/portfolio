@@ -632,7 +632,7 @@
       <div id="footer-placeholder"></div>
 
       <script>
-        fetch("partials/footer.html") // adjust path if needed
+        fetch("/partials/footer.html") // adjust path if needed
           .then((response) => {
             if (!response.ok) throw new Error("HTTP error " + response.status);
             return response.text();
@@ -642,12 +642,26 @@
           })
           .catch((error) => console.error("Footer failed to load:", error));
       </script>
+      <script>
+        fetch("/partials/project-nav.html")
+          .then((r) => {
+            if (!r.ok) throw new Error(r.status);
+            return r.text();
+          })
+          .then((html) => {
+            document.getElementById("project-nav-placeholder").innerHTML = html;
+            // Fire event so project-nav.js knows the DOM is ready
+            document.dispatchEvent(new Event("projectNavReady"));
+          })
+          .catch((err) => console.error("Project nav failed:", err));
+      </script>
       <!--==================== SCROLL TOP ====================-->
       <a href="#" class="scrollup" id="scroll-up">
         <i class="uil uil-angle-up scrollup__icon"></i>
       </a>
 
       <script src="/assets/js/aos.js"></script>
+      <script src="/assets/js/project-nav.js"></script>
       <script>
         AOS.init();
       </script>
