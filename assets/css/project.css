@@ -705,3 +705,34 @@ body.dark-theme .project-carousel__btn {
   font-size: var(--h2-font-size);
   color: var(--first-color);
 }
+
+/* -------- TESTIMONIAL QUOTE -------- */
+.project-quote {
+  font-size: var(--h3-font-size);
+  line-height: 1.7;
+  color: var(--text-color);
+  font-style: italic;
+  margin-bottom: 1.25rem;
+}
+
+.project-quote__attribution {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-top: 1rem;
+  font-style: normal;
+}
+
+.project-quote__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-quote__link:hover {
+  color: var(--first-color-second);
+}
