@@ -894,12 +894,12 @@ img {
 .about-hero__role {
   font-size: var(--h2-font-size);
   color: var(--first-color-second);
-  font-weight: var(--font-semi-bold);
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 .about-hero__subtitle {
-  max-width: 95%;
+  max-width: 60ch;
   margin: 0 auto 2rem;
   color: var(--text-color);
   font-size: var(--h5-font-size);
@@ -909,6 +909,7 @@ img {
 .about-hero__cta {
   padding-inline: 1.75rem;
   display: flex;
+  align-items: center;
   gap: 20px;
   justify-content: center;
 }
@@ -1014,7 +1015,7 @@ img {
 /* Base image */
 .about-gallery__img {
   width: 100%;
-  display: auto;
+  display: block;
   border-radius: 8px;
   object-fit: cover;
   transition: transform 0.35s ease, filter 0.35s ease;
