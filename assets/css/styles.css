@@ -444,7 +444,7 @@ img {
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   height: fit-content;
-  align-items: top;
+  align-items: flex-start;
   justify-content: center;
   justify-items: center;
 }
@@ -459,10 +459,10 @@ img {
   flex-direction: column;
   align-items: center;
   font-size: var(--small-font-size);
-  columns: var(--title-color);
+  color: var(--title-color);
   font-weight: var(--font-medium);
   text-align: center;
-  align-items: top;
+  align-items: flex-start;
   justify-items: center;
   align-self: center;
   width: 80%;
@@ -471,7 +471,7 @@ img {
 }
 
 .skills__item {
-  align-items: top;
+  align-items: flex-start;
   margin-top: 0.5rem;
 }
 
@@ -590,7 +590,7 @@ img {
 }
 
 .simple-card__desc {
-  font-size: var(--body-font);
+  font-size: var(--normal-font-size);
   margin-bottom: 1rem;
 }
 

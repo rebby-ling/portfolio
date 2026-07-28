@@ -18,7 +18,7 @@
   z-index: 999;
   padding: 0 1rem;
 
-  background: rgba(var(--footer-bg) 0.35);
+  background: color-mix(in srgb, var(--footer-bg) 35%, transparent);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(60, 92, 166, 0.2);
 }
@@ -105,7 +105,7 @@ body.dark-theme .nav__list {
   flex-direction: column;
   align-items: center;
   font-size: var(--small-font-size);
-  columns: var(--title-color);
+  color: var(--title-color);
   font-weight: var(--font-medium);
   text-align: center;
 }
