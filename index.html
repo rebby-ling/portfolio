@@ -1102,44 +1102,27 @@
             btn.classList.add('is-active');
 
             var cat = btn.dataset.filter;
-            var toShow = [];
-            var toHide = [];
-            items.forEach(function (item) {
-              if (cat === 'all' || item.dataset.category === cat) {
-                toShow.push(item);
-              } else {
-                toHide.push(item);
-              }
-            });
 
-            // Phase 1: fade out leaving items
-            toHide.forEach(function (item) {
-              if (!item.classList.contains('is-hidden')) {
-                item.classList.add('is-leaving');
-              }
-            });
-
-            // Phase 2: show entering items at opacity 0
-            toShow.forEach(function (item) {
-              if (item.classList.contains('is-hidden')) {
-                item.classList.remove('is-hidden');
-                item.classList.add('is-entering');
-              }
-            });
+            // Fade the whole grid out, reflow, fade back in
+            grid.classList.add('is-filtering');
 
             setTimeout(function () {
-              toHide.forEach(function (item) {
-                item.classList.remove('is-leaving');
-                item.classList.add('is-hidden');
-                item.style.gridRowEnd = '';
+              items.forEach(function (item) {
+                if (cat === 'all' || item.dataset.category === cat) {
+                  item.classList.remove('is-hidden');
+                } else {
+                  item.classList.add('is-hidden');
+                  item.style.gridRowEnd = '';
+                }
               });
+
               requestAnimationFrame(function () {
-                toShow.forEach(function (item) {
-                  item.classList.remove('is-entering');
-                  resizeItem(item);
+                resizeAll();
+                requestAnimationFrame(function () {
+                  grid.classList.remove('is-filtering');
                 });
               });
-            }, 240);
+            }, 200);
           });
         });
 
