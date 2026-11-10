@@ -148,8 +148,14 @@
             Some snapshots of my life and personal interests
           </p>
 
+          <div class="gallery-filter" role="group" aria-label="Filter gallery">
+            <button class="gallery-filter__btn is-active" data-filter="all">All</button>
+            <button class="gallery-filter__btn" data-filter="kendo">Kendo</button>
+            <button class="gallery-filter__btn" data-filter="holidays">Holidays</button>
+          </div>
+
           <div class="about-gallery__grid">
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="holidays">
               <img
                 src="assets/img/gallery/bicycle.png"
                 alt="Amateur photography — bicycle on a scenic path"
@@ -161,7 +167,7 @@
               </figcaption>
             </figure>
 
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
+            <figure class="about-gallery__item is-video" data-aos="fade-up" data-category="holidays">
               <a href="https://youtu.be/wm4S3EfcJcw" target="_blank">
                 <img
                   src="assets/img/gallery/kamikochi.png"
@@ -190,7 +196,7 @@
               </figcaption>
             </figure>
 
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
+            <figure class="about-gallery__item is-video" data-aos="fade-up" data-category="holidays">
               <a href="https://youtu.be/lJNZXuB3dn4" target="_blank">
                 <img
                   src="assets/img/gallery/rajaampat.png"
@@ -207,7 +213,7 @@
               </a>
             </figure>
 
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
+            <figure class="about-gallery__item is-video" data-aos="fade-up" data-category="holidays">
               <a href="https://youtu.be/46bNbMCqFJ4" target="_blank">
                 <img
                   src="assets/img/gallery/wombat.png"
@@ -224,7 +230,7 @@
               </a>
             </figure>
 
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
+            <figure class="about-gallery__item is-video" data-aos="fade-up" data-category="holidays">
               <a
                 href="https://www.youtube.com/watch?v=dbEtWNIgGcY"
                 target="_blank"
@@ -244,7 +250,7 @@
               </a>
             </figure>
 
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="holidays">
               <img
                 src="assets/img/gallery/city.png"
                 alt="City skyline view"
@@ -254,7 +260,7 @@
               <figcaption class="about-gallery__caption">City views</figcaption>
             </figure>
 
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
+            <figure class="about-gallery__item is-video" data-aos="fade-up" data-category="holidays">
               <a href="https://youtu.be/6M6AV_3VwFA" target="_blank">
                 <img
                   src="assets/img/gallery/melbourne.png"
@@ -271,7 +277,7 @@
               </a>
             </figure>
 
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="holidays">
               <img
                 src="assets/img/gallery/diving.png"
                 alt="Scuba diving underwater"
@@ -283,7 +289,7 @@
               </figcaption>
             </figure>
 
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
               <img
                 src="assets/img/gallery/kendo.png"
                 alt="Kendo competition in full armour"
@@ -295,7 +301,7 @@
               </figcaption>
             </figure>
 
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="holidays">
               <img
                 src="assets/img/gallery/lighthouse.png"
                 alt="Beautiful sunset at a lighthouse"
@@ -307,7 +313,7 @@
               </figcaption>
             </figure>
 
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="holidays">
               <img
                 src="assets/img/gallery/cradlemountain.png"
                 alt="Cradle Mountain landscape in Tasmania"
@@ -319,7 +325,7 @@
               </figcaption>
             </figure>
 
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="holidays">
               <img
                 src="assets/img/gallery/nagoya.png"
                 alt="Exploring Nagoya, Japan"
@@ -330,8 +336,67 @@
                 Japan lover
               </figcaption>
             </figure>
+
+            <!-- Kendo design work -->
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
+              <img src="assets/img/kendo/sj60-yujo.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Poster with the character 友情" />
+              <figcaption class="about-gallery__caption">Cheer together, bow together</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
+              <img src="assets/img/kendo/sj60-ippon.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Poster with the character 一本" />
+              <figcaption class="about-gallery__caption">Ippon: one strike, whole heart</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
+              <img src="assets/img/kendo/sj60-kansha.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Poster with the character 感謝" />
+              <figcaption class="about-gallery__caption">Kansha: gloves on, hearts open</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
+              <img src="assets/img/kendo/sj60-musubi.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Poster with the character 結" />
+              <figcaption class="about-gallery__caption">Musubi: where connections are forged</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
+              <img src="assets/img/kendo/sj60-rei.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Poster with the character 礼" />
+              <figcaption class="about-gallery__caption">Rei: the art of respect</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
+              <img src="assets/img/kendo/sj60-shiai.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Poster with the character 試合" />
+              <figcaption class="about-gallery__caption">Shiai: from first swing to final bow</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
+              <img src="assets/img/kendo/sj60-led-dark.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Stage screen slide, dark version" />
+              <figcaption class="about-gallery__caption">LED screen slide, dark</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
+              <img src="assets/img/kendo/sj60-led-light.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Stage screen slide, light version" />
+              <figcaption class="about-gallery__caption">LED screen slide, light</figcaption>
+            </figure>
+            <!-- ADD AOKC IMAGES HERE when ready (data-category="kendo"): aokc-happening-soon.jpg, aokc-schedule.jpg, aokc-livestream-qr.jpg, aokc-livestream-photo.jpg -->
           </div>
         </div>
+
       </section>
 
       <!--==================== WORK PAGE ====================-->
@@ -943,5 +1008,25 @@
     </script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/analytics.js"></script>
+    <script>
+      (function () {
+        var btns = document.querySelectorAll('.gallery-filter__btn');
+        var items = document.querySelectorAll('.about-gallery__item');
+        btns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            btns.forEach(function (b) { b.classList.remove('is-active'); });
+            btn.classList.add('is-active');
+            var cat = btn.dataset.filter;
+            items.forEach(function (item) {
+              if (cat === 'all' || item.dataset.category === cat) {
+                item.classList.remove('is-hidden');
+              } else {
+                item.classList.add('is-hidden');
+              }
+            });
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
