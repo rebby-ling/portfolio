@@ -1054,9 +1054,34 @@
     <script src="assets/js/analytics.js"></script>
     <script>
       (function () {
+        var grid = document.querySelector('.about-gallery__grid');
+        if (!grid) return;
+
+        function resizeItem(item) {
+          var rowH = parseInt(window.getComputedStyle(grid).gridAutoRows);
+          if (isNaN(rowH) || rowH < 2) { item.style.gridRowEnd = ''; return; }
+          if (item.classList.contains('is-hidden')) { item.style.gridRowEnd = ''; return; }
+          var rowGap = parseInt(window.getComputedStyle(grid).rowGap) || 0;
+          item.style.gridRowEnd = '';
+          var h = item.getBoundingClientRect().height;
+          if (!h) return;
+          item.style.gridRowEnd = 'span ' + Math.ceil((h + rowGap) / (rowH + rowGap));
+        }
+
+        function resizeAll() {
+          document.querySelectorAll('.about-gallery__item').forEach(resizeItem);
+        }
+
+        window.addEventListener('load', resizeAll);
+        window.addEventListener('resize', resizeAll);
+        document.querySelectorAll('.about-gallery__img').forEach(function (img) {
+          if (!img.complete) img.addEventListener('load', function () {
+            resizeItem(img.closest('.about-gallery__item'));
+          });
+        });
+
         var btns = document.querySelectorAll('.gallery-filter__btn');
         var items = document.querySelectorAll('.about-gallery__item');
-        var grid = document.querySelector('.about-gallery__grid');
         btns.forEach(function (btn) {
           btn.addEventListener('click', function () {
             btns.forEach(function (b) { b.classList.remove('is-active'); });
@@ -1068,9 +1093,12 @@
               } else {
                 item.classList.add('is-hidden');
               }
+              resizeItem(item);
             });
           });
         });
+
+        setTimeout(resizeAll, 200);
       })();
     </script>
   </body>
