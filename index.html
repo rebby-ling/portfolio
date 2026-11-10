@@ -339,52 +339,10 @@
 
             <!-- Kendo design work -->
             <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
-              <img src="assets/img/kendo/sj60-yujo.png"
-                   class="about-gallery__img" loading="lazy"
-                   alt="Poster with the character 友情" />
-              <figcaption class="about-gallery__caption">Cheer together, bow together</figcaption>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
               <img src="assets/img/kendo/sj60-ippon.png"
                    class="about-gallery__img" loading="lazy"
                    alt="Poster with the character 一本" />
               <figcaption class="about-gallery__caption">Ippon: one strike, whole heart</figcaption>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
-              <img src="assets/img/kendo/sj60-kansha.png"
-                   class="about-gallery__img" loading="lazy"
-                   alt="Poster with the character 感謝" />
-              <figcaption class="about-gallery__caption">Kansha: gloves on, hearts open</figcaption>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
-              <img src="assets/img/kendo/sj60-musubi.png"
-                   class="about-gallery__img" loading="lazy"
-                   alt="Poster with the character 結" />
-              <figcaption class="about-gallery__caption">Musubi: where connections are forged</figcaption>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
-              <img src="assets/img/kendo/sj60-rei.png"
-                   class="about-gallery__img" loading="lazy"
-                   alt="Poster with the character 礼" />
-              <figcaption class="about-gallery__caption">Rei: the art of respect</figcaption>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
-              <img src="assets/img/kendo/sj60-shiai.png"
-                   class="about-gallery__img" loading="lazy"
-                   alt="Poster with the character 試合" />
-              <figcaption class="about-gallery__caption">Shiai: from first swing to final bow</figcaption>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
-              <img src="assets/img/kendo/sj60-led-dark.png"
-                   class="about-gallery__img" loading="lazy"
-                   alt="Stage screen slide, dark version" />
-              <figcaption class="about-gallery__caption">LED screen slide, dark</figcaption>
             </figure>
 
             <figure class="about-gallery__item" data-aos="fade-up" data-category="kendo">
@@ -1012,6 +970,7 @@
       (function () {
         var btns = document.querySelectorAll('.gallery-filter__btn');
         var items = document.querySelectorAll('.about-gallery__item');
+        var grid = document.querySelector('.about-gallery__grid');
         btns.forEach(function (btn) {
           btn.addEventListener('click', function () {
             btns.forEach(function (b) { b.classList.remove('is-active'); });

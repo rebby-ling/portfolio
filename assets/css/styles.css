@@ -1029,26 +1029,25 @@ body.dark-theme .about-tools__icon--mono {
   will-change: transform, opacity;
 }
 
-/* MASONRY LAYOUT */
+/* GRID LAYOUT */
 .about-gallery__grid {
-  column-gap: 12px;
-  column-width: 232px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 12px;
+  align-items: start;
 }
 
 /* Tablet */
 @media (max-width: 992px) {
   .about-gallery__grid {
-    column-width: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
   .about-gallery__grid {
-    column-width: auto !important;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    grid-template-columns: 1fr;
   }
 }
 
