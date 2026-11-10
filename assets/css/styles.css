@@ -1167,7 +1167,7 @@ body.dark-theme .about-gallery__img {
 }
 
 /* =========================================================
-   GALLERY FILTER — matches .project-tags span chip style
+   GALLERY FILTER — visual values match .project-tags span
 ========================================================= */
 .gallery-filter {
   display: flex;
@@ -1177,15 +1177,18 @@ body.dark-theme .about-gallery__img {
   margin-bottom: 1.5rem;
 }
 
+/* Same visual as .project-tags span in work.css */
 .gallery-filter__btn {
   font-size: 12px;
-  padding: 4px 10px;
+  padding: 4px 8px;
   background: rgba(60, 92, 166, 0.1);
   border-radius: 999px;
   border: 1px solid rgba(60, 92, 166, 0.08);
   color: var(--first-color);
   font-family: inherit;
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
@@ -1199,17 +1202,18 @@ body.dark-theme .about-gallery__img {
   color: #fff;
 }
 
-.about-gallery__item.is-hidden { display: none !important; }
-
-/* Pinterest-style lazy load */
-.about-gallery__img {
+.about-gallery__item {
   opacity: 0;
-  transition: opacity 0.5s ease, transform 0.35s ease, filter 0.35s ease;
+  transform: translateY(16px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-.about-gallery__img.is-loaded {
+.about-gallery__item.is-visible {
   opacity: 1;
+  transform: none;
 }
+
+.about-gallery__item.is-hidden { display: none !important; }
 
 @media (hover: none) {
   .about-gallery__caption { opacity: 1; transform: none; }

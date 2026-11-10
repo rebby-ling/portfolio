@@ -1081,19 +1081,33 @@
           });
         });
 
-        // Pinterest-style lazy load
-        document.querySelectorAll('.about-gallery__img').forEach(function (img) {
-          function markLoaded() { img.classList.add('is-loaded'); }
-          if (img.complete && img.naturalWidth > 0) {
-            markLoaded();
-          } else {
-            img.addEventListener('load', markLoaded);
-            img.addEventListener('error', markLoaded);
-          }
-        });
-
         var btns = document.querySelectorAll('.gallery-filter__btn');
         var items = document.querySelectorAll('.about-gallery__item');
+
+        // IntersectionObserver: fade items in as they enter the viewport
+        var io = new IntersectionObserver(function (entries) {
+          var i = 0;
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var item = entry.target;
+            var delay = i * 0.07;
+            item.style.transitionDelay = delay + 's';
+            item.classList.add('is-visible');
+            setTimeout(function () { item.style.transitionDelay = ''; }, (delay + 0.5) * 1000);
+            io.unobserve(item);
+            i++;
+          });
+        }, { threshold: 0.05 });
+
+        function observeItems(list) {
+          list.forEach(function (item) {
+            if (!item.classList.contains('is-hidden') && !item.classList.contains('is-visible')) {
+              io.observe(item);
+            }
+          });
+        }
+
+        observeItems(Array.from(items));
 
         btns.forEach(function (btn) {
           btn.addEventListener('click', function () {
@@ -1102,16 +1116,21 @@
             btn.classList.add('is-active');
 
             var cat = btn.dataset.filter;
-
-            // Fade the whole grid out, reflow, fade back in
+            io.disconnect();
             grid.classList.add('is-filtering');
 
             setTimeout(function () {
+              var newlyVisible = [];
               items.forEach(function (item) {
                 if (cat === 'all' || item.dataset.category === cat) {
-                  item.classList.remove('is-hidden');
+                  if (item.classList.contains('is-hidden')) {
+                    item.classList.remove('is-hidden');
+                    item.classList.remove('is-visible');
+                    newlyVisible.push(item);
+                  }
                 } else {
                   item.classList.add('is-hidden');
+                  item.classList.remove('is-visible');
                   item.style.gridRowEnd = '';
                 }
               });
@@ -1120,6 +1139,24 @@
                 resizeAll();
                 requestAnimationFrame(function () {
                   grid.classList.remove('is-filtering');
+
+                  var vh = window.innerHeight || document.documentElement.clientHeight;
+                  var inView = [], offView = [];
+                  newlyVisible.forEach(function (item) {
+                    var rect = item.getBoundingClientRect();
+                    (rect.top < vh && rect.bottom > 0 ? inView : offView).push(item);
+                  });
+
+                  // Stagger items already in viewport
+                  inView.forEach(function (item, i) {
+                    setTimeout(function () { item.classList.add('is-visible'); }, 80 + i * 70);
+                  });
+
+                  // Re-observe off-viewport items for scroll
+                  setTimeout(function () {
+                    offView.forEach(function (item) { io.observe(item); });
+                    // Also re-observe any existing visible items that scrolled off and re-enter — no, those keep is-visible
+                  }, 80 + inView.length * 70);
                 });
               });
             }, 200);
