@@ -34,7 +34,7 @@
 
     <!--==================== CSS ====================-->
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/work.css" />
+    <link rel="stylesheet" href="assets/css/work.css?v=2" />
     <link rel="stylesheet" href="assets/css/nav.css" />
     <link rel="stylesheet" href="assets/css/testimonials.css" />
     <link rel="stylesheet" href="assets/css/aos.css" />
@@ -596,8 +596,6 @@
           <!-- Most recent -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="100"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -747,8 +745,6 @@
           <!-- Sentient -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="150"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -814,8 +810,6 @@
           <!-- Accenture backend -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="200"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -856,8 +850,6 @@
           <!-- GovTech -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="250"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -899,8 +891,6 @@
           <!-- NYC -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="250"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -1097,10 +1087,10 @@
           entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
             var item = entry.target;
-            var delay = i * 0.07;
+            var delay = i * 0.1;
             item.style.transitionDelay = delay + 's';
             item.classList.add('is-visible');
-            setTimeout(function () { item.style.transitionDelay = ''; }, (delay + 0.5) * 1000);
+            setTimeout(function () { item.style.transitionDelay = ''; }, (delay + 0.65) * 1000);
             io.unobserve(item);
             i++;
           });
@@ -1146,6 +1136,50 @@
         });
 
         setTimeout(resizeAll, 200);
+      })();
+    </script>
+    <script>
+      (function () {
+        var items = document.querySelectorAll('.timeline-item');
+        if (!items.length) return;
+
+        var i = 0;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var item = entry.target;
+            var delay = i * 0.1;
+            i++;
+            item.style.transitionDelay = delay + 's';
+            item.classList.add('is-visible');
+            setTimeout(function () { item.style.transitionDelay = ''; }, (delay + 0.65) * 1000);
+            io.unobserve(item);
+          });
+        }, { threshold: 0.05 });
+
+        function observeAll() {
+          items.forEach(function (item) {
+            if (!item.classList.contains('is-visible')) io.observe(item);
+          });
+        }
+
+        // Re-observe after Work tab shows (ancestor overflow change doesn't trigger IO)
+        var workLink = document.querySelector('[data-tab-target="work"]');
+        if (workLink) {
+          workLink.addEventListener('click', function () {
+            i = 0;
+            setTimeout(function () {
+              items.forEach(function (item) {
+                if (!item.classList.contains('is-visible')) {
+                  io.unobserve(item);
+                  io.observe(item);
+                }
+              });
+            }, 50);
+          });
+        }
+
+        observeAll();
       })();
     </script>
   </body>

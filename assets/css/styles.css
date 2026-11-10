@@ -1189,7 +1189,7 @@ body.dark-theme .about-gallery__img {
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
 }
 
 .gallery-filter__btn:hover:not(.is-active) {
@@ -1200,12 +1200,19 @@ body.dark-theme .about-gallery__img {
   background: var(--first-color);
   border-color: var(--first-color);
   color: #fff;
+  animation: pill-tap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pill-tap {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.88); }
+  100% { transform: scale(1); }
 }
 
 .about-gallery__item {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
 .about-gallery__item.is-visible {
@@ -1648,6 +1655,21 @@ body.dark-theme .footer__divider {
     border-radius: 0.5rem;
     margin-top: var(--mb-0-5);
   }
+}
+
+/* ================================
+   TIMELINE SCROLL ANIMATION
+   Same pattern as gallery fade-in
+================================ */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* ================================
