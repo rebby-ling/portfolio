@@ -149,7 +149,6 @@
           </p>
 
           <div class="gallery-filter" role="group" aria-label="Filter gallery">
-            <div class="gallery-filter__indicator" aria-hidden="true"></div>
             <button class="gallery-filter__btn is-active" data-filter="all">All</button>
             <button class="gallery-filter__btn" data-filter="kendo">Kendo</button>
             <button class="gallery-filter__btn" data-filter="portraits">Portraits</button>
@@ -1082,24 +1081,25 @@
           });
         });
 
+        // Pinterest-style lazy load
+        document.querySelectorAll('.about-gallery__img').forEach(function (img) {
+          function markLoaded() { img.classList.add('is-loaded'); }
+          if (img.complete && img.naturalWidth > 0) {
+            markLoaded();
+          } else {
+            img.addEventListener('load', markLoaded);
+            img.addEventListener('error', markLoaded);
+          }
+        });
+
         var btns = document.querySelectorAll('.gallery-filter__btn');
         var items = document.querySelectorAll('.about-gallery__item');
-        var indicator = document.querySelector('.gallery-filter__indicator');
-
-        function moveIndicator(activeBtn) {
-          if (!indicator || !activeBtn) return;
-          var containerRect = activeBtn.closest('.gallery-filter').getBoundingClientRect();
-          var btnRect = activeBtn.getBoundingClientRect();
-          indicator.style.width = btnRect.width + 'px';
-          indicator.style.transform = 'translateX(' + (btnRect.left - containerRect.left) + 'px)';
-        }
 
         btns.forEach(function (btn) {
           btn.addEventListener('click', function () {
             if (btn.classList.contains('is-active')) return;
             btns.forEach(function (b) { b.classList.remove('is-active'); });
             btn.classList.add('is-active');
-            moveIndicator(btn);
 
             var cat = btn.dataset.filter;
             var toShow = [];
@@ -1112,14 +1112,14 @@
               }
             });
 
-            // Phase 1: fade out items that are leaving
+            // Phase 1: fade out leaving items
             toHide.forEach(function (item) {
               if (!item.classList.contains('is-hidden')) {
                 item.classList.add('is-leaving');
               }
             });
 
-            // Phase 2: prep items that should appear (keep hidden but mark as entering)
+            // Phase 2: show entering items at opacity 0
             toShow.forEach(function (item) {
               if (item.classList.contains('is-hidden')) {
                 item.classList.remove('is-hidden');
@@ -1128,14 +1128,11 @@
             });
 
             setTimeout(function () {
-              // Commit hiding for leaving items
               toHide.forEach(function (item) {
                 item.classList.remove('is-leaving');
                 item.classList.add('is-hidden');
                 item.style.gridRowEnd = '';
               });
-
-              // Trigger fade-in for entering items
               requestAnimationFrame(function () {
                 toShow.forEach(function (item) {
                   item.classList.remove('is-entering');
@@ -1146,10 +1143,7 @@
           });
         });
 
-        setTimeout(function () {
-          resizeAll();
-          moveIndicator(document.querySelector('.gallery-filter__btn.is-active'));
-        }, 200);
+        setTimeout(resizeAll, 200);
       })();
     </script>
   </body>
