@@ -88,5 +88,13 @@
   
   /* =========================================================
      DARK THEME SUPPORT
-  ======
+  ========================================================= */
+  body.dark-theme .testimonial-tooltip {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  }
+
+  body.dark-theme .cite {
+    text-decoration-color: rgba(247, 100, 100, 0.5);
+  }
   

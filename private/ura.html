@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link rel="stylesheet" href="/assets/css/nav.css" />
     <link rel="stylesheet" href="/assets/css/project.css" />
+    <link rel="stylesheet" href="/assets/css/lightbox.css" />
     <link rel="stylesheet" href="/assets/css/aos.css" />
 
     <title>Rebecca Ling</title>
@@ -34,209 +35,629 @@
     </header>
 
     <!-- CONTENT -->
-    <main class="project-page">
-      <!-- HERO -->
-      <section class="project-hero" data-aos="fade-up">
-        <h1 class="project-hero__title">URA: ePlanner</h1>
+    <div class="project-layout">
+      <!-- Side nav placeholder — filled by fetch below -->
+      <div id="project-nav-placeholder"></div>
 
-        <p class="project-hero__description">
-          ePlanner is a geospatial platform used by Singapore’s government
-          agencies to test scenarios, evaluate land proposals, and plan the
-          country’s future. I improved usability, strengthened information
-          hierarchy, and introduced scalable design governance across ePlanner's
-          complex, multi-module ecosystem.
-        </p>
+      <main class="project-content">
+        <!-- HERO -->
+        <section class="project-hero" data-aos="fade-up">
+          <h1 class="project-hero__title">URA: ePlanner</h1>
 
-        <div class="project-meta">
-          <div>
-            <div class="project-meta__label">Role</div>
-            <div class="project-meta__value">Product Designer</div>
-          </div>
+          <p class="project-hero__description">
+            ePlanner is a geospatial platform used by Singapore's government
+            agencies to simulate land scenarios, evaluate development proposals,
+            and plan the country's urban future. Over a year embedded within
+            URA's Digital and Planning Lab as the sole Accenture designer, I
+            built the design practice from the ground up: establishing a shared
+            design system, formalising user research, and owning UX across 15+
+            features while working directly alongside product and engineering.
+          </p>
 
-          <div>
-            <div class="project-meta__label">Duration</div>
-            <div class="project-meta__value">Jun 2025 – Present</div>
-          </div>
-
-          <div>
-            <div class="project-meta__label">Focus Areas</div>
-            <div class="project-meta__value">
-              Interaction Design, Geospatial UX, Design Systems, User Research
+          <div class="project-meta">
+            <div>
+              <div class="project-meta__label">Role</div>
+              <div class="project-meta__value">Product Designer</div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- HIGHLIGHTS -->
-      <section class="project-section" data-aos="fade-up">
-        <h2 class="project-section__title">Highlights & outcomes</h2>
-
-        <div class="project-grid-2">
-          <div class="project-highlight__item">
-            <div class="project-highlight__number">1</div>
-            <div class="project-highlight__text">
-              Established and scaled the Design Language System (DLS) for
-              ePlanner, documenting components, tokens, and patterns that
-              improved consistency across modules built by different engineering
-              teams.
+            <div>
+              <div class="project-meta__label">Duration</div>
+              <div class="project-meta__value">Jun 2025 – Jun 2026</div>
             </div>
-          </div>
 
-          <div class="project-highlight__item">
-            <div class="project-highlight__number">2</div>
-            <div class="project-highlight__text">
-              Led research across 30+ interviews and multiple rounds of testing,
-              surfacing insights that directly shaped prioritisation for cluster
-              modules like Site Simulation and Local Traffic Simulation.
-            </div>
-          </div>
-
-          <div class="project-highlight__item">
-            <div class="project-highlight__number">3</div>
-            <div class="project-highlight__text">
-              Introduced a structured UX governance process adopted by PMs and
-              engineers, improving cross-team alignment and decision-making
-              efficiency.
-            </div>
-          </div>
-
-          <div class="project-highlight__item">
-            <div class="project-highlight__number">4</div>
-            <div class="project-highlight__text">
-              Designed and prototyped a revamped RBAC Access Management
-              Dashboard, resolving long-standing confusion around permissions
-              and reducing onboarding friction for new analysts.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CHALLENGE -->
-      <section class="project-section" data-aos="fade-up">
-        <h2 class="project-section__title">The challenge</h2>
-
-        <p class="project-text">
-          ePlanner houses diverse modules—including Site Simulation, Wind
-          Analysis, and Urban Synth. Each module was built at different times,
-          by different engineers, and with different UX approaches. This led to
-          inconsistent components, disjointed navigation patterns, and confusing
-          workflows across the platform.
-        </p>
-
-        <p class="project-text">
-          As planning decisions involve policy makers, analysts, and technical
-          specialists, clarity and consistency were essential to reduce
-          cognitive load and improve workflow efficiency.
-        </p>
-      </section>
-
-      <!-- ROLE -->
-      <section class="project-section" data-aos="fade-up">
-        <h2 class="project-section__title">My role & responsibilities</h2>
-        <p class="project-text">
-          My work focused on strengthening ePlanner’s design foundation through
-          system-level improvements, user research, and collaborative design
-          delivery. These efforts led to a more consistent interface, clearer
-          workflows, and a roadmap informed by real user insights.
-        </p>
-        <ul class="project-list">
-          <li>
-            Created unified UX flows across technical and planning modules
-          </li>
-          <li>Improved form-heavy workflows and information hierarchy</li>
-          <li>
-            Defined UX patterns for navigation, table interactions, and side
-            panels
-          </li>
-          <li>
-            Worked closely with URA’s engineers during grooming & QA cycles
-          </li>
-          <li>
-            Introduced structured design governance across multidisciplinary
-            teams
-          </li>
-        </ul>
-      </section>
-
-      <!-- MODULE WORK -->
-      <section class="project-section" data-aos="fade-up">
-        <h2 class="project-section__title">Key feature improvements</h2>
-
-        <p class="project-text">
-          The old ePlanner did not have a unified UI, and the was a lack of
-          consistency in the interaction across various tools. I helped to
-          establish new interaction pattersn that can be applied throughout the
-          platform, and helped to update the new UI to be sleek and modern.
-        </p>
-        <div class="project-doc">
-          <div class="project-doc__full">
-            <h3 class="project-doc__title">Updated map UI</h3>
-            <div class="project-slider" data-aos="fade-up">
-              <div class="project-slider__wrapper">
-                <img
-                  src="/assets/img/URA/old-eplanner.svg"
-                  class="project-slider__before"
-                />
-                <img
-                  src="/assets/img/URA/new-eplanner.svg"
-                  class="project-slider__after"
-                />
-                <div class="project-slider__handle">
-                  <div class="project-slider__handle-line"></div>
-                </div>
+            <div>
+              <div class="project-meta__label">Focus Areas</div>
+              <div class="project-meta__value">
+                Interaction Design, Geospatial UX, Design Systems, User Research
+                & Testing
               </div>
             </div>
           </div>
-          <div class="project-doc__two">
-            <div class="project-doc__card">
-              <h3 class="project-doc__title">Splash page</h3>
-              <img src="/assets/img/URA/splash-page.svg" />
-            </div>
+        </section>
 
-            <div class="project-doc__card">
-              <h3 class="project-doc__title">Home page</h3>
-              <img src="/assets/img/URA/home-page.gif" />
-            </div>
-          </div>
-        </div>
-      </section>
+        <!-- HIGHLIGHTS -->
+        <section class="project-section" data-aos="fade-up">
+          <h2 class="project-section__title">Highlights & outcomes</h2>
 
-      <!-- DESIGN SYSTEM -->
-      <section class="project-section" data-aos="fade-up">
-        <h2 class="project-section__title">User research & testing</h2>
-
-        <p class="project-text">
-          While there was some user testing done by the internal team
-          previously, there was no formalised process and quantitative way to
-          properly capture the feedback they received. I thus helped to
-          formalise the User Testing process within URA through the
-          establishment of UX research frameworks that better quantified and
-          captured key user feedback. The frameworks could be customised to fit
-          the team's need.
-        </p>
-
-        <div class="project-doc">
           <div class="project-grid-2">
-            <div class="project-card">
-              <h3 class="project-card__title">Conducted</h3>
-              <h2 class="project-card__body">30+ interviews</h2>
+            <div class="project-highlight__item">
+              <h3 class="project-card__title">Roadmap shifted</h3>
+              <div class="project-highlight__text">
+                GLS research with 6 senior planners surfaced a critical workflow
+                gap the team hadn't scoped. One planned feature was
+                deprioritised; GLS support was fast-tracked. Research directly
+                changed what got built next.
+              </div>
             </div>
 
-            <div class="project-card">
-              <h3 class="project-card__title">Tested</h3>
-              <h2 class="project-card__body">7 features</h2>
+            <div class="project-highlight__item">
+              <h3 class="project-card__title">1,000+ users unblocked</h3>
+              <div class="project-highlight__text">
+                The RBAC Access Management Dashboard resolved long-standing
+                permission confusion that had been generating repeated PM
+                escalations. Admins now manage access at scale across 40+
+                government agencies without manual workarounds.
+              </div>
             </div>
 
-            <div class="project-card">
-              <h3 class="project-card__title">Uncovered</h3>
-              <h2 class="project-card__body">16+ key insights</h2>
+            <div class="project-highlight__item">
+              <h3 class="project-card__title">
+                Research adopted independently
+              </h3>
+              <div class="project-highlight__text">
+                The UT framework I formalised and presented to management is now
+                used by the URA team to run their own sessions without vendor
+                support. The process outlasted my engagement.
+              </div>
             </div>
 
-            <div class="project-card">
-              <h3 class="project-card__title">Created</h3>
-              <h2 class="project-card__body">2 frameworks</h2>
+            <div class="project-highlight__item">
+              <h3 class="project-card__title">
+                DLS now a shared source of truth
+              </h3>
+              <div class="project-highlight__text">
+                90+ components documented with guidelines adopted across design
+                and engineering. Engineers across modules can now build against
+                a shared reference without routing component decisions through
+                me. The docs also serve as the blueprint for the planned
+                Storybook transition.
+              </div>
             </div>
           </div>
+        </section>
+
+        <!-- CHALLENGE -->
+        <section class="project-section" data-aos="fade-up">
+          <h2 class="project-section__title">The challenge</h2>
+
+          <p class="project-text">
+            ePlanner had been built incrementally by multiple engineering squads
+            over several years, with no shared design system and no dedicated
+            designer overseeing the whole product. Each module worked
+            differently: components that looked the same behaved differently,
+            navigation patterns didn't carry across tools, and inconsistencies
+            had accumulated without anyone with the mandate to fix them.
+          </p>
+
+          <p class="project-text">
+            The users (urban planners, architects, government analysts) are
+            domain experts, not software experts. They think in setbacks, buffer
+            zones, Gross Floor Areas, and GLS timelines. Early on I had to
+            absorb this language and the workflows behind it quickly, or I
+            couldn't design for the right problems.
+          </p>
+
+          <p class="project-text">
+            What research made clear was that expert users don't struggle with
+            complexity. They struggle with ambiguity. The workarounds I observed
+            (memorising sequences, exporting data to verify it elsewhere,
+            re-running simulations to check results the UI should have surfaced)
+            weren't signs of a difficult tool. They were signs of an
+            unpredictable one. The goal wasn't to simplify ePlanner. It was to
+            make its behaviour match what users already expected, so their
+            attention stayed on the planning work, not the software.
+          </p>
+
+          <p class="project-text">
+            I was brought in as the first designer with a mandate to work across
+            the whole product, not just individual features.
+          </p>
+        </section>
+
+        <!-- ROLE -->
+        <section class="project-section" data-aos="fade-up">
+          <h2 class="project-section__title">What I owned</h2>
+
+          <p class="project-text">
+            I joined a team with one in-house designer who hadn't had bandwidth
+            to lead design initiatives. There were no established research
+            processes, no shared component library, and no Figma structure the
+            wider team could navigate. Rather than wait for direction, I
+            identified four critical gaps in my first weeks and initiated
+            workstreams to address each.
+          </p>
+
+          <div class="project-doc">
+            <div class="project-grid-2">
+              <div class="project-card">
+                <h3 class="project-card__title">Design Language System</h3>
+                <p class="project-card__body">
+                  No shared component library existed. Each module had been
+                  built independently, compounding inconsistency platform-wide.
+                  I proposed, scoped, and built the Calcite DLS from scratch —
+                  90+ components, with documentation that now serves as the
+                  blueprint for the planned Storybook transition.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">
+                  RBAC Access Management Dashboard
+                </h3>
+                <p class="project-card__body">
+                  Early interviews revealed analysts had no visibility into
+                  their own permission boundaries, generating repeated PM
+                  escalations with no tool to resolve them. I made the case to
+                  reprioritise, then designed the dashboard end to end. Now used
+                  by 1,000+ government users.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">UX Research Practice</h3>
+                <p class="project-card__body">
+                  Testing was ad-hoc and findings weren't reaching the product
+                  team in an actionable form. I introduced two frameworks and
+                  ran 30+ interviews across 7 features. GLS research with 6
+                  stakeholders directly caused a roadmap reprioritisation: one
+                  feature fast-tracked, another deferred.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">Figma Organisation System</h3>
+                <p class="project-card__body">
+                  Design files were unnavigable outside of my immediate context.
+                  I restructured the Figma workspace so the URA team and
+                  engineering teams could reference design decisions
+                  independently, without routing through me.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p class="project-text">
+            <br />
+            Beyond these workstreams, I also collaborated with engineers through
+            grooming and QA cycles to ensure design intent was faithfully
+            implemented, and delivered UX flows across 10+ features including
+            Site Simulation, Local Traffic Simulation, and Government Land
+            Sales.
+          </p>
+        </section>
+
+        <!-- MODULE WORK -->
+        <section class="project-section" data-aos="fade-up">
+          <h2 class="project-section__title">Design system governance</h2>
+
+          <p class="project-text">
+            ePlanner's team had been building on Calcite, Esri's open-source
+            design system. The problem was that Calcite was designed for general
+            GIS tooling, not for ePlanner's specialised custom interfaces. With
+            no shared process for handling gaps, each team solved the same
+            problems independently, resulting in inconsistent components
+            scattered across modules.
+          </p>
+
+          <p class="project-text">
+            Rather than patch inconsistencies one at a time, I proposed a
+            structured DLS overhaul to management and got alignment before
+            starting. The goal was to make the library a true single source of
+            truth: something the team could hand to an engineer and trust they'd
+            build the right thing, with or without a designer in the room.
+          </p>
+          <!-- FULL WIDTH (1) -->
+          <div class="project-doc">
+            <div class="project-doc__full">
+              <h3 class="project-doc__title">DLS enhancement plan</h3>
+              <div class="project-carousel" data-aos="fade-up">
+                <div class="project-carousel__track">
+                  <img
+                    src="/assets/img/URA/DLS/2.png"
+                    class="project-carousel__item"
+                  />
+                  <img
+                    src="/assets/img/URA/DLS/3.png"
+                    class="project-carousel__item"
+                  />
+                  <img
+                    src="/assets/img/URA/DLS/4.png"
+                    class="project-carousel__item"
+                  />
+                  <img
+                    src="/assets/img/URA/DLS/5.png"
+                    class="project-carousel__item"
+                  />
+                  <img
+                    src="/assets/img/URA/DLS/6.png"
+                    class="project-carousel__item"
+                  />
+                  <img
+                    src="/assets/img/URA/DLS/7.png"
+                    class="project-carousel__item"
+                  />
+                  <img
+                    src="/assets/img/URA/DLS/8.png"
+                    class="project-carousel__item"
+                  />
+                </div>
+
+                <button
+                  class="project-carousel__btn project-carousel__btn--prev"
+                >
+                  <i class="uil uil-angle-left carousel__icon"></i>
+                </button>
+                <button
+                  class="project-carousel__btn project-carousel__btn--next"
+                >
+                  <i class="uil uil-angle-right carousel__icon"></i>
+                </button>
+
+                <div class="project-carousel__dots"></div>
+              </div>
+            </div>
+          </div>
+
+          <p class="project-text">
+            <br />
+            The work happened in three phases: audit and clean up unused Calcite
+            components; build ePlanner-specific components that Calcite never
+            covered; then document everything with usage guidelines, anatomy
+            breakdowns, and interaction rules. The mid-project reality check was
+            that the DLS I'd initially organised was already becoming unwieldy
+            as the team grew, so I ran a second pass to restructure it around
+            Atomic Design principles before it became unmaintainable.
+          </p>
+
+          <div class="project-doc">
+            <div class="project-grid-2">
+              <div class="project-card">
+                <h3 class="project-card__title">
+                  01. Restructured the Figma library
+                </h3>
+                <img src="/assets/img/URA/DLS/restructure.png" />
+                <p>
+                  Reorganised the component library to follow Atomic Design
+                  principles, replacing a flat, hard-to-navigate structure with
+                  intuitive categories including Templates, Navigation, Cards,
+                  and Patterns.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">
+                  02. Tidied existing Calcite components
+                </h3>
+                <img src="/assets/img/URA/DLS/tidy.png" />
+                <p>
+                  Audited and cleaned Calcite components to better fit
+                  ePlanner's use cases. Removed unused variants, simplified prop
+                  sets, and brought component structures in line with how the
+                  platform actually uses them.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">
+                  03. Built new custom components
+                </h3>
+                <img src="/assets/img/URA/DLS/custom-component.png" />
+                <p>
+                  Designed ePlanner-specific components that fall outside
+                  Calcite's scope entirely, including Notice Banners, Button
+                  Group (Round), ePlanner Navigation, Workspace Card, and
+                  Content Display. Each follows consistent patterns for use
+                  across all tools.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">04. Adding documentation</h3>
+                <img src="/assets/img/URA/DLS/guidelines.png" />
+                <p>
+                  Added usage guidelines, anatomy breakdowns, spacing rules, and
+                  contextual examples for all updated and new components. These
+                  docs serve as the blueprint for the eventual Storybook
+                  transition.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">
+                  05. Established shared design patterns
+                </h3>
+                <img src="/assets/img/URA/DLS/patterns.png" />
+                <p>
+                  Beyond individual components, I reviewed tools across ePlanner
+                  and defined fixed interaction patterns to ensure consistent
+                  behaviour across all modules: panel layouts, left panel
+                  interactions, tool-switching flows, and AI-assisted features
+                  like Image Generation.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">
+                  06. Documenting inconsistencies to be fixed
+                </h3>
+                <img src="/assets/img/URA/DLS/inconsistencies.png" />
+                <p>
+                  I also noted down any inconsistencies in existing
+                  interactions, and ensured alignment with both the design and
+                  development teams on the new consistent interaction to be used
+                  moving forward.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p class="project-text">
+            <br />
+            With the DLS in place, engineering teams across modules could build
+            against a shared reference for the first time. New feature builds no
+            longer required my direct involvement on every component decision —
+            teams could work independently while staying visually and
+            behaviourally consistent. The documentation I wrote also serves as
+            the blueprint for the planned Storybook transition, which will move
+            the source of truth from Figma into a developer-owned environment
+            the team controls entirely.
+          </p>
+
+          <div class="project-doc">
+            <div class="project-doc__full">
+              <h3 class="project-doc__title">Updated map UI</h3>
+              <div class="project-slider" data-aos="fade-up">
+                <div class="project-slider__wrapper">
+                  <img
+                    src="/assets/img/URA/old-eplanner.svg"
+                    class="project-slider__before"
+                  />
+                  <img
+                    src="/assets/img/URA/new-eplanner.svg"
+                    class="project-slider__after"
+                  />
+                  <div class="project-slider__handle">
+                    <div class="project-slider__handle-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-doc__two">
+              <div class="project-doc__card">
+                <h3 class="project-doc__title">Splash page</h3>
+                <img src="/assets/img/URA/splash-page.svg" />
+              </div>
+
+              <div class="project-doc__card">
+                <h3 class="project-doc__title">Home page</h3>
+                <img src="/assets/img/URA/home-page.gif" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RBAC -->
+        <section class="project-section" data-aos="fade-up">
+          <h2 class="project-section__title">
+            RBAC: Access management for ePlanner
+          </h2>
+
+          <p class="project-text">
+            ePlanner's datasets carry varying levels of sensitivity. Different
+            government agencies and user groups need access to different
+            datasets, and that access has to be managed, audited, and kept
+            current. Before RBAC, this was handled manually and inconsistently —
+            admins had no structured way to assign access at scale, users had no
+            visibility into what they could access or why, and group owners were
+            fielding ad hoc requests with no centralised tool to manage them.
+          </p>
+
+          <p class="project-text">
+            RBAC is a standalone access management system built alongside
+            ePlanner to solve this. It serves four distinct user roles, each
+            with meaningfully different needs, and handles two core flows:
+            automated access assignment through Standing Orders, and manual
+            access through user-initiated requests.
+          </p>
+
+          <div class="project-doc">
+            <div class="project-grid-2">
+              <div class="project-card">
+                <h3 class="project-card__title">Admin</h3>
+                <p>
+                  Creates and manages groups, submits Standing Order requests
+                  for automated agency-based assignment, monitors onboarding
+                  metrics, and handles new agency domains flagged by the system.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3 class="project-card__title">Manager</h3>
+                <p>
+                  Reviews and approves or rejects Admin's Standing Order
+                  requests, with access to supporting evidence and the ability
+                  to request modifications before making a final decision.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3 class="project-card__title">Group Owner</h3>
+                <p>
+                  Reviews individual access requests for groups they own,
+                  approves or denies with comments, can bulk-action multiple
+                  requests, set approval delegates, and view request history.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3 class="project-card__title">User</h3>
+                <p>
+                  Requests access to groups from within ePlanner or directly via
+                  RBAC, tracks request status, views current memberships, and
+                  receives notifications on approval outcomes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="project-subheader">
+            Standing Orders: automated assignment
+          </h3>
+          <p class="project-text">
+            The core challenge for admins was scaling access management across
+            agencies. Manually adding individual users was unsustainable as
+            ePlanner grew. Standing Orders solve this by letting admins define
+            rules. For example, any user whose agency matches "URA" is
+            automatically assigned to the URA group on first login. The flow
+            required careful design to handle edge cases: what happens when an
+            agency is new and has no existing Standing Order, when a Manager
+            rejects an Admin's request, or when a user logs in for the first
+            time from an unknown domain.
+          </p>
+
+          <!-- FULL WIDTH (1) -->
+          <div class="project-doc">
+            <div class="project-doc__full">
+              <h3 class="project-doc__title">Group access management</h3>
+              <div class="project-carousel" data-aos="fade-up">
+                <div class="project-carousel__track">
+                  <img
+                    src="/assets/img/URA/RBAC/eplanner-grp.png"
+                    class="project-carousel__item"
+                  />
+                  <img
+                    src="/assets/img/URA/RBAC/grp-owned.png"
+                    class="project-carousel__item"
+                  />
+                  <img
+                    src="/assets/img/URA/RBAC/image.png"
+                    class="project-carousel__item"
+                  />
+                </div>
+
+                <button
+                  class="project-carousel__btn project-carousel__btn--prev"
+                >
+                  <i class="uil uil-angle-left carousel__icon"></i>
+                </button>
+                <button
+                  class="project-carousel__btn project-carousel__btn--next"
+                >
+                  <i class="uil uil-angle-right carousel__icon"></i>
+                </button>
+
+                <div class="project-carousel__dots"></div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="project-subheader">User Requests: self-serve access</h3>
+          <p class="project-text">
+            Users can also discover datasets they need access to, either from
+            within ePlanner directly or by browsing RBAC's group directory, and
+            submit a request. The design challenge here was the form complexity.
+            A single user request for multiple groups generates separate
+            requests to each group owner, each of whom acts independently. Users
+            needed clear visibility into the status of each request without the
+            interface becoming overwhelming. Group owners needed to be able to
+            act quickly across multiple pending requests without losing context
+            on who was requesting what and why.
+          </p>
+
+          <!-- FULL WIDTH (1) -->
+          <div class="project-doc__full">
+            <h3 class="project-doc__title">Request flow</h3>
+            <div class="project-carousel" data-aos="fade-up">
+              <div class="project-carousel__track">
+                <img
+                  src="/assets/img/URA/RBAC/Wireframe.png"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/RBAC/Wireframe-1.png"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/RBAC/Wireframe-2.png"
+                  class="project-carousel__item"
+                />
+                <img
+                  src="/assets/img/URA/RBAC/Wireframe-3.png"
+                  class="project-carousel__item"
+                />
+              </div>
+
+              <button class="project-carousel__btn project-carousel__btn--prev">
+                <i class="uil uil-angle-left carousel__icon"></i>
+              </button>
+              <button class="project-carousel__btn project-carousel__btn--next">
+                <i class="uil uil-angle-right carousel__icon"></i>
+              </button>
+
+              <div class="project-carousel__dots"></div>
+            </div>
+          </div>
+
+          <div class="project-doc">
+            <div class="project-grid-2">
+              <div class="project-card">
+                <h3 class="project-card__title">Design system used</h3>
+                <p>
+                  ANT Design, chosen to handle the complex, form-heavy workflows
+                  that ePlanner's Calcite system was not suited for.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3 class="project-card__title">Users served</h3>
+                <p>
+                  1,000+ government agency users across Singapore's
+                  whole-of-government ePlanner deployment.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3 class="project-card__title">Key pain points addressed</h3>
+                <p>
+                  Manual, unscalable access assignment; no user visibility into
+                  access status; fragmented group owner workflows with no
+                  centralised review tool.
+                </p>
+              </div>
+              <div class="project-card">
+                <h3 class="project-card__title">Key design challenges</h3>
+                <p>
+                  Four roles with distinct mental models sharing one system;
+                  branching approval logic with rejection, modification, and
+                  re-submission flows; cross-system handoff between ePlanner and
+                  RBAC.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RESEARCH AND USER TESTING -->
+        <section class="project-section" data-aos="fade-up">
+          <h2 class="project-section__title">
+            Establishing a research practice
+          </h2>
+
+          <p class="project-text">
+            URA had run user sessions before, but without structure. Findings
+            varied in format, weren't traceable to specific design decisions,
+            and rarely reached the product team in a form they could act on.
+            Before running any research, I created and presented a moderated UT
+            protocol and synthesis template to management, making the case for
+            why systematic testing was worth the cost. Management's buy-in came
+            from that presentation, not from asking for permission.
+          </p>
+
           <!-- FULL WIDTH (1) -->
           <div class="project-doc__full">
             <h3 class="project-doc__title">Introducing a new process</h3>
@@ -274,9 +695,97 @@
               <div class="project-carousel__dots"></div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+
+          <p class="project-text">
+            <br />
+            The first formal study covered the Workspace and Site Simulation
+            redesigns, with 9 users over two weeks. It validated that the new
+            Workspace landing page improved usability, and that the redesigned
+            Site Simulation flow was more intuitive than what it replaced.
+            Specific findings fed directly into the next sprint priorities. The
+            synthesis format I used became the template for every subsequent
+            study.
+          </p>
+
+          <p class="project-text">
+            The most consequential research was the Government Land Sales study.
+            In the GLS process, before a land parcel goes to public tender, URA
+            teams run detailed simulations to assess viability. I interviewed 6
+            senior planners to map exactly how they used ePlanner in this
+            workflow, ran concept tests on existing tools, and surfaced a
+            significant gap: a core GLS preparation step had no proper ePlanner
+            support, forcing planners to work around the tool instead of with
+            it. Two features that had been on the roadmap were deprioritised.
+            GLS support was fast-tracked. That shift came from the research, not
+            from internal assumptions.
+          </p>
+
+          <div class="project-doc">
+            <div class="project-grid-2">
+              <div class="project-card">
+                <h3 class="project-card__title">Conducted</h3>
+                <h2 class="project-card__body">30+ interviews</h2>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">Tested</h3>
+                <h2 class="project-card__body">7 features</h2>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">Uncovered</h3>
+                <h2 class="project-card__body">16+ key insights</h2>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-card__title">Created</h3>
+                <h2 class="project-card__body">2 frameworks</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-section" data-aos="fade-up">
+          <h2 class="project-section__title">What the client said</h2>
+
+          <div class="project-doc">
+            <div class="project-doc__full">
+              <p class="project-quote">
+                "Rebecca led UX design across complex issues that improved
+                productivity, collaboration, and integration of modelling tools,
+                helping the design of the platform from a single page to a
+                multipage application with user access control interfaces
+                serving upward of 40 government agencies."
+              </p>
+
+              <p class="project-quote">
+                "Her findings directly influenced the product roadmap and
+                secured management buy-in for embedded user testing."
+              </p>
+
+              <p class="project-quote">
+                "Her ability to handle multiple workstreams autonomously whilst
+                maintaining high quality despite fast-paced development cycles
+                reflects a proactive approach."
+              </p>
+
+              <p class="project-quote__attribution">
+                Ching Tuan Yee, Director, Design and Planning Lab, Urban
+                Redevelopment Authority. March 2026.
+              </p>
+
+              <a
+                href="/assets/pdf/ura-commendation.pdf"
+                target="_blank"
+                class="project-quote__link"
+              >
+                <i class="uil uil-file-alt"></i> View full recommendation letter
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
 
     <!--==================== FOOTER ====================-->
     <div id="footer-placeholder"></div>
@@ -292,9 +801,27 @@
         })
         .catch((error) => console.error("Footer failed to load:", error));
     </script>
+    <script>
+      fetch("/partials/project-nav.html")
+        .then((r) => {
+          if (!r.ok) throw new Error(r.status);
+          return r.text();
+        })
+        .then((html) => {
+          document.getElementById("project-nav-placeholder").innerHTML = html;
+          // Fire event so project-nav.js knows the DOM is ready
+          document.dispatchEvent(new Event("projectNavReady"));
+        })
+        .catch((err) => console.error("Project nav failed:", err));
+    </script>
     <!-- JS -->
+    <div class="custom-cursor"></div>
+
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/analytics.js"></script>
     <script src="/assets/js/aos.js"></script>
+    <script src="/assets/js/project-nav.js"></script>
     <script>
       AOS.init({ duration: 700, once: true });
     </script>

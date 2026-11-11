@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,11 +27,14 @@
     />
 
     <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
     <!--==================== CSS ====================-->
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/work.css" />
+    <link rel="stylesheet" href="assets/css/work.css?v=2" />
     <link rel="stylesheet" href="assets/css/nav.css" />
     <link rel="stylesheet" href="assets/css/testimonials.css" />
     <link rel="stylesheet" href="assets/css/aos.css" />
@@ -88,7 +92,10 @@
           data-aos-delay="200"
         >
           <div class="about-hero__avatar">
-            <img src="assets/img/image-avatar.gif" alt="Avatar" />
+            <img
+              src="assets/img/image-avatar.gif"
+              alt="Rebecca’s avatar illustration"
+            />
           </div>
 
           <h1 class="about-hero__title">
@@ -96,22 +103,34 @@
               <span class="typing-wrapper">
                 <span class="typing-text"></span>
               </span>
-              
             </span>
           </h1>
-          
-          
-          <p class="about-hero__role">Designer who fights for good UX (literally, sometimes)</p>
+
+          <p class="about-hero__role">
+            Designer who fights for good UX (literally, sometimes)
+          </p>
 
           <p class="about-hero__subtitle">
-            Welcome to my corner of the internet! I design things, hoard memories, and occasionally hit people with a bamboo sword. Turns out UX and kendo share similar values: timing, precision and intention. When I’m not shaping better product experiences, I’m usually underwater or in a sports hall swinging a sword at friends.
+            Welcome to my corner of the internet! I design things, hoard
+            memories, and occasionally hit people with a bamboo sword. UX and
+            kendo share similar values: timing, precision and intention. When
+            I’m not shaping better product experiences, I’m usually underwater
+            or in a sports hall swinging a sword at friends.
           </p>
 
           <div class="about-hero__cta">
             <a
+              href="mailto:rebecca.lingzw@gmail.com"
+              class="footer__social-link"
+              aria-label="Email"
+            >
+              <i class="uil uil-envelope"></i>
+            </a>
+            <a
               href="https://www.linkedin.com/in/rebeccaling1209/"
               target="_blank"
               class="footer__social-link"
+              aria-label="LinkedIn"
             >
               <i class="uil uil-linkedin-alt"></i>
             </a>
@@ -129,168 +148,395 @@
             Some snapshots of my life and personal interests
           </p>
 
+          <div class="gallery-filter" role="group" aria-label="Filter gallery">
+            <button class="gallery-filter__btn is-active" data-filter="all">All</button>
+            <button class="gallery-filter__btn" data-filter="kendo">Kendo</button>
+            <button class="gallery-filter__btn" data-filter="portraits">Portraits</button>
+            <button class="gallery-filter__btn" data-filter="scenery">Scenery</button>
+          </div>
+
           <div class="about-gallery__grid">
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/gallery/kendo-tournament.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Wide view of a kendo tournament hall with multiple matches" />
+              <figcaption class="about-gallery__caption">Tournament day</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item is-video" data-category="scenery">
+              <a href="https://youtu.be/wm4S3EfcJcw" target="_blank">
+                <img
+                  src="assets/img/gallery/kamikochi.png"
+                  alt="Serene views in Kamikochi, Japan"
+                  class="about-gallery__img"
+                  loading="lazy"
+                />
+                <figcaption class="about-gallery__caption">
+                  Serene views
+                </figcaption>
+                <div class="about-gallery__video-badge">
+                  <i class="uil uil-play"></i>
+                </div>
+              </a>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="portraits">
+              <img src="assets/img/gallery/norway-soldier.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Norwegian soldier waiting at an Oslo train platform" />
+              <figcaption class="about-gallery__caption">Oslo encounters</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
               <img
                 src="assets/img/gallery/bicycle.png"
+                alt="Amateur photography — bicycle on a scenic path"
                 class="about-gallery__img"
+                loading="lazy"
               />
               <figcaption class="about-gallery__caption">
                 Amateur photography
               </figcaption>
             </figure>
 
-
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
-              <a href="https://youtu.be/wm4S3EfcJcw" target="_blank">
-                <img src="assets/img/gallery/kamikochi.png" class="about-gallery__img" />
-
-                <figcaption class="about-gallery__caption">
-                Serene views
-                </figcaption>
-
-                <!-- Play icon overlay -->
-                <div class="about-gallery__video-badge">
-                  <i class="uil uil-play"></i>
-                </div>
-              </a>
+            <figure class="about-gallery__item" data-category="portraits">
+              <img src="assets/img/gallery/flores-sunrise.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Silhouette of a person standing on a hilltop at sunrise in Flores" />
+              <figcaption class="about-gallery__caption">Flores sunrise</figcaption>
             </figure>
 
-            
-            <figure class="about-gallery__item" data-aos="fade-up">
-              <img
-                src="assets/img/gallery/art.png"
-                class="about-gallery__img"
-              />
-              <figcaption class="about-gallery__caption">
-                Handmade cards
-              </figcaption>
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/gallery/kendo-kakari.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Two kendo players in close combat" />
+              <figcaption class="about-gallery__caption">Kendo combat</figcaption>
             </figure>
 
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
+            <figure class="about-gallery__item" data-category="portraits">
+              <img src="assets/img/gallery/portrait-boat.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Person with pink hair standing on a boat at sunset" />
+              <figcaption class="about-gallery__caption">Golden hour at sea</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/norway-cabin.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Red Norwegian cabin with Norwegian flag on a mountain" />
+              <figcaption class="about-gallery__caption">Norwegian highlands</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item is-video" data-category="scenery">
               <a href="https://youtu.be/lJNZXuB3dn4" target="_blank">
-                <img src="assets/img/gallery/rajaampat.png" class="about-gallery__img" />
-
+                <img
+                  src="assets/img/gallery/rajaampat.png"
+                  alt="Oceans and beaches in Raja Ampat, Indonesia"
+                  class="about-gallery__img"
+                  loading="lazy"
+                />
                 <figcaption class="about-gallery__caption">
                   Oceans and beaches
                 </figcaption>
-
-                <!-- Play icon overlay -->
                 <div class="about-gallery__video-badge">
                   <i class="uil uil-play"></i>
                 </div>
               </a>
             </figure>
 
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
-              <a href="https://youtu.be/46bNbMCqFJ4" target="_blank">
-                <img src="assets/img/gallery/wombat.png" class="about-gallery__img" />
-
-                <figcaption class="about-gallery__caption">
-                 Adorable animals
-                </figcaption>
-
-                <!-- Play icon overlay -->
-                <div class="about-gallery__video-badge">
-                  <i class="uil uil-play"></i>
-                </div>
-              </a>
+            <figure class="about-gallery__item" data-category="portraits">
+              <img src="assets/img/gallery/hoian-artist.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="A Vietnamese street artist sitting before a display of ink paintings" />
+              <figcaption class="about-gallery__caption">Street artist, Hoi An</figcaption>
             </figure>
 
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
-              <a href="https://www.youtube.com/watch?v=dbEtWNIgGcY" target="_blank">
-                <img src="assets/img/gallery/bridge.png" class="about-gallery__img" />
-
-                <figcaption class="about-gallery__caption">
-                  Road trips
-                </figcaption>
-
-                <!-- Play icon overlay -->
-                <div class="about-gallery__video-badge">
-                  <i class="uil uil-play"></i>
-                </div>
-              </a>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up">
-              <img
-                src="assets/img/gallery/city.png"
-                class="about-gallery__img"
-              />
-              <figcaption class="about-gallery__caption">City views</figcaption>
-            </figure>
-
-
-            <figure class="about-gallery__item is-video" data-aos="fade-up">
-              <a href="https://youtu.be/6M6AV_3VwFA" target="_blank">
-                <img src="assets/img/gallery/melbourne.png" class="about-gallery__img" />
-
-                <figcaption class="about-gallery__caption">
-                 Nature hikes
-                </figcaption>
-
-                <!-- Play icon overlay -->
-                <div class="about-gallery__video-badge">
-                  <i class="uil uil-play"></i>
-                </div>
-              </a>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up">
-              <img
-                src="assets/img/gallery/diving.png"
-                class="about-gallery__img"
-              />
-              <figcaption class="about-gallery__caption">
-                Scuba diving
-              </figcaption>
-            </figure>
-
-          
-            <figure class="about-gallery__item" data-aos="fade-up">
-              <img
-                src="assets/img/gallery/kendo.png"
-                class="about-gallery__img"
-              />
-              <figcaption class="about-gallery__caption">
-                Kendo competitions
-              </figcaption>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up">
-              <img
-                src="assets/img/gallery/lighthouse.png"
-                class="about-gallery__img"
-              />
-              <figcaption class="about-gallery__caption">
-                Beautiful sunsets
-              </figcaption>
-            </figure>
-
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-category="scenery">
               <img
                 src="assets/img/gallery/cradlemountain.png"
+                alt="Cradle Mountain landscape in Tasmania"
                 class="about-gallery__img"
+                loading="lazy"
               />
               <figcaption class="about-gallery__caption">
                 Mountains work too
               </figcaption>
             </figure>
 
-            <figure class="about-gallery__item" data-aos="fade-up">
+            <figure class="about-gallery__item" data-category="kendo">
+              <img
+                src="assets/img/gallery/kendo.png"
+                alt="Kendo competition in full armour"
+                class="about-gallery__img"
+                loading="lazy"
+              />
+              <figcaption class="about-gallery__caption">
+                Kendo competitions
+              </figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/norway-dock.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Curved red-frame bench seats on a wooden dock by a fjord" />
+              <figcaption class="about-gallery__caption">Fjord-side seating</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/gallery/kendo-ippon.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Two kendo players mid-strike at a tournament" />
+              <figcaption class="about-gallery__caption">Tournament strike</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="portraits">
+              <img src="assets/img/gallery/komodo-boats.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Colourful wooden fishing boats moored at Komodo" />
+              <figcaption class="about-gallery__caption">Komodo fishing village</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item is-video" data-category="scenery">
+              <a href="https://youtu.be/46bNbMCqFJ4" target="_blank">
+                <img
+                  src="assets/img/gallery/wombat.png"
+                  alt="Adorable wombat encountered on a trip"
+                  class="about-gallery__img"
+                  loading="lazy"
+                />
+                <figcaption class="about-gallery__caption">
+                  Adorable animals
+                </figcaption>
+                <div class="about-gallery__video-badge">
+                  <i class="uil uil-play"></i>
+                </div>
+              </a>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/gallery/kendo-men.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Two kendo players exchanging men strikes" />
+              <figcaption class="about-gallery__caption">Men strike</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/oslo-opera.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="The Oslo Opera House with people walking on its sloped roof" />
+              <figcaption class="about-gallery__caption">Oslo Opera House</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/oslo-art.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Street art of figures climbing a wall covered in SHIT speech bubbles, Oslo" />
+              <figcaption class="about-gallery__caption">Oslo street art</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/gallery/kendo-watch.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Spectators watching a kendo match from courtside seats" />
+              <figcaption class="about-gallery__caption">Courtside</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/himeji-castle.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Himeji Castle rising above green treetops against a blue sky" />
+              <figcaption class="about-gallery__caption">Himeji Castle</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="portraits">
+              <img src="assets/img/gallery/hoian-street.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Hoi An old town street with colourful lanterns and a tour guide" />
+              <figcaption class="about-gallery__caption">Hoi An old town</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item is-video" data-category="scenery">
+              <a
+                href="https://www.youtube.com/watch?v=dbEtWNIgGcY"
+                target="_blank"
+              >
+                <img
+                  src="assets/img/gallery/bridge.png"
+                  alt="Road trip across a scenic bridge"
+                  class="about-gallery__img"
+                  loading="lazy"
+                />
+                <figcaption class="about-gallery__caption">
+                  Road trips
+                </figcaption>
+                <div class="about-gallery__video-badge">
+                  <i class="uil uil-play"></i>
+                </div>
+              </a>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/kendo/sj60-ippon.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Poster with the character 一本" />
+              <figcaption class="about-gallery__caption">Ippon: one strike, whole heart</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="portraits">
+              <img src="assets/img/gallery/scuba-deck.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Dive boat crew preparing gear with turquoise water behind them" />
+              <figcaption class="about-gallery__caption">Dive day</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img
+                src="assets/img/gallery/lighthouse.png"
+                alt="Beautiful sunset at a lighthouse"
+                class="about-gallery__img"
+                loading="lazy"
+              />
+              <figcaption class="about-gallery__caption">
+                Beautiful sunsets
+              </figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="portraits">
+              <img src="assets/img/gallery/hoian-cyclos.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Row of cyclo drivers resting on their pedicabs in Hoi An" />
+              <figcaption class="about-gallery__caption">Hoi An cyclos</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item">
+              <img
+                src="assets/img/gallery/art.png"
+                alt="Handmade greeting cards and art"
+                class="about-gallery__img"
+                loading="lazy"
+              />
+              <figcaption class="about-gallery__caption">
+                Handmade cards
+              </figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
               <img
                 src="assets/img/gallery/nagoya.png"
+                alt="Exploring Nagoya, Japan"
                 class="about-gallery__img"
+                loading="lazy"
               />
               <figcaption class="about-gallery__caption">
                 Japan lover
               </figcaption>
             </figure>
 
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/gallery/kendo-shiai-1.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Kendo player striking from behind during a tournament match" />
+              <figcaption class="about-gallery__caption">Shiai</figcaption>
+            </figure>
 
-            
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/kyoto-garden.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Two garden workers tending a moss lawn under pine trees in a Japanese garden" />
+              <figcaption class="about-gallery__caption">Kenroku-en gardeners</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/kendo/sj60-led-light.png"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Stage screen slide, light version" />
+              <figcaption class="about-gallery__caption">LED screen slide, light</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img
+                src="assets/img/gallery/city.png"
+                alt="City skyline view"
+                class="about-gallery__img"
+                loading="lazy"
+              />
+              <figcaption class="about-gallery__caption">City views</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item is-video" data-category="scenery">
+              <a href="https://youtu.be/6M6AV_3VwFA" target="_blank">
+                <img
+                  src="assets/img/gallery/melbourne.png"
+                  alt="Nature hike near Melbourne, Australia"
+                  class="about-gallery__img"
+                  loading="lazy"
+                />
+                <figcaption class="about-gallery__caption">
+                  Nature hikes
+                </figcaption>
+                <div class="about-gallery__video-badge">
+                  <i class="uil uil-play"></i>
+                </div>
+              </a>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/norway-mountains.jpg"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Snow-capped Norwegian mountain peaks under a dramatic sky" />
+              <figcaption class="about-gallery__caption">Norwegian mountains</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img
+                src="assets/img/gallery/diving.png"
+                alt="Scuba diving underwater"
+                class="about-gallery__img"
+                loading="lazy"
+              />
+              <figcaption class="about-gallery__caption">
+                Scuba diving
+              </figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/gallery/kendo-tachi.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="A kendo player standing alone on the court holding a shinai" />
+              <figcaption class="about-gallery__caption">Before the match</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/kyoto-festival-1.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Festival participants in traditional robes on a Kyoto street" />
+              <figcaption class="about-gallery__caption">Gion Matsuri</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="kendo">
+              <img src="assets/img/gallery/kendo-shiai-2.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="Multiple kendo matches happening simultaneously on a tournament floor" />
+              <figcaption class="about-gallery__caption">Tournament floor</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/kyoto-festival-2.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="A traditional Japanese festival cart decorated with banners on a Kyoto street" />
+              <figcaption class="about-gallery__caption">Yamaboko float</figcaption>
+            </figure>
+
+            <figure class="about-gallery__item" data-category="scenery">
+              <img src="assets/img/gallery/vietnam-square.webp"
+                   class="about-gallery__img" loading="lazy"
+                   alt="An accordion musician walking through a colourful open-air square in Vietnam" />
+              <figcaption class="about-gallery__caption">Street musician, Vietnam</figcaption>
+            </figure>
+            <!-- ADD AOKC IMAGES HERE when ready (data-category="kendo"): aokc-happening-soon.jpg, aokc-schedule.jpg, aokc-livestream-qr.jpg, aokc-livestream-photo.jpg -->
           </div>
         </div>
+
       </section>
 
       <!--==================== WORK PAGE ====================-->
@@ -307,22 +553,135 @@
           </div>
           <h1 class="work-hero__title">My Work Experience</h1>
           <p class="work-hero__subtitle">
-            Part designer, part developer, fully obsessed with making digital experiences smarter and more delightful—through research, systems thinking, and a bit of creative magic. 
-          
-              Over the past few years I've helped government agencies,
-              e-commerce teams, and start ups translate
-              strategy into experiences that feel thoughtful, inclusive, and
-              future-friendly.
+            From national infrastructure to defence platforms, I've been
+            embedded across some of Singapore's most complex systems. Along the
+            way I've helped government agencies, e-commerce teams, and startups
+            translate strategy into experiences that feel thoughtful, inclusive,
+            and future-friendly. I'm known for research that moves roadmaps,
+            design systems built to scale, and the ability to deliver quality
+            even when the brief is still figuring itself out.
           </p>
           <div class="work-hero__ctas">
             <a
               class="button button--flex"
-              href="assets/pdf/Resume_RebeccaLing_Nov2025.pdf"
+              href="assets/pdf/Resume_RebeccaLing_May2026.pdf"
               target="_blank"
             >
               <i class="uil uil-file-download button__icon"></i>Download resume
             </a>
           </div>
+        </div>
+
+        <!-- Tools row -->
+        <div class="about-tools container" data-aos="fade-up">
+          <p class="about-tools__label">Tools & stack</p>
+          <ul class="about-tools__list">
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+                alt=""
+                aria-hidden="true"
+              /><span>Figma</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.simpleicons.org/miro/FFD02F"
+                alt=""
+                aria-hidden="true"
+              /><span>Miro</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon about-tools__icon--mono"
+                src="https://cdn.simpleicons.org/notion/000000"
+                alt=""
+                aria-hidden="true"
+              /><span>Notion</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg"
+                alt=""
+                aria-hidden="true"
+              /><span>Jira</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/confluence/confluence-original.svg"
+                alt=""
+                aria-hidden="true"
+              /><span>Confluence</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.simpleicons.org/storybook/FF4785"
+                alt=""
+                aria-hidden="true"
+              /><span>Storybook</span>
+            </li>
+
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
+                alt=""
+                aria-hidden="true"
+              /><span>Photoshop</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg"
+                alt=""
+                aria-hidden="true"
+              /><span>Illustrator</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon about-tools__icon--mono"
+                src="https://cdn.simpleicons.org/davinciresolve/233A54"
+                alt=""
+                aria-hidden="true"
+              /><span>DaVinci Resolve</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon about-tools__icon--mono"
+                src="https://cdn.simpleicons.org/anthropic/000000"
+                alt=""
+                aria-hidden="true"
+              /><span>Claude Code</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.simpleicons.org/react/61DAFB"
+                alt=""
+                aria-hidden="true"
+              /><span>React</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                alt=""
+                aria-hidden="true"
+              /><span>HTML</span>
+            </li>
+            <li class="about-tools__item">
+              <img
+                class="about-tools__icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                alt=""
+                aria-hidden="true"
+              /><span>CSS</span>
+            </li>
+          </ul>
         </div>
 
         <div class="work-timeline container">
@@ -332,13 +691,11 @@
           <!-- Most recent -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="100"
           >
             <div class="timeline-dot"></div>
-            <div class="card ">
+            <div class="card">
               <div class="card-head">
-                <h3 class="job-title">Visual &amp; Interaction Designer</h3>
+                <h3 class="job-title">Service &amp; Interaction Designer</h3>
                 <span class="job-pill">Full-time</span>
               </div>
               <div class="job-meta">
@@ -346,87 +703,133 @@
                   <i class="uil uil-building"></i> Accenture Song
                 </div>
                 <div class="job-time">
-                  <i class="uil uil-schedule"></i> 2022 - Present • Singapore
+                  <i class="uil uil-schedule"></i> Sep 2022 – Present • Singapore
                 </div>
               </div>
               <p class="job-desc">
-                Conceptualised and executed cutting-edge digital solutions in
-                Singapore and Japan, leveraging user research, UI/UX design
-                principles, design systems, prototyping, and usability testing
-                to tackle diverse business challenges and enhance user
-                experiences.
+                Product and interaction designer embedded across Singapore
+                government agencies, defence, and enterprise clients. Delivered
+                end-to-end design across 7+ projects spanning solo embedded
+                engagements and cross-functional Agile teams, with a consistent
+                track record of research that shaped roadmaps, design systems
+                adopted at scale, and outcomes commended by clients and
+                directors.
               </p>
 
               <h4 class="section-mini-title">Key Responsibilities:</h4>
               <ul class="job-list">
                 <li>
-                  Led and facilitated design thinking workshops for clients,
-                  uncovering critical pain points and driving strategic,
-                  data-backed solutions that enhanced user engagement and
-                  increased conversion rates
+                  Ran end-to-end design across complex government and enterprise
+                  platforms, owning research, systems, and delivery as the sole
+                  or lead designer on each engagement
                 </li>
                 <li>
-                  Conducted knowledge-sharing workshops on advanced Figma
-                  prototyping for 80+ colleagues, enhancing team-wide efficiency
-                  and adoption of best practices and overall design system
-                  maturity
+                  Conducted usability testing and stakeholder research that
+                  directly influenced product roadmaps and feature
+                  prioritisation across multiple clients
                 </li>
                 <li>
-                  Independently led end-to-end design initiatives within
-                  Agile delivery teams, aligning client expectations, technical
-                  feasibility, and project timelines through proactive
-                  stakeholder engagement, research, and high-quality UI/UX
-                  solutions
+                  Built and governed design systems used at scale, including a
+                  90+ component library and a 250+ component DLS, improving
+                  design-to-dev handoff and team-wide consistency
                 </li>
               </ul>
 
               <h4 class="section-mini-title">Featured Projects:</h4>
               <div class="project-chips">
-                <a class="project-card" href="/private/library.html">
-                  <strong>Library multimodal mobile app  <i class="uil uil-angle-right project-card__icon"></i></strong>
-                  <span
-                    >Bringing exploratory visual designs to life with
-                    interaction design and micro animations.</span
-                  >
-                  <div class="project-tags">
-                    <span>UI/UX</span><span>Prototyping</span
-                    ><span>User research</span>
-                  </div>
-                </a>
-
-                <a class="project-card" href="/private/eyewear.html">
-                  <strong>eCommerce digital transformation <i class="uil uil-angle-right project-card__icon"></i></strong>
-                  <span
-                    >Exploring how to create transformative &amp; innovative
-                    shopping experience for customers in South East Asia.</span
-                  >
-                  <div class="project-tags">
-                    <span>Design exploration</span><span>Prototyping</span
-                    ><span>UI/UX</span>
-                  </div>
-                </a>
-
                 <a class="project-card" href="/private/ura.html">
-                  <strong>Geospatial mapping design <i class="uil uil-angle-right project-card__icon"></i></strong>
+                  <strong
+                    >Government geospatial platform
+                    <i class="uil uil-lock project-card__icon"></i
+                  ></strong>
                   <span
-                    >Improved the client's internal design processes for a
-                    geospatial platform used in urban planning.</span
+                    >Sole designer embedded in a govt digital lab. Led design
+                    system overhaul, RBAC dashboard for 1,000+ agency users, and
+                    roadmap-shaping research.</span
                   >
                   <div class="project-tags">
-                    <span>Product management</span><span>Design systems</span
-                    ><span>UI/UX</span>
+                    <span>Design systems</span><span>User research</span
+                    ><span>RBAC</span>
+                  </div>
+                </a>
+
+                <a class="project-card" href="/private/epsc.html">
+                  <strong
+                    >Employment Pass Services Centre vision
+                    <i class="uil uil-lock project-card__icon"></i
+                  ></strong>
+                  <span
+                    >Co-created a 2027 to 2030 experience vision for a
+                    government service centre, aligning seven heads of department
+                    on the direction.</span
+                  >
+                  <div class="project-tags">
+                    <span>Service design</span><span>Co-creation</span
+                    ><span>Research synthesis</span>
                   </div>
                 </a>
 
                 <a class="project-card" href="/private/BR2S.html">
-                  <strong>Digital system overhaul <i class="uil uil-angle-right project-card__icon"></i></strong>
+                  <strong
+                    >National business registration system
+                    <i class="uil uil-lock project-card__icon"></i
+                  ></strong>
                   <span
-                    >Redesign of a service platform to streamline all
-                    tasks related to business registration and maintenance for
-                    business owners.
+                    >End-to-end design for a government-facing registration
+                    platform covering design standards, IA, and cross-functional
+                    alignment across Agile sprints.</span
+                  >
                   <div class="project-tags">
-                    <span>Design systems</span><span>Information architecture</span
-                    ><span>UI/UX</span>
+                    <span>Information architecture</span
+                    ><span>Design systems</span><span>Agile</span>
+                  </div>
+                </a>
+
+                <a class="project-card" href="/private/library.html">
+                  <strong
+                    >Content discovery for a multimodal mobile app
+                    <i class="uil uil-lock project-card__icon"></i
+                  ></strong>
+                  <span
+                    >Designed and tested 5 interaction models with 60+ users to
+                    identify which content discovery concepts were worth
+                    building.</span
+                  >
+                  <div class="project-tags">
+                    <span>Interaction design</span><span>User research</span
+                    ><span>Prototyping</span>
+                  </div>
+                </a>
+
+                <a class="project-card" href="/private/eyewear.html">
+                  <strong
+                    >SEA eCommerce transformation
+                    <i class="uil uil-lock project-card__icon"></i
+                  ></strong>
+                  <span
+                    >Cross-market discovery and IxD for eyewear retail expansion
+                    across SG, MY, and HK. Built a 250+ component design system
+                    from scratch.</span
+                  >
+                  <div class="project-tags">
+                    <span>Design systems</span><span>IxD</span
+                    ><span>Market research</span>
+                  </div>
+                </a>
+
+                <a class="project-card" href="/private/sggov.html">
+                  <strong
+                    >Customer Relationship Management System transformation
+                    <i class="uil uil-lock project-card__icon"></i
+                  ></strong>
+                  <span
+                    >Unifying a fragmented CRMS system that serves over 10,000
+                    users. Streamlined cases raised by multiple user groups with
+                    different roles and permissions.</span
+                  >
+                  <div class="project-tags">
+                    <span>CRMS</span><span>Service Design</span
+                    ><span>Enterprise systems</span>
                   </div>
                 </a>
               </div>
@@ -437,8 +840,6 @@
           <!-- Sentient -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="150"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -451,7 +852,8 @@
                   <i class="uil uil-building"></i> Sentient.io
                 </div>
                 <div class="job-time">
-                  <i class="uil uil-schedule"></i> Sep 2021 - Jan 2022 • Singapore
+                  <i class="uil uil-schedule"></i> Sep 2021 - Jan 2022 •
+                  Singapore
                 </div>
               </div>
               <p class="job-desc">
@@ -483,7 +885,10 @@
               <h4 class="section-mini-title">Featured Projects:</h4>
               <div class="project-chips">
                 <a class="project-card" href="sentient.html">
-                  <strong>ScribeRabbit <i class="uil uil-angle-right project-card__icon"></i></strong>
+                  <strong
+                    >ScribeRabbit
+                    <i class="uil uil-angle-right project-card__icon"></i
+                  ></strong>
                   <span
                     >Landing pages and frontend interactions for a B2B
                     product.</span
@@ -500,8 +905,6 @@
           <!-- Accenture backend -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="200"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -542,8 +945,6 @@
           <!-- GovTech -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="250"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -585,8 +986,6 @@
           <!-- NYC -->
           <article
             class="timeline-item"
-            data-aos="fade-up"
-            data-aos-delay="250"
           >
             <div class="timeline-dot"></div>
             <div class="card">
@@ -623,10 +1022,14 @@
               <h4 class="section-mini-title">Featured Projects:</h4>
               <div class="project-chips">
                 <a class="project-card" href="nyc.html">
-                  <strong>On My Way <i class="uil uil-angle-right project-card__icon"></i></strong>
+                  <strong
+                    >On My Way
+                    <i class="uil uil-angle-right project-card__icon"></i
+                  ></strong>
                   <span
-                    >Bringing exploratory visual designs to life with
-                    interaction design and micro animations.</span
+                    >Redesigned a youth career exploration platform, from
+                    research synthesis to mobile-first flows and a visual
+                    language.</span
                   >
                   <div class="project-tags">
                     <span>UI/UX</span><span>Prototyping</span
@@ -638,52 +1041,71 @@
           </article>
         </div>
 
+        <div
+          class="testimonials section"
+          id="testimonials"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="container">
+            <h3 class="section__title">What people say</h3>
+            <p class="section__subtitle">
+              Based on real feedback from colleagues, clients, and design leads
+            </p>
 
+            <p class="testimonials-summary">
+              I’ve been recognised as someone who brings
+              <span class="cite highlight" data-cite="rina-zoff"
+                >speed ⚡, clarity ✨, and craft 🎨</span
+              >
+              into every project. I naturally gravitate toward building solid
+              foundations — whether through
+              <span class="cite highlight" data-cite="aim-zoff"
+                >prototyping, design systems, and shared structures</span
+              >.
+            </p>
+            <br />
 
-      <div class="testimonials section" id="testimonials" data-aos="fade-up" data-aos-delay="200">
-        <div class="container">
-          <h3 class="section__title">What people say</h3>
-          <p class="section__subtitle">Based on real feedback from colleagues, clients, and design leads</p>
+            <p class="testimonials-summary">
+              Colleagues often highlight my
+              <span class="cite highlight" data-cite="chinwen-ura"
+                >empathy and research-driven approach 💡</span
+              >, and my ability to turn insights into practical, user-centred
+              decisions. Even in fast-changing environments, I’m known for
+              <span class="cite highlight" data-cite="jiayu-msf"
+                >staying steady while keeping quality high</span
+              >.
+            </p>
+            <br />
 
-          <p class="testimonials-summary">
-            I’ve been recognised as someone who brings 
-            <span class="cite highlight" data-cite="rina-zoff">speed ⚡, clarity ✨, and craft 🎨</span> 
-            into every project. I naturally gravitate toward building solid foundations — whether through 
-            <span class="cite highlight" data-cite="aim-zoff">prototyping, design systems, and shared structures</span>.
-          </p>
-          <br/>
-          
-          <p class="testimonials-summary">
-            Colleagues often highlight my 
-            <span class="cite highlight" data-cite="chinwen-ura">empathy and research-driven approach 💡</span>, 
-            and my ability to turn insights into practical, user-centred decisions. Even in fast-changing environments, I’m known for 
-            <span class="cite highlight" data-cite="jiayu-msf">staying steady while keeping quality high</span>.
-          </p>
-          <br/>
-          
-          <p class="testimonials-summary">
-            I’m frequently described as a 
-            <span class="cite highlight" data-cite="lizhi-nlb">collaborative and supportive teammate 🤝</span> 
-            who communicates clearly, uplifts others, and helps teams move smoothly through 
-            <span class="cite highlight" data-cite="acra-team">proactive ownership</span>.
-          </p>
-          <br/>
-          
-          <p class="testimonials-summary">
-            Many design leads have encouraged me to take on more 
-            <span class="cite highlight" data-cite="cheryll-msf">leadership and client-facing responsibilities 🚀</span>, 
-            noting my confidence, ability to guide others, and growing influence within teams. Across the board, people describe me as someone who brings 
-            <span class="cite highlight" data-cite="nlb-main">talent, professionalism, and a consistently positive impact 💬</span>.
-          </p>
-          
-          
-          
+            <p class="testimonials-summary">
+              I’m frequently described as a
+              <span class="cite highlight" data-cite="lizhi-nlb"
+                >collaborative and supportive teammate 🤝</span
+              >
+              who communicates clearly, uplifts others, and helps teams move
+              smoothly through
+              <span class="cite highlight" data-cite="acra-team"
+                >proactive ownership</span
+              >.
+            </p>
+            <br />
+
+            <p class="testimonials-summary">
+              Many design leads have encouraged me to take on more
+              <span class="cite highlight" data-cite="cheryll-msf"
+                >leadership and client-facing responsibilities 🚀</span
+              >, noting my confidence, ability to guide others, and growing
+              influence within teams. Across the board, people describe me as
+              someone who brings
+              <span class="cite highlight" data-cite="nlb-main"
+                >talent, professionalism, and a consistently positive impact
+                💬</span
+              >.
+            </p>
+          </div>
         </div>
-      </div>
       </section>
-
-      
-  
     </main>
 
     <!--==================== FOOTER ====================-->
@@ -709,13 +1131,152 @@
     <div class="custom-cursor"></div>
 
     <!--==================== SWIPER JS / AOS / MAIN JS ====================-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/aos.js"></script>
     <script>
       AOS.init();
     </script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script>
+      (function () {
+        var grid = document.querySelector('.about-gallery__grid');
+        if (!grid) return;
 
+        function resizeItem(item) {
+          var rowH = parseInt(window.getComputedStyle(grid).gridAutoRows);
+          if (isNaN(rowH) || rowH < 2) { item.style.gridRowEnd = ''; return; }
+          if (item.classList.contains('is-hidden')) { item.style.gridRowEnd = ''; return; }
+          var rowGap = parseInt(window.getComputedStyle(grid).rowGap) || 0;
+          item.style.gridRowEnd = '';
+          var h = item.getBoundingClientRect().height;
+          if (!h) return;
+          item.style.gridRowEnd = 'span ' + Math.ceil((h + rowGap) / (rowH + rowGap));
+        }
 
+        function resizeAll() {
+          document.querySelectorAll('.about-gallery__item').forEach(resizeItem);
+        }
+
+        window.addEventListener('load', function () {
+          resizeAll();
+          observeItems(Array.from(items));
+        });
+        window.addEventListener('resize', resizeAll);
+        document.querySelectorAll('.about-gallery__img').forEach(function (img) {
+          if (!img.complete) img.addEventListener('load', function () {
+            var item = img.closest('.about-gallery__item');
+            resizeItem(item);
+            if (!item.classList.contains('is-hidden') && !item.classList.contains('is-visible')) {
+              io.observe(item);
+            }
+          });
+        });
+
+        var btns = document.querySelectorAll('.gallery-filter__btn');
+        var items = document.querySelectorAll('.about-gallery__item');
+
+        // IntersectionObserver: fade items in as they enter the viewport
+        var io = new IntersectionObserver(function (entries) {
+          var i = 0;
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var item = entry.target;
+            var delay = i * 0.1;
+            item.style.transitionDelay = delay + 's';
+            item.classList.add('is-visible');
+            setTimeout(function () { item.style.transitionDelay = ''; }, (delay + 0.65) * 1000);
+            io.unobserve(item);
+            i++;
+          });
+        }, { threshold: 0.05 });
+
+        function observeItems(list) {
+          list.forEach(function (item) {
+            if (!item.classList.contains('is-hidden') && !item.classList.contains('is-visible')) {
+              io.observe(item);
+            }
+          });
+        }
+
+        btns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (btn.classList.contains('is-active')) return;
+            btns.forEach(function (b) { b.classList.remove('is-active'); });
+            btn.classList.add('is-active');
+
+            var cat = btn.dataset.filter;
+            grid.classList.add('is-filtering');
+
+            setTimeout(function () {
+              items.forEach(function (item) {
+                if (cat === 'all' || item.dataset.category === cat) {
+                  item.classList.remove('is-hidden');
+                  item.classList.remove('is-visible'); // reset so IO re-animates
+                } else {
+                  item.classList.add('is-hidden');
+                  item.style.gridRowEnd = '';
+                }
+              });
+
+              requestAnimationFrame(function () {
+                resizeAll();
+                requestAnimationFrame(function () {
+                  grid.classList.remove('is-filtering');
+                  // Re-observe any items now in layout that haven't animated in yet
+                  observeItems(Array.from(items));
+                });
+              });
+            }, 200);
+          });
+        });
+
+        setTimeout(resizeAll, 200);
+      })();
+    </script>
+    <script>
+      (function () {
+        var items = document.querySelectorAll('.timeline-item');
+        if (!items.length) return;
+
+        var i = 0;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var item = entry.target;
+            var delay = i * 0.1;
+            i++;
+            item.style.transitionDelay = delay + 's';
+            item.classList.add('is-visible');
+            setTimeout(function () { item.style.transitionDelay = ''; }, (delay + 0.65) * 1000);
+            io.unobserve(item);
+          });
+        }, { threshold: 0.05 });
+
+        function observeAll() {
+          items.forEach(function (item) {
+            if (!item.classList.contains('is-visible')) io.observe(item);
+          });
+        }
+
+        // Re-observe after Work tab shows (ancestor overflow change doesn't trigger IO)
+        var workLink = document.querySelector('[data-tab-target="work"]');
+        if (workLink) {
+          workLink.addEventListener('click', function () {
+            i = 0;
+            setTimeout(function () {
+              items.forEach(function (item) {
+                if (!item.classList.contains('is-visible')) {
+                  io.unobserve(item);
+                  io.observe(item);
+                }
+              });
+            }, 50);
+          });
+        }
+
+        observeAll();
+      })();
+    </script>
   </body>
 </html>

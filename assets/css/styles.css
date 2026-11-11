@@ -444,7 +444,7 @@ img {
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   height: fit-content;
-  align-items: top;
+  align-items: flex-start;
   justify-content: center;
   justify-items: center;
 }
@@ -459,10 +459,10 @@ img {
   flex-direction: column;
   align-items: center;
   font-size: var(--small-font-size);
-  columns: var(--title-color);
+  color: var(--title-color);
   font-weight: var(--font-medium);
   text-align: center;
-  align-items: top;
+  align-items: flex-start;
   justify-items: center;
   align-self: center;
   width: 80%;
@@ -471,7 +471,7 @@ img {
 }
 
 .skills__item {
-  align-items: top;
+  align-items: flex-start;
   margin-top: 0.5rem;
 }
 
@@ -590,7 +590,7 @@ img {
 }
 
 .simple-card__desc {
-  font-size: var(--body-font);
+  font-size: var(--normal-font-size);
   margin-bottom: 1rem;
 }
 
@@ -894,12 +894,12 @@ img {
 .about-hero__role {
   font-size: var(--h2-font-size);
   color: var(--first-color-second);
-  font-weight: var(--font-semi-bold);
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 .about-hero__subtitle {
-  max-width: 95%;
+  max-width: 60ch;
   margin: 0 auto 2rem;
   color: var(--text-color);
   font-size: var(--h5-font-size);
@@ -909,8 +909,63 @@ img {
 .about-hero__cta {
   padding-inline: 1.75rem;
   display: flex;
+  align-items: center;
   gap: 20px;
   justify-content: center;
+}
+
+/* =========================================================
+   ABOUT — TOOLS ROW
+========================================================= */
+.about-tools {
+  padding-block: 0 2.5rem;
+  text-align: center;
+}
+
+.about-tools__label {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.about-tools__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-tools__item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.35rem 0.875rem;
+  border-radius: 2rem;
+  background: var(--container-color);
+  border: 1px solid rgba(100, 112, 144, 0.18);
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  transition: border-color 0.2s;
+}
+
+.about-tools__item:hover {
+  border-color: var(--first-color);
+}
+
+.about-tools__icon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+}
+
+body.dark-theme .about-tools__icon--mono {
+  filter: brightness(0) invert(1);
 }
 
 /*===========================
@@ -974,26 +1029,34 @@ img {
   will-change: transform, opacity;
 }
 
-/* MASONRY LAYOUT */
+/* MASONRY GRID LAYOUT */
 .about-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  grid-auto-rows: 8px;
   column-gap: 12px;
-  column-width: 232px;
+  row-gap: 6px;
+  align-items: start;
+  transition: opacity 0.2s ease;
+}
+
+.about-gallery__grid.is-filtering {
+  opacity: 0;
 }
 
 /* Tablet */
 @media (max-width: 992px) {
   .about-gallery__grid {
-    column-width: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
-/* Mobile */
+/* Mobile — single column, no span calc needed */
 @media (max-width: 600px) {
   .about-gallery__grid {
-    column-width: auto !important;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    row-gap: 12px;
   }
 }
 
@@ -1002,19 +1065,15 @@ img {
   position: relative;
   display: inline-block;
   width: 100%;
-  margin-bottom: 6px;
-  break-inside: avoid;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  -webkit-column-break-inside: avoid;
-  column-break-inside: avoid;
 }
 
 /* Base image */
 .about-gallery__img {
   width: 100%;
-  display: auto;
+  display: block;
   border-radius: 8px;
   object-fit: cover;
   transition: transform 0.35s ease, filter 0.35s ease;
@@ -1105,6 +1164,66 @@ body.dark-theme .about-gallery__img {
 .about-gallery__video-badge i {
   font-size: 1.7rem;
   color: var(--first-color);
+}
+
+/* =========================================================
+   GALLERY FILTER — visual values match .project-tags span
+========================================================= */
+.gallery-filter {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+/* Same visual as .project-tags span in work.css */
+.gallery-filter__btn {
+  font-size: 12px;
+  padding: 4px 8px;
+  background: rgba(60, 92, 166, 0.1);
+  border-radius: 999px;
+  border: 1px solid rgba(60, 92, 166, 0.08);
+  color: var(--first-color);
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.gallery-filter__btn:hover:not(.is-active) {
+  background: rgba(60, 92, 166, 0.2);
+}
+
+.gallery-filter__btn.is-active {
+  background: var(--first-color);
+  border-color: var(--first-color);
+  color: #fff;
+  animation: pill-tap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pill-tap {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.88); }
+  100% { transform: scale(1); }
+}
+
+.about-gallery__item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.about-gallery__item.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.about-gallery__item.is-hidden { display: none !important; }
+
+@media (hover: none) {
+  .about-gallery__caption { opacity: 1; transform: none; }
 }
 
 /* =========================================================
@@ -1536,6 +1655,21 @@ body.dark-theme .footer__divider {
     border-radius: 0.5rem;
     margin-top: var(--mb-0-5);
   }
+}
+
+/* ================================
+   TIMELINE SCROLL ANIMATION
+   Same pattern as gallery fade-in
+================================ */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* ================================

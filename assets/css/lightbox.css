@@ -1,0 +1,66 @@
+.project-lightbox-wrap {
+  position: relative;
+  display: block;
+}
+
+.project-lightbox-wrap--slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.project-lightbox-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.55);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.project-lightbox-wrap:hover .project-lightbox-btn {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .project-lightbox-btn {
+    opacity: 0.8;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox__img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
