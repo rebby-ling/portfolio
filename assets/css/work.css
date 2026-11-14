@@ -39,23 +39,21 @@
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(
-    180deg,
-    rgba(60, 92, 166, 0.08),
-    rgba(247, 108, 108, 0.06)
-  );
+  background: var(--hover-tint);
 
   border-radius: 50%;
   color: var(--first-color);
   margin-bottom: 16px;
-  border: 1px solid rgba(60, 92, 166, 0.08);
+  border: 1px solid var(--hairline);
 }
 
 .work-hero__title {
-  font-size: 36px;
+  font-size: var(--big-font-size);
+  font-family: var(--heading-font);
+  font-weight: var(--heading-weight);
   margin-bottom: 8px;
-  letter-spacing: -0.02rem;
-  color: var(--first-color);
+  letter-spacing: var(--heading-tracking);
+  color: var(--hero-title-color);
 }
 
 .work-hero__subtitle {
@@ -71,6 +69,28 @@
   display: flex;
   gap: 12px;
   justify-content: center;
+}
+
+/* ---- Utilitarian: left-aligned hero, no icon ---- */
+body.theme-utilitarian .work-hero {
+  text-align: left;
+}
+
+body.theme-utilitarian .work-hero__icon {
+  display: none;
+}
+
+body.theme-utilitarian .accordion-header::before {
+  border-radius: 0;
+}
+
+body.theme-utilitarian .work-hero__subtitle {
+  max-width: 1024px;
+  margin: 0 0 16px;
+}
+
+body.theme-utilitarian .work-hero__ctas {
+  justify-content: flex-start;
 }
 
 /* --------------------------------------------------
@@ -250,9 +270,11 @@ body.dark-theme .timeline-item .card::after {
 }
 
 .job-title {
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--first-color-second);
+  font-size: var(--job-title-size);
+  font-weight: var(--heading-weight);
+  font-family: var(--heading-font);
+  letter-spacing: var(--heading-tracking);
+  color: var(--title-color);
 }
 
 .job-meta {
@@ -277,11 +299,17 @@ body.dark-theme .timeline-item .card::after {
 }
 
 .section-mini-title {
-  color: var(--first-color-second);
-  font-weight: 400;
-  font-size: 14px;
-  margin-top: 12px;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: var(--smaller-font-size);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 16px;
   margin-bottom: 8px;
+}
+
+body.dark-theme .section-mini-title {
+  color: var(--title-color);
 }
 
 .job-list {
@@ -305,8 +333,8 @@ body.dark-theme .timeline-item .card::after {
 .project-card {
   padding: 16px;
   border-radius: 10px;
-  border: 1px solid var(--glass-border);
-  background: rgba(251, 251, 254, 0.65);
+  border: 1px solid var(--hairline);
+  background: var(--container-color);
   backdrop-filter: blur(4px);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
@@ -317,10 +345,6 @@ body.dark-theme .timeline-item .card::after {
   cursor: pointer;
 }
 
-body.dark-theme .project-card {
-  border: 1px solid #2d325a;
-  background: rgba(30, 37, 63, 0.6);
-}
 
 .project-card strong {
   display: block;
@@ -344,9 +368,9 @@ body.dark-theme .project-card {
   margin-top: 4px;
   font-size: 12px;
   padding: 4px 8px;
-  background: rgba(60, 92, 166, 0.1);
+  background: var(--hover-tint);
   border-radius: 999px;
-  border: 1px solid rgba(60, 92, 166, 0.08);
+  border: 1px solid var(--hairline);
   color: var(--first-color);
 }
 
@@ -381,6 +405,89 @@ body.dark-theme .project-card {
 /* Bottom spacing */
 .work-pro {
   padding-bottom: 96px;
+}
+
+/* --------------------------------------------------
+   UTILITARIAN — featured projects as a ruled list,
+   not cards: hairline rows, flat, no lift on hover
+-------------------------------------------------- */
+
+body.theme-utilitarian .project-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+body.theme-utilitarian .project-card {
+  padding: 1.25rem 0;
+  border: none;
+  border-top: var(--divider-width) solid var(--hairline);
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  display: block;
+  transition: color 0.18s ease;
+}
+
+body.theme-utilitarian .project-chips .project-card:last-child {
+  border-bottom: var(--divider-width) solid var(--hairline);
+}
+
+body.theme-utilitarian .project-card:hover {
+  transform: none;
+  box-shadow: none;
+  color: var(--accent-coral);
+}
+
+body.theme-utilitarian .project-card strong {
+  font-family: var(--heading-font);
+  font-size: var(--h4-font-size);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+body.theme-utilitarian .project-card span {
+  font-size: var(--small-font-size);
+  line-height: 1.5;
+}
+
+body.theme-utilitarian .project-tags span {
+  font-size: 11px;
+  padding: 3px 8px;
+  color: var(--text-color);
+}
+
+body.theme-utilitarian .project-card__icon {
+  font-size: 20px;
+  margin-top: 6px;
+}
+
+/* Coral marks the supporting detail: job meta, group labels, lock icons.
+   Declared after the dark-theme rules above so the accent wins in both modes. */
+body.theme-utilitarian .accordion-meta,
+body.theme-utilitarian .accordion-meta i,
+body.theme-utilitarian .section-mini-title,
+body.theme-utilitarian .project-card__icon {
+  color: var(--accent-coral);
+}
+
+body.theme-utilitarian .accordion-chevron {
+  font-size: 36px;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  body.theme-utilitarian .project-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+
+  body.theme-utilitarian .project-chips .project-card:nth-last-child(-n + 2) {
+    border-bottom: var(--divider-width) solid var(--hairline);
+  }
 }
 
 /* --------------------------------------------------
@@ -424,7 +531,7 @@ body.dark-theme .project-card {
 .accordion-item {
   display: grid;
   grid-template-rows: auto 0fr;
-  border-bottom: 1px solid rgba(100, 112, 144, 0.18);
+  border-bottom: var(--divider-width) solid var(--hairline);
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.45s ease, transform 0.45s ease,
@@ -441,15 +548,7 @@ body.dark-theme .project-card {
 }
 
 .accordion-item:first-child {
-  border-top: 1px solid rgba(100, 112, 144, 0.18);
-}
-
-body.dark-theme .accordion-item {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-body.dark-theme .accordion-item:first-child {
-  border-top-color: rgba(255, 255, 255, 0.08);
+  border-top: var(--divider-width) solid var(--hairline);
 }
 
 .accordion-header {
@@ -473,7 +572,7 @@ body.dark-theme .accordion-item:first-child {
   position: absolute;
   inset: 0 -16px;
   border-radius: 8px;
-  background: rgba(60, 92, 166, 0.07);
+  background: var(--hover-tint);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
@@ -486,10 +585,6 @@ body.dark-theme .accordion-item:first-child {
 
 .accordion-item.is-open .accordion-header::before {
   transform: scaleX(0);
-}
-
-body.dark-theme .accordion-header::before {
-  background: rgba(255, 255, 255, 0.07);
 }
 
 .accordion-header:hover .job-title {
@@ -509,7 +604,7 @@ body.dark-theme .accordion-header::before {
   display: flex;
   gap: 16px;
   margin-top: 4px;
-  font-size: 13px;
+  font-size: var(--smaller-font-size);
   color: var(--text-color-light);
   flex-wrap: wrap;
 }

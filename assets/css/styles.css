@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,100..900,100&display=swap");
 
 /*==================== VARIABLES CSS ====================*/
@@ -9,34 +10,49 @@
   --header-height: 3rem;
 
   /*========== Colors ==========*/
-  --first-color: #3c5ca6;
-  --first-color-second: rgba(247, 100, 100);
+  /* Single accent for the whole site — everything accent-coloured reads from this */
+  --primary: #f76464;
+  --first-color: var(--primary);
+  --first-color-second: var(--primary);
   --first-color-alt: rgba(255, 195, 0);
   --first-color-lighter: #f59a45;
-  --title-color: rgba(247, 100, 100);
+  --title-color: var(--primary);
   --text-color: #506ab8;
   --text-color-light: #a7b5e0;
   --input-color: #f1effa;
   --body-color: #fbfbfe;
   --container-color: #fefbfb;
   --scroll-bar-color: #a7b5e0;
-  --scroll-thumb-color: #3c5ca6;
+  --scroll-thumb-color: var(--primary);
   --footer-bg: #f7f5fb;
   --button-color: #fff;
 
+  /* Hero titles sit outside the single-accent rule */
+  --hero-title-color: #3c5ca6;
+
+  /* Neutral surface tokens — themed, so nothing hardcodes a hue */
+  --hairline: rgba(100, 112, 144, 0.18);
+  --hover-tint: rgba(60, 92, 166, 0.07);
+  --divider-width: 1px;
+
   /*========== Font and typography ==========*/
   --body-font: "Albert Sans", "Poppins", sans-serif;
-  --header-font: "Fraunces", "Poppins", sans-serif;
+  --heading-font: "Fraunces", "Poppins", sans-serif;
+  --heading-weight: 400;
+  --heading-tracking: 0.01rem;
+  /* Fraunces sets larger on the body than Syne at the same px */
+  --job-title-size: var(--h2-font-size);
 
   /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
   --big-font-size: 2.25rem;
-  --h1-font-size: 2rem;
-  --h2-font-size: 1.5rem;
-  --h3-font-size: 1.25rem;
-  --h5-font-size: 1rem;
-  --normal-font-size: 1rem;
-  --small-font-size: 0.93rem;
-  --smaller-font-size: 0.85rem;
+  --h1-font-size: 2rem;      /* 32px — page titles */
+  --h2-font-size: 1.5rem;    /* 24px — section titles */
+  --h3-font-size: 1.25rem;   /* 20px — subsection/job titles */
+  --h4-font-size: 1.125rem;  /* 18px — card group headings */
+  --h5-font-size: 1rem;      /* 16px — card item titles */
+  --normal-font-size: 1rem;  /* 16px — body text */
+  --small-font-size: 0.875rem;    /* 14px — secondary body */
+  --smaller-font-size: 0.8125rem; /* 13px — captions, meta */
 
   /*========== Font weight ==========*/
   --font-medium: 500;
@@ -59,26 +75,38 @@
 }
 
 /* Font size for large devices */
+@media screen and (min-width: 640px) {
+  body.theme-utilitarian {
+    --big-font-size: 3.25rem;
+  }
+}
+
 @media screen and (min-width: 968px) {
+  body.theme-utilitarian {
+    --big-font-size: 4.5rem;
+  }
+
   :root {
     --big-font-size: 3rem;
     --h1-font-size: 2rem;
     --h2-font-size: 1.5rem;
     --h3-font-size: 1.25rem;
+    --h4-font-size: 1.125rem;
     --h5-font-size: 1rem;
     --normal-font-size: 1rem;
-    --small-font-size: 0.93rem;
-    --smaller-font-size: 0.85rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.8125rem;
   }
 }
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
-  --first-color: #f76c6c;
-  --first-color-second: #f8e9a1;
+  --primary: #f76c6c;
+  --first-color: var(--primary);
+  --first-color-second: var(--primary);
   --first-color-alt: #ff9b9b;
   --first-color-lighter: #ffe7c3;
-  --title-color: #f76c6c;
+  --title-color: var(--primary);
   --text-color: #fff;
   --text-color-light: #ffe7c3;
   --input-color: #2d325a;
@@ -88,6 +116,64 @@ body.dark-theme {
   --scroll-thumb-color: #f76c6c;
   --footer-bg: #242d4d;
   --button-color: #1e253f;
+
+  --hero-title-color: #f8e9a1;
+
+  --hairline: rgba(255, 255, 255, 0.12);
+  --hover-tint: rgba(255, 255, 255, 0.07);
+}
+
+/*========== Utilitarian theme — Syne + neutrals + one coral accent ==========*/
+body.theme-utilitarian {
+  --accent-coral: #f76464;
+  --on-accent: #ffffff;
+
+  /* Black carries the structure; coral is the single accent */
+  --first-color: #141414;
+  --first-color-second: var(--accent-coral);
+  --hero-title-color: #141414;
+  --first-color-alt: #6b6b6b;
+  --first-color-lighter: #8f8f8f;
+  --title-color: #141414;
+  --text-color: #2e2e2e;
+  --text-color-light: #8a8a8a;
+  --input-color: #efefef;
+  --body-color: #fafafa;
+  --container-color: #ffffff;
+  --scroll-bar-color: #d6d6d6;
+  --scroll-thumb-color: #141414;
+  --footer-bg: #f1f1f1;
+  --button-color: #ffffff;
+
+  --hairline: rgba(20, 20, 20, 0.55);
+  --hover-tint: rgba(20, 20, 20, 0.06);
+  --divider-width: 2px;
+
+  --heading-font: "Syne", sans-serif;
+  --heading-weight: 700;
+  --heading-tracking: -0.03em;
+  --job-title-size: var(--h1-font-size);
+}
+
+body.theme-utilitarian.dark-theme {
+  --first-color: #fafafa;
+  --first-color-second: var(--accent-coral);
+  --hero-title-color: #fafafa;
+  --first-color-alt: #a8a8a8;
+  --first-color-lighter: #8a8a8a;
+  --title-color: #fafafa;
+  --text-color: #e6e6e6;
+  --text-color-light: #8f8f8f;
+  --input-color: #1e1e1e;
+  --body-color: #0d0d0d;
+  --container-color: #171717;
+  --scroll-bar-color: #333333;
+  --scroll-thumb-color: #fafafa;
+  --footer-bg: #131313;
+  --button-color: #0d0d0d;
+
+  --hairline: #ffffff;
+  --hover-tint: rgba(255, 255, 255, 0.08);
 }
 
 /* ================================
@@ -233,9 +319,9 @@ h2,
 h3,
 h4 {
   color: var(--title-color);
-  font-weight: var(--font-semi-bold);
-  font-family: var(--header-font);
-  letter-spacing: 0.01rem;
+  font-weight: var(--heading-weight);
+  font-family: var(--heading-font);
+  letter-spacing: var(--heading-tracking);
 }
 
 h5 {
@@ -887,7 +973,7 @@ img {
 
 .about-hero__title {
   font-size: var(--big-font-size);
-  color: var(--first-color);
+  color: var(--hero-title-color);
   padding-bottom: 0.5rem;
 }
 
@@ -912,6 +998,109 @@ img {
   align-items: center;
   gap: 20px;
   justify-content: center;
+}
+
+/* ---- Utilitarian: flat accent button, square corners ---- */
+body.theme-utilitarian .button {
+  background-image: none;
+  background-color: var(--accent-coral);
+  color: var(--on-accent);
+}
+
+body.theme-utilitarian .button,
+body.theme-utilitarian .style-toggle {
+  border-radius: 0;
+}
+
+/* ---- Utilitarian: gallery header left, filters right ---- */
+body.theme-utilitarian .about-gallery {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 2rem;
+  align-items: end;
+}
+
+body.theme-utilitarian .about-gallery__title {
+  text-align: left;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+body.theme-utilitarian .about-gallery__subtitle {
+  text-align: left;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+body.theme-utilitarian .gallery-filter {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-content: flex-end;
+  align-self: end;
+}
+
+body.theme-utilitarian .about-gallery__grid {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 767px) {
+  body.theme-utilitarian .about-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  body.theme-utilitarian .about-gallery__title,
+  body.theme-utilitarian .about-gallery__subtitle,
+  body.theme-utilitarian .gallery-filter,
+  body.theme-utilitarian .about-gallery__grid {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  body.theme-utilitarian .gallery-filter {
+    justify-content: flex-start;
+  }
+}
+
+/* ---- Utilitarian: left-aligned hero, avatar beside the copy ---- */
+body.theme-utilitarian .about-hero {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+body.theme-utilitarian .about-hero__avatar {
+  margin: 0 0 1.5rem;
+}
+
+body.theme-utilitarian .about-hero__subtitle {
+  max-width: 1024px;
+  margin: 0 0 2rem;
+}
+
+body.theme-utilitarian .about-hero__cta {
+  padding-inline: 0;
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+  body.theme-utilitarian .about-hero {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  body.theme-utilitarian .about-hero__content {
+    order: 0;
+    padding-right: 3rem;
+  }
+
+  body.theme-utilitarian .about-hero__avatar {
+    order: 1;
+    width: 220px;
+    height: 220px;
+    margin: 0;
+  }
 }
 
 /* =========================================================
@@ -948,7 +1137,7 @@ img {
   padding: 0.35rem 0.875rem;
   border-radius: 2rem;
   background: var(--container-color);
-  border: 1px solid rgba(100, 112, 144, 0.18);
+  border: 1px solid var(--hairline);
   font-size: var(--small-font-size);
   color: var(--text-color);
   transition: border-color 0.2s;
@@ -1233,12 +1422,11 @@ body.dark-theme .about-gallery__img {
   padding: 80px 0 40px;
   background: var(--footer-bg);
   color: var(--text-color);
-  border-top: 1px solid rgba(60, 92, 166, 0.2);
+  border-top: var(--divider-width) solid var(--hairline);
 }
 
 body.dark-theme .footer {
   background: var(--body-color);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer__container {
@@ -1297,14 +1485,11 @@ body.dark-theme .footer__title {
 /* Divider */
 .footer__divider {
   border: none;
-  border-top: 1px solid rgba(60, 92, 166, 0.15);
+  border-top: var(--divider-width) solid var(--hairline);
   margin-bottom: 20px;
   width: 100%;
 }
 
-body.dark-theme .footer__divider {
-  border-top-color: rgba(255, 255, 255, 0.1);
-}
 
 /* Bottom copyright */
 .footer__bottom {

@@ -20,12 +20,11 @@
 
   background: color-mix(in srgb, var(--footer-bg) 35%, transparent);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(60, 92, 166, 0.2);
+  border-bottom: var(--divider-width) solid var(--hairline);
 }
 
 body.dark-theme .header {
-  background: rgba(20, 25, 50, 0.55);
-  border-bottom-color: rgba(255, 255, 255, 0.12);
+  background: color-mix(in srgb, var(--footer-bg) 55%, transparent);
 }
 
 .nav {
@@ -46,6 +45,60 @@ body.dark-theme .header {
 .nav__brand {
   display: flex;
   align-items: center;
+}
+
+.style-toggle {
+  font-family: var(--heading-font);
+  font-weight: var(--heading-weight);
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: transparent;
+  color: var(--first-color);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.style-toggle:hover {
+  background: var(--hover-tint);
+  border-color: var(--first-color);
+}
+
+/* ---- Utilitarian: theme + mode as one segmented pair ---- */
+body.theme-utilitarian .nav__btns {
+  gap: 0;
+  align-items: stretch;
+  border: 1px solid var(--hairline);
+}
+
+body.theme-utilitarian .style-toggle {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-right: 1px solid var(--hairline);
+  padding: 6px 14px;
+  font-size: 0.75rem;
+}
+
+/* #theme-button is an ID selector, so match it here to win */
+body.theme-utilitarian #theme-button,
+body.theme-utilitarian .change-theme {
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  padding: 6px 12px;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+body.theme-utilitarian .style-toggle:hover,
+body.theme-utilitarian .change-theme:hover {
+  background: var(--hover-tint);
+  border-color: var(--hairline);
+  transform: none;
+  opacity: 1;
 }
 
 /* Only right-side buttons: theme toggle */
@@ -115,6 +168,26 @@ body.dark-theme .nav__list {
   box-shadow: 0 10px 24px rgba(60, 92, 166, 0.45);
 }
 
+/* ---- Utilitarian: segmented control — boxed cells sharing a border ---- */
+body.theme-utilitarian .nav__list {
+  gap: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  border: 1px solid var(--hairline);
+}
+
+body.theme-utilitarian .nav__item + .nav__item {
+  border-left: 1px solid var(--hairline);
+}
+
+/* The sliding pill is JS-positioned against the list's border box, so it
+   can't align to a bordered cell. Fill the cell itself instead. */
+body.theme-utilitarian .nav__highlight {
+  display: none;
+}
+
 /* Hide homepage tabs on detail pages */
 body.detail-page .nav__list {
   display: none !important;
@@ -125,6 +198,21 @@ body.js-tabs-page .nav__link {
   font-size: 0.9rem;
   padding: 0.35rem 1rem;
   border-radius: 999px;
+}
+
+/* Declared after the rule above, which shares its specificity */
+body.theme-utilitarian .nav__link {
+  border-radius: 0;
+  padding: 7px 18px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+body.theme-utilitarian .nav__link.active-link {
+  box-shadow: none;
+  background: var(--first-color);
+  color: var(--button-color);
 }
 
 /* =========================================================

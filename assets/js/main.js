@@ -110,6 +110,31 @@ themeButton.addEventListener("click", () => {
 });
 
 /* =========================================================
+   THEME FAMILY (INK & CORAL / UTILITARIAN)
+========================================================= */
+
+const styleButton = document.getElementById("style-button");
+const utilTheme = "theme-utilitarian";
+
+if (localStorage.getItem("selected-style") === "utilitarian") {
+  document.body.classList.add(utilTheme);
+}
+
+if (styleButton) {
+  // The label renders in the active --heading-font, so it previews the typeface
+  const syncStyleState = (isUtil) =>
+    styleButton.setAttribute("aria-pressed", isUtil ? "true" : "false");
+
+  syncStyleState(document.body.classList.contains(utilTheme));
+
+  styleButton.addEventListener("click", () => {
+    const isUtil = document.body.classList.toggle(utilTheme);
+    syncStyleState(isUtil);
+    localStorage.setItem("selected-style", isUtil ? "utilitarian" : "ink");
+  });
+}
+
+/* =========================================================
    ABOUT / WORK TABS (HOMEPAGE ONLY)
 ========================================================= */
 

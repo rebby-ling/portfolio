@@ -67,6 +67,29 @@ body.dark-theme .project-sidenav__link.is-active {
   background: var(--input-color);
 }
 
+/* ---- Utilitarian: high-contrast, square, ruled between items ---- */
+body.theme-utilitarian .project-sidenav {
+  gap: 0;
+}
+
+body.theme-utilitarian .project-sidenav__link {
+  color: var(--text-color);
+  border-radius: 0;
+  border-top: 1px solid var(--hairline);
+  padding: 8px 10px;
+}
+
+body.theme-utilitarian .project-sidenav__link:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Colour alone marks hover and position — no background block */
+body.theme-utilitarian .project-sidenav__link:hover,
+body.theme-utilitarian .project-sidenav__link.is-active {
+  background: none;
+  color: var(--accent-coral);
+}
+
 /* Hide when viewport is too narrow to show it without
    overlapping the content column */
 @media screen and (max-width: 1200px) {
@@ -228,6 +251,43 @@ body.dark-theme .project-sidenav__link.is-active {
   body.dark-theme .project-mobilenav__link.is-active {
     background: var(--input-color);
   }
+
+  /* ---- Utilitarian: square panel, ruled items, colour-only active ---- */
+  body.theme-utilitarian .project-mobilenav__panel {
+    border-radius: 0;
+    border-color: var(--hairline);
+    box-shadow: none;
+    padding: 12px 14px;
+    gap: 0;
+  }
+
+  /* Padding lives on the panel so the rules inset from its edge */
+  body.theme-utilitarian .project-mobilenav__label {
+    color: var(--text-color);
+    border-bottom: var(--divider-width) solid var(--hairline);
+    padding-inline: 0;
+  }
+
+  body.theme-utilitarian .project-mobilenav__link {
+    border-radius: 0;
+    color: var(--text-color);
+    padding: 9px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  body.theme-utilitarian .project-mobilenav__link:first-of-type {
+    border-top: none;
+  }
+
+  body.theme-utilitarian .project-mobilenav__link:hover,
+  body.theme-utilitarian .project-mobilenav__link.is-active {
+    background: none;
+    color: var(--accent-coral);
+  }
+
+  body.theme-utilitarian .project-mobilenav__toggle {
+    border-radius: 0;
+  }
 }
 /* -------- PAGE WRAPPER -------- */
 .project-page {
@@ -257,7 +317,7 @@ body.dark-theme .project-sidenav__link.is-active {
 
 .project-hero__title {
   font-size: var(--big-font-size);
-  font-family: var(--header-font);
+  font-family: var(--heading-font);
   color: var(--title-color);
   margin-bottom: 1.25rem;
   letter-spacing: -0.01em;
@@ -399,7 +459,7 @@ body.dark-theme .project-sidenav__link.is-active {
 /* -------- HIGHLIGHTS -------- */
 .project-highlight__item {
   background: var(--container-color);
-  border: 1px solid rgba(60, 92, 166, 0.15);
+  border: 1px solid var(--hairline);
   border-radius: 0.75rem;
   padding: 1.25rem 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -429,7 +489,7 @@ body.dark-theme .project-sidenav__link.is-active {
 /* -------- CARD -------- */
 .project-card {
   background: var(--container-color);
-  border: 1px solid rgba(60, 92, 166, 0.12);
+  border: 1px solid var(--hairline);
   border-radius: 0.75rem;
   padding: 1.25rem 1rem;
 }
@@ -473,7 +533,7 @@ body.dark-theme .project-sidenav__link.is-active {
 /* -------- FULL WIDTH BLOCK (1) -------- */
 .project-doc__full {
   background: var(--container-color);
-  border: 1px solid rgba(60, 92, 166, 0.12);
+  border: 1px solid var(--hairline);
   padding: 1.25rem;
   border-radius: 0.75rem;
 }
@@ -498,7 +558,7 @@ body.dark-theme .project-sidenav__link.is-active {
 /* Column card */
 .project-doc__card {
   background: var(--container-color);
-  border: 1px solid rgba(60, 92, 166, 0.12);
+  border: 1px solid var(--hairline);
   padding: 1.25rem;
   border-radius: 0.75rem;
 }
@@ -515,12 +575,6 @@ body.dark-theme .project-sidenav__link.is-active {
   font-size: var(--h5-font-size);
   margin-bottom: 0.75rem;
   color: var(--text-color-light);
-}
-
-/* -------- DARK THEME -------- */
-body.dark-theme .project-doc__full,
-body.dark-theme .project-doc__card {
-  border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* -------- IMAGES -------- */
@@ -652,7 +706,7 @@ body.dark-theme .project-doc__card {
   top: 50%;
   transform: translateY(-50%);
   background: var(--container-color);
-  border: 1px solid rgba(60, 92, 166, 0.15);
+  border: 1px solid var(--hairline);
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -662,10 +716,6 @@ body.dark-theme .project-doc__card {
   cursor: pointer;
   z-index: 5;
   transition: all 0.25s ease;
-}
-
-body.dark-theme .project-carousel__btn {
-  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .project-carousel__btn:hover {
@@ -766,5 +816,72 @@ body.dark-theme .project-carousel__btn {
 }
 
 .project-align--medium {
+  color: var(--title-color);
+}
+
+/* --------------------------------------------------
+   UTILITARIAN — cards become ruled rows: a single
+   top border instead of a boxed, rounded container.
+   Grid rows close themselves with a bottom border.
+-------------------------------------------------- */
+
+body.theme-utilitarian .project-highlight__item,
+body.theme-utilitarian .project-card,
+body.theme-utilitarian .project-doc__card {
+  background: transparent;
+  border: none;
+  border-top: var(--divider-width) solid var(--hairline);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.25rem 0;
+}
+
+body.theme-utilitarian .project-grid-2 > *:last-child,
+body.theme-utilitarian .project-grid-3 > *:last-child,
+body.theme-utilitarian .project-doc__two > .project-doc__card:last-child {
+  border-bottom: var(--divider-width) solid var(--hairline);
+}
+
+@media (min-width: 640px) {
+  body.theme-utilitarian .project-grid-2 > *:nth-last-child(-n + 2) {
+    border-bottom: var(--divider-width) solid var(--hairline);
+  }
+
+  body.theme-utilitarian .project-grid-3 > *:nth-last-child(-n + 3) {
+    border-bottom: var(--divider-width) solid var(--hairline);
+  }
+}
+
+/* .project-doc__two only goes two-up at 768px, not 640px */
+@media (min-width: 768px) {
+  body.theme-utilitarian
+    .project-doc__two
+    > .project-doc__card:nth-last-child(-n + 2) {
+    border-bottom: var(--divider-width) solid var(--hairline);
+  }
+}
+
+/* Full-width block is a ruled band, not a boxed panel */
+body.theme-utilitarian .project-doc__full {
+  background: transparent;
+  border: none;
+  border-top: var(--divider-width) solid var(--hairline);
+  border-bottom: var(--divider-width) solid var(--hairline);
+  border-radius: 0;
+  padding: 1.25rem 0;
+}
+
+body.theme-utilitarian .project-carousel {
+  border-radius: 0;
+}
+
+body.theme-utilitarian .project-carousel__btn {
+  background: var(--container-color);
+  border: 1px solid var(--hairline);
+  border-radius: 0;
+}
+
+/* --text-color-light is too dim against the near-black surface */
+body.theme-utilitarian .project-doc__title {
   color: var(--title-color);
 }
