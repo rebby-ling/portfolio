@@ -47,12 +47,14 @@ body.dark-theme .header {
   align-items: center;
 }
 
-.style-toggle {
-  font-family: var(--heading-font);
-  font-weight: var(--heading-weight);
-  font-size: 0.875rem;
+/* One control for both theme dimensions — see main.js THEME_CYCLE */
+.theme-dice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
   line-height: 1;
-  padding: 5px 10px;
+  padding: 6px 10px;
   border-radius: 999px;
   border: 1px solid var(--hairline);
   background: transparent;
@@ -61,56 +63,27 @@ body.dark-theme .header {
   transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-.style-toggle:hover {
+.theme-dice:hover {
   background: var(--hover-tint);
   border-color: var(--first-color);
 }
 
-/* ---- Utilitarian: theme + mode as one segmented pair ---- */
-body.theme-utilitarian .nav__btns {
-  gap: 0;
-  align-items: stretch;
-  border: 1px solid var(--hairline);
+.theme-dice i {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body.theme-utilitarian .style-toggle {
-  display: flex;
-  align-items: center;
-  border: none;
-  border-right: 1px solid var(--hairline);
-  padding: 6px 14px;
-  font-size: 0.75rem;
+.theme-dice.is-rolling i {
+  transform: rotate(180deg);
 }
 
-/* #theme-button is an ID selector, so match it here to win */
-body.theme-utilitarian #theme-button,
-body.theme-utilitarian .change-theme {
-  display: flex;
-  align-items: center;
+body.theme-utilitarian .theme-dice {
   border-radius: 0;
-  padding: 6px 12px;
-  font-size: 1rem;
-  line-height: 1;
 }
 
-body.theme-utilitarian .style-toggle:hover,
-body.theme-utilitarian .change-theme:hover {
-  background: var(--hover-tint);
-  border-color: var(--hairline);
-  transform: none;
-  opacity: 1;
-}
-
-/* Only right-side buttons: theme toggle */
 .nav__btns {
   display: flex;
   align-items: center;
   gap: 16px;
-}
-
-#theme-button {
-  font-size: 1.3rem;
-  cursor: pointer;
 }
 
 /* =========================================================

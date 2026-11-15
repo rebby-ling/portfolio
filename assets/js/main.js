@@ -77,60 +77,65 @@ function scrollUp() {
 window.addEventListener("scroll", scrollUp);
 
 /* =========================================================
-   DARK / LIGHT THEME
+   THEME — one control cycling four states.
+
+   Family (ink / utilitarian) and mode (light / dark) stay two
+   independent dimensions: two body classes, two storage keys.
+   The dice only decides which pair to show next.
 ========================================================= */
 
-const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
-const iconTheme = "uil-sun";
-
-const savedTheme = localStorage.getItem("selected-theme");
-const savedIcon = localStorage.getItem("selected-icon");
-
-if (savedTheme) {
-  document.body.classList[savedTheme === "dark" ? "add" : "remove"](darkTheme);
-  themeButton.classList[savedIcon === "bx-moon" ? "add" : "remove"](iconTheme);
-}
-
-const getCurrentTheme = () =>
-  document.body.classList.contains(darkTheme) ? "dark" : "light";
-
-const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme) ? "bx-moon" : "bx-sun";
-
-themeButton.addEventListener("click", () => {
-  document.body.classList.toggle(darkTheme);
-  themeButton.classList.toggle(iconTheme);
-
-  themeButton.classList.add("theme-animating");
-  setTimeout(() => themeButton.classList.remove("theme-animating"), 600);
-
-  localStorage.setItem("selected-theme", getCurrentTheme());
-  localStorage.setItem("selected-icon", getCurrentIcon());
-});
-
-/* =========================================================
-   THEME FAMILY (INK & CORAL / UTILITARIAN)
-========================================================= */
-
-const styleButton = document.getElementById("style-button");
 const utilTheme = "theme-utilitarian";
 
-if (localStorage.getItem("selected-style") === "utilitarian") {
-  document.body.classList.add(utilTheme);
-}
+const THEME_CYCLE = [
+  { style: "ink", mode: "light" },
+  { style: "ink", mode: "dark" },
+  { style: "utilitarian", mode: "light" },
+  { style: "utilitarian", mode: "dark" },
+];
 
-if (styleButton) {
-  // The label renders in the active --heading-font, so it previews the typeface
-  const syncStyleState = (isUtil) =>
-    styleButton.setAttribute("aria-pressed", isUtil ? "true" : "false");
+const getTheme = () => ({
+  style: localStorage.getItem("selected-style") === "utilitarian"
+    ? "utilitarian"
+    : "ink",
+  mode: localStorage.getItem("selected-theme") === "dark" ? "dark" : "light",
+});
 
-  syncStyleState(document.body.classList.contains(utilTheme));
+const applyTheme = ({ style, mode }) => {
+  document.body.classList.toggle(utilTheme, style === "utilitarian");
+  document.body.classList.toggle(darkTheme, mode === "dark");
+  localStorage.setItem("selected-style", style);
+  localStorage.setItem("selected-theme", mode);
+};
 
-  styleButton.addEventListener("click", () => {
-    const isUtil = document.body.classList.toggle(utilTheme);
-    syncStyleState(isUtil);
-    localStorage.setItem("selected-style", isUtil ? "utilitarian" : "ink");
+applyTheme(getTheme());
+
+const themeDice = document.getElementById("theme-dice");
+
+if (themeDice) {
+  const faces = ["uil-dice-one", "uil-dice-two", "uil-dice-three", "uil-dice-four"];
+
+  const indexOfTheme = ({ style, mode }) => {
+    const i = THEME_CYCLE.findIndex((t) => t.style === style && t.mode === mode);
+    return i === -1 ? 0 : i;
+  };
+
+  const syncDice = (index) => {
+    const icon = themeDice.querySelector("i");
+    if (icon) icon.className = `uil ${faces[index]}`;
+    const { style, mode } = THEME_CYCLE[index];
+    themeDice.setAttribute("aria-label", `Theme: ${style}, ${mode} mode. Next theme`);
+  };
+
+  syncDice(indexOfTheme(getTheme()));
+
+  themeDice.addEventListener("click", () => {
+    const next = (indexOfTheme(getTheme()) + 1) % THEME_CYCLE.length;
+    applyTheme(THEME_CYCLE[next]);
+    syncDice(next);
+
+    themeDice.classList.add("is-rolling");
+    setTimeout(() => themeDice.classList.remove("is-rolling"), 400);
   });
 }
 

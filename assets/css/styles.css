@@ -33,6 +33,7 @@
   /* Neutral surface tokens — themed, so nothing hardcodes a hue */
   --hairline: rgba(100, 112, 144, 0.18);
   --hover-tint: rgba(60, 92, 166, 0.07);
+  --hover-tint-strong: rgba(60, 92, 166, 0.2);
   --divider-width: 1px;
 
   /*========== Font and typography ==========*/
@@ -121,6 +122,7 @@ body.dark-theme {
 
   --hairline: rgba(255, 255, 255, 0.12);
   --hover-tint: rgba(255, 255, 255, 0.07);
+  --hover-tint-strong: rgba(255, 255, 255, 0.16);
 }
 
 /*========== Utilitarian theme — Syne + neutrals + one coral accent ==========*/
@@ -147,6 +149,7 @@ body.theme-utilitarian {
 
   --hairline: rgba(20, 20, 20, 0.55);
   --hover-tint: rgba(20, 20, 20, 0.06);
+  --hover-tint-strong: rgba(20, 20, 20, 0.14);
   --divider-width: 2px;
 
   --heading-font: "Syne", sans-serif;
@@ -174,6 +177,7 @@ body.theme-utilitarian.dark-theme {
 
   --hairline: #ffffff;
   --hover-tint: rgba(255, 255, 255, 0.08);
+  --hover-tint-strong: rgba(255, 255, 255, 0.18);
 }
 
 /* ================================
@@ -1061,17 +1065,14 @@ body.theme-utilitarian .about-gallery__grid {
   }
 }
 
-/* ---- Utilitarian: left-aligned hero, avatar beside the copy ---- */
+/* ---- Utilitarian: left-aligned hero, type only — no avatar ---- */
 body.theme-utilitarian .about-hero {
   text-align: left;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: center;
+  display: block;
 }
 
 body.theme-utilitarian .about-hero__avatar {
-  margin: 0 0 1.5rem;
+  display: none;
 }
 
 body.theme-utilitarian .about-hero__subtitle {
@@ -1082,25 +1083,6 @@ body.theme-utilitarian .about-hero__subtitle {
 body.theme-utilitarian .about-hero__cta {
   padding-inline: 0;
   justify-content: flex-start;
-}
-
-@media (min-width: 768px) {
-  body.theme-utilitarian .about-hero {
-    grid-template-columns: 1fr auto;
-    align-items: start;
-  }
-
-  body.theme-utilitarian .about-hero__content {
-    order: 0;
-    padding-right: 3rem;
-  }
-
-  body.theme-utilitarian .about-hero__avatar {
-    order: 1;
-    width: 220px;
-    height: 220px;
-    margin: 0;
-  }
 }
 
 /* =========================================================
@@ -1283,7 +1265,7 @@ body.dark-theme .about-tools__icon--mono {
   padding: 12px;
   text-align: left;
   background: linear-gradient(to top, var(--first-color), rgba(0, 0, 0, 0));
-  color: #fff;
+  color: var(--button-color);
   font-size: 0.9rem;
   font-weight: 400;
   opacity: 0;
@@ -1370,9 +1352,9 @@ body.dark-theme .about-gallery__img {
 .gallery-filter__btn {
   font-size: 12px;
   padding: 4px 8px;
-  background: rgba(60, 92, 166, 0.1);
+  background: var(--hover-tint);
   border-radius: 999px;
-  border: 1px solid rgba(60, 92, 166, 0.08);
+  border: 1px solid var(--hairline);
   color: var(--first-color);
   font-family: inherit;
   cursor: pointer;
@@ -1382,13 +1364,13 @@ body.dark-theme .about-gallery__img {
 }
 
 .gallery-filter__btn:hover:not(.is-active) {
-  background: rgba(60, 92, 166, 0.2);
+  background: var(--hover-tint-strong);
 }
 
 .gallery-filter__btn.is-active {
   background: var(--first-color);
   border-color: var(--first-color);
-  color: #fff;
+  color: var(--button-color);
   animation: pill-tap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -1525,7 +1507,7 @@ body.dark-theme .footer__title {
 
 .scrollup__icon {
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--button-color);
 }
 
 .show-scroll {
